@@ -1,37 +1,47 @@
 <?php
-    require_once "client_setting.php";
 
-    
-    $client->authenticate($_GET['code']);
-    $access_token = $client->getAccessToken();
-    //$client->setAccessToken($access_token);       //이거 이용하는 법을 모르겠음 .ㅠㅠ
-    
-    $q = 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=' . $access_token["access_token"];
-    $json = file_get_contents($q);
-    
-    
-    $userInfoArray = json_decode($json,true);
-    $googleId = $userInfoArray['id'];
-    $googleEmail = $userInfoArray['email'];
-    $googleFirstName = $userInfoArray['given_name'];
-    $googleLastName = $userInfoArray['family_name'];
-    $googlePicture = $userInfoArray['picture'];
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
+//start session
+session_start();
+
+//include google api files
+require_once __DIR__ . "/client_setting.php";
+
+// LOGOUT?
+if (isset($_REQUEST['logout'])) 
+{
+	unset($_SESSION['token']);
+	$client->revokeToken();
+	header('Location: ' . filter_var($index_uri, FILTER_SANITIZE_URL)); //redirect user back to page
+}
+
+
+
+// GOOGLE CALLBACK?
+if (isset($_GET['code'])) 
+{
+	$client->authenticate($_GET['code']);
+	$_SESSION['token'] = $client->getAccessToken();
+	header('Location: ' . filter_var($index_uri, FILTER_SANITIZE_URL)); //redirect user back to page
+    return;
+}
+
+// PAGE RELOAD?
+if (isset($_SESSION['token'])) 
+{
+	
+	$client->setAccessToken($_SESSION['token']);
+	header('Location: ' . filter_var($index_uri, FILTER_SANITIZE_URL)); //redirect user back to page  
+}
+
+
+// LOGGED IN?
+$authUrl = $client->createAuthUrl();
+header('Location: ' . filter_var($authUrl, FILTER_SANITIZE_URL));
+
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인 성공</title>
-</head>
-<body>
-
-    <p>성 : <?=$googleLastName?></p>
-    <p>이름 : <?=$googleFirstName?></p>
-    <p>이메일 : <?=$googleEmail?></p>
-    <p>사진 : <img src="<?=$googlePicture?>" alt="프로필 사진"></p>
-    <p>ID : <?=$googleId?></p>
-</body>
-</html>
-
