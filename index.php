@@ -20,12 +20,41 @@ $user = $google_oauthV2->userinfo->get();
 
 $googleId = $user['id'];
 $googleEmail = filter_var($user['email'], FILTER_SANITIZE_EMAIL);
-$googleFirstName = filter_var($user['givenName'], FILTER_SANITIZE_SPECIAL_CHARS);
-$googleLastName = filter_var($user['family_name'], FILTER_SANITIZE_SPECIAL_CHARS);
+$googleFirstname = filter_var($user['givenName'], FILTER_SANITIZE_SPECIAL_CHARS);
+$googleLastname = filter_var($user['family_name'], FILTER_SANITIZE_SPECIAL_CHARS);
 $googlePicture = filter_var($user['picture'], FILTER_VALIDATE_URL);
+
+
+// db에 user data 없으면 넣기.
+require_once("./lib/mysql_connect.php");
+
+$filtered = array(
+    "email" => mysqli_real_escape_string($conn, $googleEmail),
+    "firstname" => mysqli_real_escape_string($conn, $googleFirstname),
+    "lastname" => mysqli_real_escape_string($conn, $googleLastname),
+);
+
+
+$sql = 'SELECT * FROM user WHERE email="'. $filtered['email']. '"';
+$result = mysqli_query($conn, $sql);
+
+if($result === false) {
+    die("select error : 관리자에게 문의하세요.");
+}
+
+if(mysqli_num_rows($result) === 0) {
+    $sql = 'INSERT INTO user (email, firstname, lastname) 
+    VALUES("' 
+    . $filtered['email'] . '", "'
+    . $filtered['firstname'] . '", "'
+    . $filtered['lastname'] . '")';
+    
+    $result = mysqli_query($conn, $sql);
+    if($result === false) {
+        die("insert error : 관리자에게 문의하세요.");
+    }
+}
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -37,8 +66,8 @@ $googlePicture = filter_var($user['picture'], FILTER_VALIDATE_URL);
 </head>
 <body>
 
-    <p>성 : <?=$googleLastName?></p>
-    <p>이름 : <?=$googleFirstName?></p>
+    <p>성 : <?=$googleLastname?></p>
+    <p>이름 : <?=$googleFirstname?></p>
     <p>이메일 : <?=$googleEmail?></p>
     <p>사진 : <img src="<?=$googlePicture?>" alt="프로필 사진"></p>
     <p>ID : <?=$googleId?></p>
