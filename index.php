@@ -28,10 +28,12 @@ $googlePicture = filter_var($user['picture'], FILTER_VALIDATE_URL);
 // db에 user data 없으면 넣기.
 require_once("./lib/mysql_connect.php");
 
+
 $filtered = array(
     "email" => mysqli_real_escape_string($conn, $googleEmail),
     "firstname" => mysqli_real_escape_string($conn, $googleFirstname),
     "lastname" => mysqli_real_escape_string($conn, $googleLastname),
+    "picture_url" => mysqli_real_escape_string($conn, $googlePicture),
 );
 
 
@@ -43,11 +45,12 @@ if($result === false) {
 }
 
 if(mysqli_num_rows($result) === 0) {
-    $sql = 'INSERT INTO user (email, firstname, lastname) 
+    $sql = 'INSERT INTO user (email, firstname, lastname, picture_url) 
     VALUES("' 
     . $filtered['email'] . '", "'
     . $filtered['firstname'] . '", "'
-    . $filtered['lastname'] . '")';
+    . $filtered['lastname'] . '", "'
+    . $filtered['picture_url']. '")';
     
     $result = mysqli_query($conn, $sql);
     if($result === false) {
