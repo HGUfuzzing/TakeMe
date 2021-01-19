@@ -81,7 +81,7 @@ function url_escape($url){
     </head>
     <body>
         <!-- wp == writing-post -->
-        <form enctype="multipart/form-data" id="wp-area" method="POST" action="./db-writing-post.php"> 
+        <form enctype="multipart/form-data" id="wp-area" method="POST" action="./writing-post.php"> 
             <div id="wp-title"> <label class="post-label">* 글 제목:</label> <input type="text" id="wp-title-input" name="wp-title-input" required></div>
             <div id="wp-link-keyword"> <label>* 검색 링크 키워드:</label>  <input type="text" id="wp-link-keyword-input" name="wp-link-keyword-input" placeholder="특수문자 제외한 영어로 작성하세요" required></div>
             <div id = "wp-setting-date-area">
