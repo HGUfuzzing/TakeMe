@@ -1,15 +1,28 @@
 <?php
     require_once("./lib/mysql_connect.php");
-    $query = "SELECT * FROM post";
+
+    $query = "SELECT * FROM post LEFT JOIN user ON post.writer_id=user.id";
     $result = mysqli_query($conn, $query);
     $posts = array();
     while($row = mysqli_fetch_array($result)) {
         $post = array(
             'image_path' => $row['image_path'],
-            'title' => htmlspecialchars($row['title'])
+            'title' => htmlspecialchars($row['title']),
+            'period' => $row['begin_date'] . ' ~ ' . $row['end_date'],
+            'writer' => $row['lastname'] . ' ' . $row['firstname'],
+            'writer_picture_url' => $row['picture_url']
         );
+        if(mb_strlen($post['title'], "UTF-8") > 19) {
+            $post['title'] = substr($post['title'], 0, 18) . ' ...'; 
+        }
         array_push($posts, $post);
+        //var_dump($post);
+        //echo "<br><br>";
     }
+    //die();
+
+
+
 
 ?>
 
@@ -21,62 +34,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <style>
-    .posts_container {
-        width: 80vw;
-        height: 80vh;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        margin: auto;
-    }
-    .post {
-        margin: 10px;
-        display: flex;
-        flex-direction: column;
-        
-    }
-
-    a {
-        text-decoration: none;
-    }
-    .post .title{
-        color: gray;
-        margin: auto;
-        font-size: 1.5em;
-    }
-
-    .post .title:hover {
-        color: gray;
-        text-decoration: underline;
-    }
-
-    .post img:hover{
-        color: gray;
-        text-decoration: underline;
-        transform:scale(1.1); 
-    }
-
-    img {
-        width: 20em; 
-        height: auto;
-        border-radius: 10%;
-        
-    }
-
-    </style>
+    <link rel="stylesheet" href="./mainpage.css">
+    
 </head>
 <body>
 
-    <div class="posts_container">
+    <div class="posts-container">
         <?php
         foreach ($posts as $post){
         ?>
         <div class="post">
-        <a href="#">
-            <img src="<?=$post['image_path']?>" alt="">
-            <div class="title"><?=$post['title']?></div>
-        </a>
+            <div class="img-container"><img src="<?=$post['image_path']?>" alt=""></div>
+            <div class="post-info">
+                <div class="title"><?=$post['title']?></div>
+                <div class="period"><?=$post['period']?></div>
+                <div class="writer-info">
+                    <div class="picture"><img src="<?=$post['writer_picture_url']?>"></div>
+                    <div class="name"><?=$post['writer']?></div>
+                </div>
+            </div>
         </div>
 
         <?php
