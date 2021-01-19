@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-$redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/eventapp/api/google_oauth2/callback.php';
-$index_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/eventapp/index.php';
+//www.eventapp.cf
+$callback_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/api/google_oauth2/callback.php';
+$index_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/index.php';
 
 $client = new Google_Client();
 $client->setApplicationName('php-web-login');
