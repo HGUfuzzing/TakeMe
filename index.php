@@ -5,7 +5,7 @@ require_once __DIR__ . "/api/google_oauth2/client_setting.php";
 session_start();
 
 if(!isset($_SESSION['token'])) {
-    header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+    header('Location: ' . filter_var($callback_uri, FILTER_SANITIZE_URL));
 }
 $access_token = $_SESSION['token'];
 $client->setAccessToken($access_token);
@@ -13,7 +13,7 @@ $client->setAccessToken($access_token);
 if($client->isAccessTokenExpired()){
     unset($_SESSION['token']);
     $client->revokeToken();
-    header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+    header('Location: ' . filter_var($callback_uri, FILTER_SANITIZE_URL));
 }
 
 $user = $google_oauthV2->userinfo->get();
@@ -75,7 +75,7 @@ if(mysqli_num_rows($result) === 0) {
     <p>사진 : <img src="<?=$googlePicture?>" alt="프로필 사진"></p>
     <p>ID : <?=$googleId?></p>
     <?php
-    echo '<br /><a class="logout" href="'. $redirect_uri . '?logout=1">Logout</a>';
+    echo '<br /><a class="logout" href="'. $callback_uri . '?logout=1">Logout</a>';
     ?>
 </body>
 </html>
