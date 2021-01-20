@@ -13,6 +13,7 @@ $image = NULL;
 $image_data = NULL;
 $image_name = NULL;
 
+
 /* TODO: user_id 를 DB에서 따로 세션 id로 가져올것 */
 $user_id = 4;
 
@@ -60,6 +61,7 @@ $query = "INSERT INTO posting (writer_id, title, image, content, link_keyword, b
             VALUES ({$user_id}, '{$filtered['title']}', '{$image_data}', '{$filtered['content']}',". "'" . url_escape($filtered['link_keyword']) . "', '{$begin_date}', '{$end_date}', '{$created_at}', '{$created_at}')";
 
 $query_run = mysqli_query($conn, $query);
+
 
 if($query_run){
     echo 

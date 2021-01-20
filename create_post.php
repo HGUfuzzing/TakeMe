@@ -1,4 +1,18 @@
-<!DOCTYPE HTML>
+
+<?php
+session_start();
+
+require_once("./api/google_oauth2/client_setting.php");
+
+if(!isset($_SESSION['user_id'])) {
+    header("Location: " . $callback_url);
+    die();
+}
+
+?>
+
+
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
