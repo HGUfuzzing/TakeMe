@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once($_SERVER["DOCUMENT_ROOT"] . "/lib/mysql_connect.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/api/google_oauth2/client_setting.php");
 
 $login_message = "";
     if(!isset($_SESSION['user_id'])) {
