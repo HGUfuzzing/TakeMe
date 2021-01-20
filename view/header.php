@@ -36,4 +36,10 @@ $login_message = "";
 </head>
 <body>
 
-    <header> <?=$login_message?> </header>
+    <header> 
+        
+        <?=$login_message?> 
+    
+        <a href="<?=$page_url?>"> 메인페이지 </a>
+        
+    </header>
