@@ -1,31 +1,35 @@
-#wp-area{
+#area{
     border: 1px solid black;
 }
-#wp-area div {
+#area div {
     margin: 10px;
 }
 
-#wp-area div label{
+#area div label{
     display: inline-block;
     text-align: right;
     margin-right: 10px;
     width: 150px;
 }
 
-#wp-title{
+#title{
     border: 1px solid black;
 }
 
-#wp-setting-date-area{
+#link-keyword-input{
+    width: 200px;
+}
+
+#setting-date-area{
     border: 1px solid black;
 }
 
-#wp-body-textarea{
+#body-textarea{
     height: 40%;
     width: 60%;
     vertical-align:top;
 }
 
-#wp-button-area button{
+#button-area button{
     align-items: right;
 }
