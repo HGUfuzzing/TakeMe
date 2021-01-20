@@ -9,9 +9,9 @@ function url_escape($url){
     return preg_replace('/[^A-Za-z0-9\-]/', '', $url);
 }
 
-$image = "";
-$image_data = "";
-$image_name = "";
+$image;
+$image_data;
+$image_name;
 
 /* TODO: user_id 를 DB에서 따로 세션 id로 가져올것 */
 $user_id = 4;
@@ -52,13 +52,12 @@ if ((strtotime($begin_date)) > (strtotime($end_date)))
 
 $filtered = array(
     'title' => mysqli_real_escape_string($conn, $title),
-    'image' => mysqli_real_escape_string($conn, $image_data),
     'content' => mysqli_real_escape_string($conn, $content),
     'link_keyword' => mysqli_real_escape_string($conn, $link_keyword),
 );
 
 $query = "INSERT INTO posting (writer_id, title, image, content, link_keyword, begin_date, end_date, created_at, updated_at)
-            VALUES ({$user_id}, '{$filtered['title']}', '{$filtered['image']}', '{$filtered['content']}',". "'" . url_escape($filtered['link_keyword']) . "', '{$begin_date}', '{$end_date}', '{$created_at}', '{$created_at}')";
+            VALUES ({$user_id}, '{$filtered['title']}', '{$image_data}', '{$filtered['content']}',". "'" . url_escape($filtered['link_keyword']) . "', '{$begin_date}', '{$end_date}', '{$created_at}', '{$created_at}')";
 
 $query_run = mysqli_query($conn, $query);
 if($query_run)
@@ -66,6 +65,6 @@ if($query_run)
 else
     echo "<script>alert('Upload Failed...');</script>";
 
-
+mysqli_close($conn);
 header("Location: /mainpage.php");
 ?>
