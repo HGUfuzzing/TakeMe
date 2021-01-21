@@ -52,9 +52,9 @@ if ((strtotime($begin_date)) > (strtotime($end_date)))
 }
 
 $filtered = array(
-    'title' => mysqli_real_escape_string($conn, $title),
+    'title' => htmlspecialchars(mysqli_real_escape_string($conn, $title), ENT_QUOTES),
     'content' => mysqli_real_escape_string($conn, $content),
-    'link_keyword' => mysqli_real_escape_string($conn, $link_keyword),
+    'link_keyword' => htmlspecialchars(mysqli_real_escape_string($conn, $link_keyword), ENT_QUOTES),
 );
 
 $query = "INSERT INTO posting (writer_id, title, image, content, link_keyword, begin_date, end_date, created_at, updated_at)
@@ -71,7 +71,8 @@ if($query_run){
         </script>";
 }
 else{
-    echo "<script> 
+    echo 
+    "<script> 
             alert('Upload Failed...');
             history.go(-1);
     </script>";

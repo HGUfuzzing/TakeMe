@@ -24,6 +24,7 @@ if(!isset($_SESSION['user_id'])) {
             tinymce.init({
                 selector: 'textarea',
                 height: "500",
+                // invalid_elements : "script",
                 plugins: [
                     'advlist autolink link image code lists charmap hr anchor pagebreak',
                     'searchreplace wordcount visualblocks visualchars code fullscreen nonbreaking',
