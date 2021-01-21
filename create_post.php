@@ -12,19 +12,16 @@ if(!isset($_SESSION['user_id'])) {
 ?>
 
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>This is for creating posts</title>
+<?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/view/header.php');
+?>
+
         <link rel="stylesheet" href="./create_post.css">
         <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script>
             tinymce.init({
                 selector: 'textarea',
                 height: "500",
-                // invalid_elements : "script",
                 plugins: [
                     'advlist autolink link image code lists charmap hr anchor pagebreak',
                     'searchreplace wordcount visualblocks visualchars code fullscreen nonbreaking',
@@ -36,18 +33,17 @@ if(!isset($_SESSION['user_id'])) {
                     'forecolor backcolor emoticons',
                 menubar: 'favs file edit view insert format tools table',
                 content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-                // images_upload_url: 'upload.php',
-                // images_upload_handler: function(blobInfo, success, failure){
-                //     var xhr, formData;
-
-                // }
             });
         </script>
     </head>
     <body>
         <form enctype="multipart/form-data" id="area" method="POST" action="./create_post_process.php"> 
             <div id="title"> <label class="post-label">* 글 제목:</label> <input type="text" id="title-input" name="title-input" required></div>
-            <div id="link-keyword"> <label class="post-label">* 검색 링크 키워드:</label>  <input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="특수문자 제외한 영어로 작성하세요" required></div>
+            <div id="link-keyword"> 
+                <label class="post-label">* 검색 링크 키워드:</label>  
+                <input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 한글, 숫자, 띄어쓰기만 가능" required>
+                <label id="live-check"></label>
+            </div>
             <div id = "setting-date-area">
                 <div id="start-date"><label class="post-label">* 게시 시작 기간:</label><input type="datetime-local" id="start-date-input" name="start-date-input" required></div> 
                 <div id="end-date"><label class="post-label">* 게시 종료 기간:</label><input type="datetime-local" id="end-date-input" name="end-date-input" required> </div>
