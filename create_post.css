@@ -5,11 +5,17 @@
     margin: 15px;
 }
 
-#area div label{
+.post-label{
     display: inline-block;
     text-align: right;
     margin-right: 10px;
     width: 150px;
+}
+
+.option{
+    text-align: left;
+    margin: 0px;
+    /* width: 90px; */
 }
 
 #link-keyword-input{

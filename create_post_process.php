@@ -6,7 +6,11 @@ error_reporting(E_ALL);
 // replace space to '-' and remove all characters except english and number
 function url_escape($url){
     $url = str_replace(' ', '-', $url);
-    return preg_replace('/[^A-Za-z0-9\-]/', '', $url);
+    return preg_replace('/[^가-힣a-zA-Z0-9-]/', '', $url);
+}
+
+function show_existing_keyword(){
+
 }
 
 $image = NULL;
@@ -15,7 +19,7 @@ $image_name = NULL;
 
 
 /* TODO: user_id 를 DB에서 따로 세션 id로 가져올것 */
-$user_id = 4;
+$user_id = 7;
 
 // 따로 서버에 저장할 (이미지) 파일
 if(($_FILES['file-input']['name']!=""))
@@ -42,6 +46,8 @@ require_once './lib/mysql_connect.php';
 $title = $_POST['title-input'];
 $content = $_POST['editor'];
 $link_keyword = $_POST['link-keyword-input'];
+$scope = $_POST['scope'];
+$comment = $_POST['comment'];
 $begin_date = $_POST['start-date-input'];
 $end_date = $_POST['end-date-input'];
 $created_at = date('Y-m-d H:i');
@@ -57,8 +63,8 @@ $filtered = array(
     'link_keyword' => htmlspecialchars(mysqli_real_escape_string($conn, $link_keyword), ENT_QUOTES),
 );
 
-$query = "INSERT INTO posting (writer_id, title, image, content, link_keyword, begin_date, end_date, created_at, updated_at)
-            VALUES ({$user_id}, '{$filtered['title']}', '{$image_data}', '{$filtered['content']}',". "'" . url_escape($filtered['link_keyword']) . "', '{$begin_date}', '{$end_date}', '{$created_at}', '{$created_at}')";
+$query = "INSERT INTO posting (writer_id, title, image, content, link_keyword, scope, comment, begin_date, end_date, created_at, updated_at)
+            VALUES ({$user_id}, '{$filtered['title']}', '{$image_data}', '{$filtered['content']}',". "'" . url_escape($filtered['link_keyword']) . "', {$scope}, {$comment},'{$begin_date}', '{$end_date}', '{$created_at}', '{$created_at}')";
 
 $query_run = mysqli_query($conn, $query);
 
