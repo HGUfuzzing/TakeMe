@@ -9,9 +9,10 @@ function url_escape($url){
     return preg_replace('/[^A-Za-z0-9\-]/', '', $url);
 }
 
-$image;
-$image_data;
-$image_name;
+$image = NULL;
+$image_data = NULL;
+$image_name = NULL;
+
 
 /* TODO: user_id 를 DB에서 따로 세션 id로 가져올것 */
 $user_id = 4;
@@ -39,7 +40,7 @@ if(($_FILES['file-input']['name']!=""))
 require_once './lib/mysql_connect.php';
 
 $title = $_POST['title-input'];
-$content = $_POST['body-textarea'];
+$content = $_POST['editor'];
 $link_keyword = $_POST['link-keyword-input'];
 $begin_date = $_POST['start-date-input'];
 $end_date = $_POST['end-date-input'];
@@ -51,20 +52,31 @@ if ((strtotime($begin_date)) > (strtotime($end_date)))
 }
 
 $filtered = array(
-    'title' => mysqli_real_escape_string($conn, $title),
+    'title' => htmlspecialchars(mysqli_real_escape_string($conn, $title), ENT_QUOTES),
     'content' => mysqli_real_escape_string($conn, $content),
-    'link_keyword' => mysqli_real_escape_string($conn, $link_keyword),
+    'link_keyword' => htmlspecialchars(mysqli_real_escape_string($conn, $link_keyword), ENT_QUOTES),
 );
 
 $query = "INSERT INTO posting (writer_id, title, image, content, link_keyword, begin_date, end_date, created_at, updated_at)
             VALUES ({$user_id}, '{$filtered['title']}', '{$image_data}', '{$filtered['content']}',". "'" . url_escape($filtered['link_keyword']) . "', '{$begin_date}', '{$end_date}', '{$created_at}', '{$created_at}')";
 
 $query_run = mysqli_query($conn, $query);
-if($query_run)
-    echo "<script>alert('Upload Success! Your Keyword: ".url_escape($filtered['link_keyword']) . "');</script>";
-else
-    echo "<script>alert('Upload Failed...');</script>";
+
+
+if($query_run){
+    echo 
+        "<script> 
+            alert('Upload Success! Your Keyword: ".url_escape($filtered['link_keyword']) . "');
+            window.location.href='mainpage.php';
+        </script>";
+}
+else{
+    echo 
+    "<script> 
+            alert('Upload Failed...');
+            history.go(-1);
+    </script>";
+}
 
 mysqli_close($conn);
-header("Location: /mainpage.php");
 ?>

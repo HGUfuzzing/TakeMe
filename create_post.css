@@ -2,7 +2,7 @@
     border: 1px solid black;
 }
 #area div {
-    margin: 10px;
+    margin: 15px;
 }
 
 #area div label{
@@ -12,24 +12,45 @@
     width: 150px;
 }
 
-#title{
-    border: 1px solid black;
-}
-
 #link-keyword-input{
     width: 200px;
 }
 
-#setting-date-area{
-    border: 1px solid black;
-}
-
-#body-textarea{
-    height: 40%;
-    width: 60%;
+#body{
     vertical-align:top;
+    justify-content: center;
 }
 
-#button-area button{
-    align-items: right;
+#body div{
+    margin: 0px;
 }
+
+#editor-container{
+    display: inline-block;
+    margin: 0px auto;
+    width: 80%;
+}
+
+#submit-button {
+    float: right;
+    padding: 5px 10px;
+}
+
+/* float를 쓰고나서 요소들이 붕괴되는 것을 방지한다. */
+#button-area::after{
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+@media only screen and (max-width: 55rem) {
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #editor-container{
+        width: 100%;
+        padding: 0.5em;
+    }
+  }
