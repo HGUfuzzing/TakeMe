@@ -63,7 +63,7 @@ $filtered = array(
     'link_keyword' => htmlspecialchars(mysqli_real_escape_string($conn, $link_keyword), ENT_QUOTES),
 );
 
-$query = "INSERT INTO posting (writer_id, title, image, content, link_keyword, scope, comment, begin_date, end_date, created_at, updated_at)
+$query = "INSERT INTO posting (writer_id, title, image, content, link_keyword, is_public, has_comment, begin_date, end_date, created_at, updated_at)
             VALUES ({$user_id}, '{$filtered['title']}', '{$image_data}', '{$filtered['content']}',". "'" . url_escape($filtered['link_keyword']) . "', {$scope}, {$comment},'{$begin_date}', '{$end_date}', '{$created_at}', '{$created_at}')";
 
 $query_run = mysqli_query($conn, $query);
