@@ -28,7 +28,4 @@
         'period' => $row['begin_date'] . ' ~ ' . $row['end_date'],
         'content' => $row['content']
     );
-
-
-
 ?>
