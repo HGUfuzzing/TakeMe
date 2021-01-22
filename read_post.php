@@ -94,8 +94,6 @@
 </div>
 
 
-<h2>reply list</h2>
-<?=$reply_msg?>
 <form method="GET" action="/update_post.php">
     <input type="text" style="display:none" name="post_id" value="<?=$post_id?>">
     <input type="submit" value="수정">
