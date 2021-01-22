@@ -44,6 +44,12 @@
     margin: 0 auto;
     color: gray;
     font-size: 1.25em;
+    
+    width: 100%;
+    text-align: center;
+    overflow:hidden; 
+    white-space: nowrap;
+    text-overflow:ellipsis;
 }
 
 .title:hover {

@@ -18,10 +18,6 @@
             'writer_picture_url' => $row['picture_url']
         );
 
-        if(mb_strlen($post['title'], "UTF-8") > 19) {
-            $post['title'] = substr($post['title'], 0, 18) . ' ...'; 
-        }
-        
         array_push($posts, $post);
     }
 ?>
