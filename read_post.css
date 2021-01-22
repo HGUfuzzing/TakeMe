@@ -1,0 +1,53 @@
+.container {
+    width: 70vw;
+    height: auto;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.information {
+    width: 100%;
+    border : 1px solid black;
+    margin: 2em;
+    text-align: center;
+}
+
+.img-container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 65%;
+
+    margin: 2em;
+}
+
+.content {
+    width: 100%;
+    border : 1px solid black;
+
+    padding: 0.5em;
+    margin: 2em;
+}
+
+.news {
+    display: block;
+    width: 100%;
+    border : 1px solid red;
+    
+    padding: 0.5em;
+    margin: 1em;
+
+    word-wrap: break-word;
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+}
