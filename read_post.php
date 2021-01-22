@@ -27,6 +27,21 @@
 
 <div class="container">
 
+
+<?php
+    if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {
+?>
+<div class="delete">
+    <form action="/delete_post_process.php" method="post">
+        <input type="hidden" name="post_id" value="<?=$post['id']?>">
+        <input type="hidden" name="writer_id" value="<?=$post['writer_id']?>">
+        <input type="submit" value="삭제하기">
+    </form>
+</div>
+<?php
+    }
+?>
+
 <div class="information">
     <div class="title">
         <h1><?=$post['title']?></h1>
