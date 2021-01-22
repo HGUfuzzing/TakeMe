@@ -1,7 +1,11 @@
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
+session_Start();
+require_once($_SERVER['DOCUMENT_ROOT'] . "/api/google_oauth2/client_setting.php");
+if(!isset($_SESSION['user_id'])) {
+    header("Location: " . $callback_url);
+    die();
+}
 
 // replace space to '-' and remove all characters except english and number
 function url_escape($url){
@@ -29,8 +33,7 @@ $image = NULL;
 $image_data = NULL;
 $image_name = NULL;
 
-/* TODO: user_id 를 DB에서 따로 세션 id로 가져올것 */
-$user_id = 7;
+$user_id = $_SESSION['user_id'];
 
 // 따로 서버에 저장할 (이미지) 파일
 if(($_FILES['file-input']['name']!=""))
