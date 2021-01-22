@@ -2,24 +2,23 @@
     border: 1px solid black;
 }
 #area div {
-    margin: 15px;
+    margin: 0.5rem;
 }
 
 .post-label{
     display: inline-block;
     text-align: right;
-    margin-right: 10px;
+    margin-right: 0.7rem;
     width: 150px;
 }
 
 .option{
     text-align: left;
     margin: 0px;
-    /* width: 90px; */
 }
 
-#link-keyword-input{
-    width: 200px;
+#link-keyword-input, #title-input{
+    width: 15%;
 }
 
 #body{
@@ -49,14 +48,27 @@
     clear: both;
 }
 
-@media only screen and (max-width: 55rem) {
+@media only screen and (max-width: 600px) {
     body {
-      display: flex;
-      flex-direction: column;
+        /* background-color: lightpink; */
+        display: flex;
+        flex-direction: column;
+    }
+
+    #file-upload{
+        display:flex;
+        flex-direction:column;
+    }
+    #file-upload img{
+        margin: auto;
     }
 
     #editor-container{
-        width: 100%;
+        width: 80%;
         padding: 0.5em;
+    }
+
+    .date-input{
+        width: 150px;
     }
   }
