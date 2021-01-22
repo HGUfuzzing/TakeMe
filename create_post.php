@@ -18,24 +18,8 @@ if(!isset($_SESSION['user_id'])) {
 
         <link rel="stylesheet" href="./create_post.css">
         <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script>
-            tinymce.init({
-                selector: 'textarea',
-                height: "500",
-                plugins: [
-                    'advlist autolink link image code lists charmap hr anchor pagebreak',
-                    'searchreplace wordcount visualblocks visualchars code fullscreen nonbreaking',
-                    'table emoticons template paste'
-                ],
-                toolbar: 
-                    'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-                    'bullist numlist outdent indent | link image code|' +
-                    'forecolor backcolor emoticons',
-                menubar: 'favs file edit view insert format tools table',
-                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-            });
-        </script>
-    </head>
+        <script src="/add_tiny.js"> </script>
+        
     <body>
         <form enctype="multipart/form-data" id="area" method="POST" action="./create_post_process.php"> 
             <div id="title"> <label class="post-label">* 글 제목:</label> <input type="text" id="title-input" name="title-input" required></div>
