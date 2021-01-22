@@ -45,8 +45,8 @@ if(!isset($_SESSION['user_id'])) {
                 <label id="live-check"></label>
             </div>
             <div id = "setting-date-area">
-                <div id="start-date"><label class="post-label">* 게시 시작 기간:</label><input type="datetime-local" id="start-date-input" name="start-date-input" required></div> 
-                <div id="end-date"><label class="post-label">* 게시 종료 기간:</label><input type="datetime-local" id="end-date-input" name="end-date-input" required> </div>
+                <div id="start-date"><label class="post-label">* 게시 시작 기간:</label><input type="datetime-local" class="date-input" name="start-date-input" required></div> 
+                <div id="end-date"><label class="post-label">* 게시 종료 기간:</label><input type="datetime-local" class="date-input" name="end-date-input" required> </div>
             </div>
             <div id="scope-option">
                 <label class="post-label">공개 범위: </label>

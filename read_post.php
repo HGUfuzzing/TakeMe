@@ -38,6 +38,13 @@
         <input type="submit" value="삭제하기">
     </form>
 </div>
+
+<div class="edit">
+    <form method="GET" action="/update_post.php">
+        <input type="text" style="display:none" name="id" value="<?=$post_id?>">
+        <input type="submit" value="수정">
+    </form>
+</div>
 <?php
     }
 ?>
@@ -93,10 +100,5 @@
 
 </div>
 
-
-<form method="GET" action="/update_post.php">
-    <input type="text" style="display:none" name="post_id" value="<?=$post_id?>">
-    <input type="submit" value="수정">
-</form>
 </body>
 </html>

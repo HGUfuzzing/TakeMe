@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once($_SERVER['DOCUMENT_ROOT'] . "/api/google_oauth2/client_setting.php");
@@ -7,13 +6,20 @@ if(!isset($_SESSION['user_id'])) {
     die();
 }
 
-// $post_id;
-// require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mysql_connect.php');
-// $query = "SELECT id, writer_id FROM posting WHERE id = {$post_id}";
-
-
-
-
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mysql_connect.php');
+$post_id = $_GET['id'];
+$query = "SELECT writer_id FROM posting WHERE id = {$post_id};";
+$query_run = mysqli_query($conn, $query);
+$result = mysqli_fetch_assoc($query_run);
+if($_SESSION['user_id'] != $result['writer_id']){
+    echo 
+    '<style>
+        body{display: flex; text-align: center; align-items: center; justify-content: center;}
+        div {display: block; border: 1px solid black; padding: 2rem; justify-content: center; font-size: 2rem;}
+    </style>';
+    echo '<div style="color: red"><p> 수정 권한이 없습니다.</p>';
+    die ('<a href="javascript:history.go(-1)">이전 페이지로 돌아가기</a></div>');
+}
 ?>
 
 <?php
@@ -43,19 +49,18 @@ if(!isset($_SESSION['user_id'])) {
     <body>
         <!-- file post 하기 위해서는 enctype 필수 -->
         <form id="area" enctype="multipart/form-data" method="POST" action="./update_post_process.php">
-            <input type="text" name='post-id' value="<?php echo $post_id; ?>" style="display: none">
+            <input type="text" name='id' value="<?php echo $post_id; ?>" style="display: none">
             <div id="title"> 
                 <label class="post-label">* 글 제목:</label> 
                 <input type="text" id="title-input" name="title-input" value="<?php echo $title; ?>" required>
             </div>
             <div id="link-keyword"> 
-                <label class="post-label">* 검색 링크 키워드:</label>  
-                <input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 한글, 숫자, 띄어쓰기만 가능" value="<?php echo $link_keyword; ?>" required>
-                <label id="live-check"></label>
+                <label class="post-label">* 검색 링크 키워드:</label>
+                <label ><?php echo $link_keyword; ?></label>  
             </div>
             <div id = "setting-date-area">
-                <div id="start-date"><label class="post-label">* 게시 시작 기간:</label><input type="datetime-local" id="start-date-input" name="start-date-input" value="<?php echo $begin_date?>" required></div> 
-                <div id="end-date"><label class="post-label">* 게시 종료 기간:</label><input type="datetime-local" id="end-date-input" name="end-date-input" value="<?php echo $end_date?>" required> </div>
+                <div id="start-date"><label class="post-label">* 게시 시작 기간:</label><input type="datetime-local" class="date-input" name="start-date-input" value="<?php echo $begin_date?>" required></div> 
+                <div id="end-date"><label class="post-label">* 게시 종료 기간:</label><input type="datetime-local" class="date-input" name="end-date-input" value="<?php echo $end_date?>" required> </div>
             </div>
             <div id="scope-option">
                 <label class="post-label">공개 범위: </label>
