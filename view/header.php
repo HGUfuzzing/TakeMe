@@ -35,8 +35,8 @@ $login_message = "";
     
 </head>
 <body>
-
-    <header> 
+    <link rel="stylesheet" href="/view/header.css">
+    <header>
         
         <?=$login_message?> 
     
