@@ -13,7 +13,7 @@ if(!isset($_SESSION['user_id'])) {
     $login_message = "<a href=\"" . $callback_url . "\"> 로그인 </a>";
 }
 else {
-    $create_post_ancer = '<a href="http://' . $_SERVER['HTTP_HOST'] . '/create_post.php"> 글쓰기 </a>';
+    $create_post_ancher = '<a href="http://' . $_SERVER['HTTP_HOST'] . '/create_post.php"> 글쓰기 </a>';
 
     $sql = "SELECT firstname, lastname FROM user WHERE id = " . $_SESSION['user_id'];
     $result = mysqli_query($conn, $sql);
