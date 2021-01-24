@@ -1,31 +1,8 @@
 <?php
-session_start();
-require_once($_SERVER['DOCUMENT_ROOT'] . "/api/google_oauth2/client_setting.php");
-if(!isset($_SESSION['user_id'])) {
-    header("Location: " . $callback_url);
-    die();
-}
-
-require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mysql_connect.php');
-$post_id = $_GET['id'];
-$query = "SELECT writer_id FROM posting WHERE id = {$post_id};";
-$query_run = mysqli_query($conn, $query);
-$result = mysqli_fetch_assoc($query_run);
-if($_SESSION['user_id'] != $result['writer_id']){
-    echo 
-    '<style>
-        body{display: flex; text-align: center; align-items: center; justify-content: center;}
-        div {display: block; border: 1px solid black; padding: 2rem; justify-content: center; font-size: 2rem;}
-    </style>';
-    echo '<div style="color: red"><p> 수정 권한이 없습니다.</p>';
-    die ('<a href="javascript:history.go(-1)">이전 페이지로 돌아가기</a></div>');
-}
-?>
-
-<?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/view/header.php');
     require_once($_SERVER['DOCUMENT_ROOT'] . '/update_post_fetch_data.php');
 ?>
+
         <link rel="stylesheet" href="/create_post.css">
         <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script>
@@ -49,6 +26,7 @@ if($_SESSION['user_id'] != $result['writer_id']){
     <body>
         <!-- file post 하기 위해서는 enctype 필수 -->
         <form id="area" enctype="multipart/form-data" method="POST" action="./update_post_process.php">
+            <input type="hidden" name="">
             <input type="text" name='id' value="<?php echo $post_id; ?>" style="display: none">
             <div id="title"> 
                 <label class="post-label">* 글 제목:</label> 

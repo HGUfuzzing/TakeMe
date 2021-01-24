@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteRule ^mainpage?$ mainpage.php
+
+RewriteRule ^post/([가-힣a-zA-Z0-9-]+) read_post.php?keyword=$1

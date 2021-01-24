@@ -29,7 +29,7 @@
         die('error: insert into news');
     }
 
-    header("Location: " . 'http://' . $_SERVER['HTTP_HOST'] . '/read_post.php?id='.$_POST['post_id']);
+    header("Location: " . 'http://' . $_SERVER['HTTP_HOST'] . "/post/" . $_POST['keyword']);
     die();
 
 ?>

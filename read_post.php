@@ -25,7 +25,7 @@
 
 <div class="edit">
     <form method="GET" action="/update_post.php">
-        <input type="text" style="display:none" name="id" value="<?=$post_id?>">
+        <input type="hidden" name="keyword" value="<?=$post['keyword']?>">
         <input type="submit" value="수정">
     </form>
 </div>
@@ -72,6 +72,7 @@
 <div class="content">
     글 추가 작성
     <form action="/create_news_process.php" method="post">
+    <input type="hidden" name="keyword" value="<?=$post['keyword']?>">
     <input type="hidden" name="post_id" value="<?=$post['id']?>">
     <textarea name="content" id="editor"></textarea>
     <input type="submit" id="submit-button" name="submit-button">

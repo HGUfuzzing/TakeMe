@@ -15,7 +15,7 @@
         <div class="post">
 
             <div class="img-container">
-                <a href="read_post.php/?id=<?=$post['id']?>">
+                <a href="/post/<?=$post['keyword']?>">
                 <img src="<?=$post['image']?>" alt="">
                 </a>
             
