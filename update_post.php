@@ -3,27 +3,10 @@
     require_once($_SERVER['DOCUMENT_ROOT'] . '/update_post_fetch_data.php');
 ?>
 
-        <link rel="stylesheet" href="/create_post.css">
-        <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script>
-            tinymce.init({
-                selector: 'textarea',
-                height: '500',
-                plugins: [
-                    'advlist autolink link image code lists charmap hr anchor pagebreak',
-                    'searchreplace wordcount visualblocks visualchars code fullscreen nonbreaking',
-                    'table emoticons template paste'
-                ],
-                toolbar: 
-                    'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-                    'bullist numlist outdent indent | link image code|' +
-                    'forecolor backcolor emoticons',
-                menubar: 'favs file edit view insert format tools table',
-                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-            });
-        </script>
-    </head>
-    <body>
+    <link rel="stylesheet" href="/create_post.css">
+    <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="/add_tiny.js"> </script>
+    
         <!-- file post 하기 위해서는 enctype 필수 -->
         <form id="area" enctype="multipart/form-data" method="POST" action="./update_post_process.php">
             <input type="hidden" name="">
