@@ -30,6 +30,9 @@
     margin: 0px;
 }
 
+#scope-option{
+}
+
 #editor-container{
     display: inline-block;
     margin: 0px auto;
@@ -48,11 +51,16 @@
     clear: both;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
     body {
         /* background-color: lightpink; */
         display: flex;
         flex-direction: column;
+    }
+    #area{
+        width: 70vw;
+        height: auto;
+        margin: auto;
     }
 
     #file-upload{
@@ -70,5 +78,17 @@
 
     .date-input{
         width: 150px;
+    }
+    #file-input{
+        margin-left: auto;
+    }
+    #body{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    #editor-container{
+        padding: 0;
+        width: 100%;
     }
   }

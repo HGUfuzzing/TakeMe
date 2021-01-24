@@ -54,7 +54,7 @@ if(!isset($_SESSION['user_id'])) {
                 <input type="radio" id="private" name="scope" value="0"> <label class="option">한동대 학생만</label>
             </div>
             <div id="comment-option">
-                <label class="post-label">댓글 허용: </label>
+                <label class="post-label">1대1 채팅 허용: </label>
                 <input type="radio" id="allow" name="comment" value="1" checked> <label class="option">허용</label>
                 <input type="radio" id="disallow" name="comment" value="0"> <label class="option">비허용</label>
             </div>

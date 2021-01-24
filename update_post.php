@@ -78,7 +78,7 @@ if($_SESSION['user_id'] != $result['writer_id']){
                 ?>
             </div>
             <div id="comment-option">
-                <label class="post-label">댓글 허용: </label>
+                <label class="post-label">1대1 채팅 허용: </label>
                 <?php 
                     if($hascomment == 1){
                         echo 
