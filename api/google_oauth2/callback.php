@@ -68,6 +68,9 @@ if (isset($_GET['code']))
 		if($result === false) {
 			die("insert error : 관리자에게 문의하세요.");
 		}
+
+		header('Location: ' . filter_var($page_url, FILTER_SANITIZE_URL)); //redirect user back to page
+		die();
 	}
 	
 	//바뀐 데이터가 없는지 확인 + user id 가져오기
