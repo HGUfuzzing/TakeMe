@@ -7,7 +7,7 @@ $is_logged_in = false;
 $name = '';
 $login_anchor = '<a href="' . $url_google_callback . '"> <i class="fab fa-google"></i> Login</a>';
 
-$logout_anchor = '<a href="' . $url_google_callback . '?logout=1"> <i class="fas fa-sign-out-alt"></i> Logout</a>';
+$logout_anchor = '<a href="' . $url_google_callback . '?logout=1"> <i class="fas fa-sign-out-alt"></i> </a>';
 
 if(isset($_SESSION['user_id'])) {
     $is_logged_in = true;
@@ -71,20 +71,16 @@ if(isset($_SESSION['user_id'])) {
         
         <ul class="navbar__user">
             <li>
-                <?=$name?>
-            </li>
-            
-            <li>
                 <?php
                     if($is_logged_in) 
-                        echo $logout_anchor;
+                        echo $name . ' ' . $logout_anchor;
                     else   
                         echo $login_anchor;
                 ?>
             </li>
         </ul>
 
-        <a href="#" class="navbar__toggleBtn">
+        <a class="navbar__toggleBtn">
             <i class="fas fa-bars"></i>
         </a>
     </nav>
