@@ -10,12 +10,12 @@ if(!isset($_SESSION['user_id'])) {
 // replace space to '-' and remove all characters except english and number
 function url_escape($url){
     $url = str_replace(' ', '-', $url);
-    return preg_replace('/[^가-힣a-zA-Z0-9-]/', '', $url);
+    return preg_replace('/[^a-zA-Z0-9-]/', '', $url);
 }
 ?>
 
 <style type="text/css">
-    body {
+    /* body {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -25,7 +25,7 @@ function url_escape($url){
         padding: 2rem;
         justify-content: center;
         font-size: 1rem;
-    }
+    } */
 </style>
 
 <?php
