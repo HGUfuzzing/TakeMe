@@ -22,8 +22,8 @@
             </div>
 
             <div class="post-info">
-            <a href="/<?=$post['keyword']?>">
-                <div class="title"><?=$post['title']?></div>
+            <a href="/<?=$post['keyword']?>" class="title">
+                <?=$post['title']?>
             </a>
                 <div class="period"><?=$post['period']?></div>
                 <div class="writer-info">

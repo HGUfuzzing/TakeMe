@@ -1,12 +1,12 @@
 :root {
-    --text-color: #f0f0f0;
-    --background-color: #263343;
-    --accent-color: #d49466;
+    --text-color: #141414;
+    --background-color: #fefefe;
+    --accent-color: #ffdf12;
 }
 
 body {
     margin: 0;
-    font-family: "Source Sans Pro"
+    /* font-family: 'Nanum Myeongjo', serif; */
 }
 
 a {
@@ -19,7 +19,9 @@ a {
     justify-content: space-between;
     align-items: center;
     background-color: var(--background-color);
-    padding: 8px 12px
+    padding: 8px 12px;
+    border-bottom: solid lightgray 1px;
+    margin-bottom: 5px;
 }
 
 .navbar__logo {
