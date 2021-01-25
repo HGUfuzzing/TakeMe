@@ -12,19 +12,19 @@
             <input type="hidden" name="keyword" value=<?=$post_keyword?>>
             <input type="hidden" name='id' value="<?=$post_id?>">
             <div id="title"> 
-                <label class="post-label">* 글 제목:</label> 
+                <label class="post-label"><span class="highlight">*</span> 글 제목</label> 
                 <input type="text" id="title-input" name="title-input" value="<?php echo $title; ?>" required>
             </div>
             <div id="link-keyword"> 
-                <label class="post-label">* 검색 링크 키워드:</label>
+                <label class="post-label">검색 링크 키워드</label>
                 <label ><?php echo $link_keyword; ?></label>  
             </div>
             <div id = "setting-date-area">
-                <div id="start-date"><label class="post-label">* 게시 시작 기간:</label><input type="datetime-local" class="date-input" name="start-date-input" value="<?php echo $begin_date?>" required></div> 
-                <div id="end-date"><label class="post-label">* 게시 종료 기간:</label><input type="datetime-local" class="date-input" name="end-date-input" value="<?php echo $end_date?>" required> </div>
+                <div id="start-date"><label class="post-label"><span class="highlight">*</span> 게시 시작 기간</label><input type="datetime-local" class="date-input" name="start-date-input" value="<?php echo $begin_date?>" required></div> 
+                <div id="end-date"><label class="post-label"><span class="highlight">*</span> 게시 종료 기간</label><input type="datetime-local" class="date-input" name="end-date-input" value="<?php echo $end_date?>" required> </div>
             </div>
             <div id="scope-option">
-                <label class="post-label">공개 범위: </label>
+                <label class="post-label">공개 범위 </label>
                 <?php 
                     if($ispublic == 1){
                         echo 
@@ -39,7 +39,7 @@
                 ?>
             </div>
             <div id="comment-option">
-                <label class="post-label">1대1 채팅 허용: </label>
+                <label class="post-label">1대1 채팅 허용 </label>
                 <?php 
                     if($hascomment == 1){
                         echo 
@@ -54,14 +54,14 @@
                 ?>
             </div>
             <div id="file-upload">
-                <label class="post-label">포스터 업로드: </label>
+                <label class="post-label">포스터 업로드 </label>
                 <?php 
-                    echo '<img style="width:100px;height:100px" src="data:image/jpeg;base64, '.base64_encode( $image).'" alt="no-image"/>';
+                    echo '<img style="width:100px;height:100px;padding:5px;background-color:black" src="data:image/jpeg;base64, '.base64_encode( $image).'" alt="no-image"/>';
                 ?>
                 <input type='file' id='file-input' name='file-input'>
             </div>
             <div id="body">
-                <label class="post-label">본문: </label>
+                <label class="post-label">본문 </label>
                 <div id="editor-container"> 
                     <textarea name="editor" id="editor">
                         <?php echo $content; ?>

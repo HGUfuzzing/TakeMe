@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-* {
-	font-family: "Roboto";
+:root {
+    --text-color: #141414;
+    --background-color: #fefefe;
+    --accent-color: #ffdf12;
 }
 
 body{
@@ -8,17 +9,16 @@ body{
 }
 
 #area{
-    /* border: 5px solid black; */
-    background-color: cornsilk;
+    margin-top: 30px;
 }
 
 #area div {
     display: flexbox;
     margin: 0.5rem;
-    /* height: 30px; */
-    /* border: 1px solid black; */
+}
 
-    /* background-color: #5ab886; */
+.highlight{
+    color: red;
 }
 
 .post-label{
@@ -41,9 +41,6 @@ body{
     border-bottom: 2px solid black;
     font-size: medium;
     background-color: inherit;
-}
-input:focus{
-    background-color: #e9dc96;
 }
 
 #body{
@@ -81,6 +78,7 @@ input:focus{
     color: black;
     font-size: 1rem;
     font-weight: 400;
+    margin-right: 30px;
 }
 #submit-button:hover{
     cursor: pointer;
