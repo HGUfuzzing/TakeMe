@@ -1,15 +1,24 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+:root {
+    --text-color: #141414;
+    --background-color: #fefefe;
+    --accent-color: #ffdf12;
+}
 
 body{
     background-color: white;
 }
 
 #area{
+    margin-top: 30px;
 }
 
 #area div {
     display: flexbox;
     margin: 0.5rem;
+}
+
+.highlight{
+    color: red;
 }
 
 .post-label{
@@ -33,9 +42,6 @@ body{
     font-size: medium;
     background-color: inherit;
 }
-input[type="text"]:focus{
-    background-color: #f0dc6d;
-}
 
 #body{
     vertical-align:top;
@@ -55,9 +61,6 @@ input[type="text"]:focus{
     border-bottom: 2px solid black;
     height: 30px;
     background-color: inherit;
-}
-.date-input:focus{
-    background-color: #f0dc6d;
 }
 
 #editor-container{

@@ -25,7 +25,7 @@ if(!isset($_SESSION['user_id'])) {
             <div id="title"> <label class="post-label"><span class="highlight">*</span> 글 제목</label> <input type="text" id="title-input" name="title-input" required></div>
             <div id="link-keyword"> 
                 <label class="post-label"><span class="highlight">*</span> 검색 링크 키워드</label>  
-                <input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 한글, 숫자, 띄어쓰기만 가능" required>
+                <input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 숫자, 띄어쓰기만 가능" required>
                 <label id="live-check"></label>
             </div>
             <div id = "setting-date-area">
