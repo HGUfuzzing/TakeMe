@@ -1,20 +1,20 @@
 <?php
 session_start();
-
 require_once($_SERVER["DOCUMENT_ROOT"] . "/lib/mysql_connect.php");
-require_once($_SERVER["DOCUMENT_ROOT"] . "/api/google_oauth2/client_setting.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/lib/links.php");
 
 $login_message = '';
-$mainpage_ancher = '<a href="http://' . $_SERVER['HTTP_HOST'] . '/mainpage.php"> 메인페이지 </a>';
+$mainpage_ancher = '<a href="' . $url_main . '"> 메인페이지 </a>';
 $create_post_ancher = '';
 
 
 if(!isset($_SESSION['user_id'])) {
-    $login_message = "<a href=\"" . $callback_url . "\"> 로그인 </a>";
+    $login_message = "<a href=\"" . $url_google_callback . "\"> 로그인 </a>";
 }
 else {
-    $create_post_ancher = '<a href="http://' . $_SERVER['HTTP_HOST'] . '/create_post.php"> 글쓰기 </a>';
+    $create_post_ancher = '<a href="' . $url_write . '"> 글쓰기 </a>';
 
+    //세션에 등록된 user의 정보 가져오기.
     $sql = "SELECT firstname, lastname FROM user WHERE id = " . $_SESSION['user_id'];
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
@@ -23,15 +23,12 @@ else {
     }
     if(mysqli_num_rows($result) === 0) {
         unset($_SESSION['user_id']);
-        header("Location: " . $callback_uri);
+        header("Location: " . $url_google_callback);
     }
     else {
-        $login_message = "Hello, " . $row['firstname'] . ' ' . $row['lastname'] . ' ' . '<a href="' . $callback_url . '?logout=1">logout<a>';
+        $login_message = "Hello, " . $row['firstname'] . ' ' . $row['lastname'] . ' ' . '<a href="' . $url_google_callback . '?logout=1">logout<a>';
     }
 }
-
-
-
 
 ?>
 

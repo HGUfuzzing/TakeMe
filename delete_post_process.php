@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/links.php');
+
 if(isset($_SESSION['user_id']) && $_POST['writer_id'] == $_SESSION['user_id']) {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mysql_connect.php');
 
@@ -19,5 +21,5 @@ if(isset($_SESSION['user_id']) && $_POST['writer_id'] == $_SESSION['user_id']) {
     }
 }
 
-header("Location: http://" . $_SERVER['HTTP_HOST'] . '/delete_post_notify.php');
+header("Location: " . $url_root . '/delete_post_notify.php');
 ?>

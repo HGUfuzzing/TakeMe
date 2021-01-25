@@ -15,7 +15,10 @@ function error_msg($message){
 }
 ?>
 
+
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/links.php');
+
 $image = NULL;
 $image_data = NULL;
 $image_name = NULL;
@@ -25,7 +28,7 @@ $user_id = $_SESSION['user_id'];
 $post_id = $_POST['id'];
 
 //DB에 저장
-require_once './lib/mysql_connect.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mysql_connect.php');
 
 $title = $_POST['title-input'];
 $content = $_POST['editor'];
@@ -89,10 +92,13 @@ else{
 
 $query_run = mysqli_query($conn, $query);
 
-if($query_run)
-    header("Location: /read_post.php?id=".$post_id);
-else
+if($query_run === false) {
     error_msg('포스트 업로드에 실패했습니다');
+    die();
+}
+
+header("Location: " . $url_root . '/' . $_POST['keyword']);
+    
 
 mysqli_close($conn);
 ?>

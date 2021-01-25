@@ -1,6 +1,7 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] .  "/read_post_process.php");
-    
+    require_once($_SERVER['DOCUMENT_ROOT'] .  "/lib/links.php");
+
     include_once($_SERVER['DOCUMENT_ROOT'] .  "/view/header.php");
 ?>
 
@@ -24,10 +25,7 @@
 </div>
 
 <div class="edit">
-    <form method="GET" action="/update_post.php">
-        <input type="hidden" name="keyword" value="<?=$post['keyword']?>">
-        <input type="submit" value="수정">
-    </form>
+    <a href="<?=$url_update?>/<?=$post['keyword']?>">edit</a>
 </div>
 <?php
     }

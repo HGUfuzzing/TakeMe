@@ -8,9 +8,9 @@
     <script src="/add_tiny.js"> </script>
     
         <!-- file post 하기 위해서는 enctype 필수 -->
-        <form id="area" enctype="multipart/form-data" method="POST" action="./update_post_process.php">
-            <input type="hidden" name="">
-            <input type="text" name='id' value="<?php echo $post_id; ?>" style="display: none">
+        <form id="area" enctype="multipart/form-data" method="POST" action="/update_post_process.php">
+            <input type="hidden" name="keyword" value=<?=$post_keyword?>>
+            <input type="hidden" name='id' value="<?=$post_id?>">
             <div id="title"> 
                 <label class="post-label">* 글 제목:</label> 
                 <input type="text" id="title-input" name="title-input" value="<?php echo $title; ?>" required>

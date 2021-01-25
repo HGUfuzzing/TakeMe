@@ -5,7 +5,7 @@
 ?>
 
 
-    <link rel="stylesheet" href="./mainpage.css">
+    <link rel="stylesheet" href="/mainpage.css">
 
     <div class="posts-container">
         <?php
@@ -15,7 +15,7 @@
         <div class="post">
 
             <div class="img-container">
-                <a href="/post/<?=$post['keyword']?>">
+                <a href="/<?=$post['keyword']?>">
                 <img src="<?=$post['image']?>" alt="">
                 </a>
             

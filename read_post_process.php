@@ -1,8 +1,9 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/mysql_connect.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/links.php');
 
     if(!isset($_GET['keyword'])) {
-        header("Location: " . 'http://' . $_SERVER['HTTP_HOST'] . '/mainpage.php');
+        header("Location: " . $url_main);
         die();
     }
     

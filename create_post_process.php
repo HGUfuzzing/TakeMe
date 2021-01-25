@@ -1,9 +1,9 @@
 <?php 
 
 session_Start();
-require_once($_SERVER['DOCUMENT_ROOT'] . "/api/google_oauth2/client_setting.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/links.php");
 if(!isset($_SESSION['user_id'])) {
-    header("Location: " . $callback_url);
+    header("Location: " . $url_google_callback);
     die();
 }
 
@@ -104,7 +104,7 @@ if($rows > 0)
     $is_Keyword_Unique = 0;
 
 if($query_run)
-    header("Location: mainpage.php");
+    header("Location: " . $url_root . '/' . $link_keyword);
 else{
     echo '<div> 포스트 업로드에 실패했습니다';
     if($is_Keyword_Unique == 0){

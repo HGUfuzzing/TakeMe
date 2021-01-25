@@ -16,12 +16,12 @@ if(!isset($_SESSION['user_id'])) {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/view/header.php');
 ?>
 
-        <link rel="stylesheet" href="./create_post.css">
+        <link rel="stylesheet" href="/create_post.css">
         <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script src="/add_tiny.js"> </script>
         
     <body>
-        <form enctype="multipart/form-data" id="area" method="POST" action="./create_post_process.php"> 
+        <form enctype="multipart/form-data" id="area" method="POST" action="/create_post_process.php"> 
             <div id="title"> <label class="post-label">* 글 제목:</label> <input type="text" id="title-input" name="title-input" required></div>
             <div id="link-keyword"> 
                 <label class="post-label">* 검색 링크 키워드:</label>  

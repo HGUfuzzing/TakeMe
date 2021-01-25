@@ -1,12 +1,13 @@
 <?php
     session_start();
 
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/links.php');
+
     if(!isset($_SESSION['user_id'])) {
-        header("Location: " . 'http://' . $_SERVER['HTTP_HOST'] . '/mainpage.php');
+        header("Location: " . $url_main);
         die();
     }
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/api/google_oauth2/client_setting.php');
     require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mysql_connect.php');
 
 
@@ -29,7 +30,7 @@
         die('error: insert into news');
     }
 
-    header("Location: " . 'http://' . $_SERVER['HTTP_HOST'] . "/post/" . $_POST['keyword']);
+    header("Location: " . $url_root . '/' . $_POST['keyword']);
     die();
 
 ?>
