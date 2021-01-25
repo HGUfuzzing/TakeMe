@@ -85,7 +85,7 @@ img:hover{
     transform:scale(1.1); 
 }
 
-a {
+.img-container a {
     width: 100%;
     text-decoration: none;
 }

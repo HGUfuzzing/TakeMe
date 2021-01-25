@@ -22,7 +22,9 @@
             </div>
 
             <div class="post-info">
+            <a href="/<?=$post['keyword']?>">
                 <div class="title"><?=$post['title']?></div>
+            </a>
                 <div class="period"><?=$post['period']?></div>
                 <div class="writer-info">
                     <div class="picture"><img src="<?=$post['writer_picture_url']?>"></div>
