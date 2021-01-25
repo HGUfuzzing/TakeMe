@@ -7,7 +7,7 @@ echo
 
 function url_escape($url){
     $url = str_replace(' ', '-', $url);
-    return preg_replace('/[^가-힣a-zA-Z0-9-]/', '', $url);
+    return preg_replace('/[^a-zA-Z0-9-]/', '', $url);
 }
 function error_msg($message){
     echo '<div><p style="color: red; font-weight:bold;">'. $message .'</p>';
