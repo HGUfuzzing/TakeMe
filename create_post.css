@@ -1,8 +1,24 @@
-#area{
-    border: 1px solid black;
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+* {
+	font-family: "Roboto";
 }
+
+body{
+    background-color: white;
+}
+
+#area{
+    /* border: 5px solid black; */
+    background-color: cornsilk;
+}
+
 #area div {
+    display: flexbox;
     margin: 0.5rem;
+    /* height: 30px; */
+    /* border: 1px solid black; */
+
+    /* background-color: #5ab886; */
 }
 
 .post-label{
@@ -10,6 +26,7 @@
     text-align: right;
     margin-right: 0.7rem;
     width: 150px;
+    height: 35px;
 }
 
 .option{
@@ -19,6 +36,14 @@
 
 #link-keyword-input, #title-input{
     width: 15%;
+    height: 20px;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: medium;
+    background-color: inherit;
+}
+input:focus{
+    background-color: #e9dc96;
 }
 
 #body{
@@ -30,7 +55,15 @@
     margin: 0px;
 }
 
-#scope-option{
+#setting-date-area{
+    flex-direction: column;
+}
+
+.date-input{
+    border: none;
+    border-bottom: 2px solid black;
+    height: 30px;
+    background-color: inherit;
 }
 
 #editor-container{
@@ -41,7 +74,16 @@
 
 #submit-button {
     float: right;
-    padding: 5px 10px;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: gold;
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+}
+#submit-button:hover{
+    cursor: pointer;
 }
 
 /* float를 쓰고나서 요소들이 붕괴되는 것을 방지한다. */
@@ -53,7 +95,6 @@
 
 @media only screen and (max-width: 900px) {
     body {
-        /* background-color: lightpink; */
         display: flex;
         flex-direction: column;
     }
