@@ -4,7 +4,7 @@
     flex-flow: row wrap;
     /* justify-content: space-between; */
     margin: auto;
-    background-color: #f4f7f6;
+    background-color: var(--background-color);
 }
 .post {
     display: flex;

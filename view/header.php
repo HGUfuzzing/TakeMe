@@ -37,10 +37,11 @@ if(isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="/view/header.css">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet"> 
+    
     <script src="https://kit.fontawesome.com/304f4c0bb6.js" crossorigin="anonymous"></script>
     <script src="/view/header.js" defer></script>
     <title>Document</title>
@@ -49,7 +50,7 @@ if(isset($_SESSION['user_id'])) {
     <nav class="navbar">
         <div class="navbar__logo">
             <i class="far fa-paper-plane"></i>
-            <a href="<?=$url_main?>"> POST.HANDONG</a>
+            <a href="<?=$url_main?>"> GO.HANDONG</a>
         </div>
 
         <ul class="navbar__menu">
@@ -63,7 +64,7 @@ if(isset($_SESSION['user_id'])) {
             <li>
                 <a href="<?=$url_write?>"> 
                 <i class="fas fa-pencil-alt"></i> 
-                    write 
+                    Write 
                 </a>
             </li>
         </ul>
