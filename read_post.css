@@ -75,6 +75,7 @@
 }
 
 .post__header__setting .toggle:hover {
+    cursor: pointer;
     background-color: var(--accent-color);
 }
 
@@ -92,8 +93,25 @@
     background-color: inherit;
     font: inherit;
     border: none;
-    padding: 0;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
+
+#edit-button {
+    padding: 0.5em;
+}
+
+#delete-button:hover {
+    cursor: pointer;
+    background-color: var(--accent-color);
+}
+
+#edit-button:hover {
+    cursor: pointer;
+    background-color: var(--accent-color);
+}
+
 
 .content {
     width: 100%;
@@ -104,13 +122,49 @@
 }
 
 .news {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    border-bottom: solid lightgray 1px;
+    border-bottom: solid lightgray 1px;   
+}
+
+.news__content {
+    width: 90%;
     word-wrap: break-word;
 }
 
-.news-form {
+.news__delete {
+    width: 1.25em;
+    height: 1.25em;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.news__delete:hover {
+    color: red;
+}
+
+.form-news {
     margin-top: 1em;
+}
+
+#news-submit-button {
+    margin-top: 1em;
+    margin-left: 1em;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    color: black;
+    font-size: 1rem;
+}
+
+#news-submit-button:hover {
+    background-color: var(--accent-color);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

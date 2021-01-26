@@ -50,7 +50,7 @@ referrerpolicy="origin"></script>
                     </div>
 
                     <div class="edit">
-                        <a href="<?=$url_update?>/<?=$post['keyword']?>">edit</a>
+                        <a href="<?=$url_update?>/<?=$post['keyword']?>" id="edit-button">edit</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,24 @@ referrerpolicy="origin"></script>
                 foreach($newses as $news) {
             ?>
             <div class="news">
-                <?=$news['content']?>
+                <div>
+                    <div class="news__created_date">
+
+                    </div>
+                    <div class="news__content">
+                        <?=$news['content']?>
+                    </div>
+                </div>
+                <?php
+                    if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {
+                ?>
+                <a href = "<?=$url_root?>/delete_news_process.php/?keyword=<?=$post['keyword']?>&news_id=<?=$news['id']?>" class = "news__delete">
+                    <i class="fas fa-times"></i>
+                </a>
+                <?php
+                    }
+                ?>
+
             </div>
             <?php
                 }
@@ -80,12 +97,12 @@ referrerpolicy="origin"></script>
                 if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {
             ?>
 
-            <div class="news-form">
+            <div class="form-news">
                 <form action="/create_news_process.php" method="post">
                 <input type="hidden" name="keyword" value="<?=$post['keyword']?>">
                 <input type="hidden" name="post_id" value="<?=$post['id']?>">
                 <textarea name="content" id="editor"></textarea>
-                <input type="submit" id="submit-button" name="submit-button">
+                <input type="submit" id="news-submit-button">
                 </form>
             </div>
 

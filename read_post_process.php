@@ -53,7 +53,7 @@
 
 
     $sql = ''
-    . 'SELECT content, created_at '
+    . 'SELECT id, content, created_at '
     . 'FROM news '
     . 'WHERE post_id = ' . $post_id;
 
@@ -66,6 +66,7 @@
     $newses = array();
     while($row = mysqli_fetch_array($result)) {
         $news = array(
+            'id' => $row['id'],
             'content' => $row['content'],
             'created_at' => $row['created_at']
         );
