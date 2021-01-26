@@ -20,22 +20,20 @@ if(!isset($_SESSION['user_id'])) {
         <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script src="/add_tiny.js"> </script>
         
-    <body>
-        <form enctype="multipart/form-data" id="area" method="POST" action="/create_post_process.php"> 
-            <div id="all-element">
-                <div class='col'>
+        <form enctype="multipart/form-data" id="post-area" method="POST" action="/create_post_process.php"> 
+                <div id='block1' class='col'>
                     <div id='col1'>
                         <div class="input-block"> 
                             <label class="post-label"><span class="highlight">*</span> 글 제목</label><br/>
                             <input type="text" id="title-input" name="title-input" required>
                         </div>
                         <div class="input-block"> 
-                            <label class="post-label"><span class="highlight">*</span> URL 키워드</label><br/>
-                            <input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 숫자, 띄어쓰기만 가능" required>
+                            <label class="post-label"><span class="highlight">*</span> 링크 키워드</label><br/>
+                            <input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 숫자, - 가능" required>
                         </div>
                         <div class = "input-block">
-                            <label class="post-label">URL</label><br/>
-                            <input type="text" name="url-input">
+                            <label class="post-label">링크 주소</label><br/>
+                            <input type="text" name="link-input">
                         </div>
                         <div class = "input-block">
                             <label class="post-label"><span class="highlight">*</span> 게시 시작</label>
@@ -60,17 +58,18 @@ if(!isset($_SESSION['user_id'])) {
                         </div>
                     </div>
                     <div id='col2' class="input-block">
-                        <img class="show-poster" src="/images/google-logo.png" alt="no img"></img>
+                        <img id="show-poster" src="/images/google-logo.png" alt="no img"></img>
                     </div>
                 </div>
-                <div id="editor-container"> 
-                    <textarea name="editor" id="editor"></textarea> 
+                <div id='block2'>
+                    <div id="editor-container"> 
+                        <textarea name="editor" id="editor"></textarea> 
+                    </div>
+                    <div class="row">
+                        <input type="submit" id="submit-button" name="submit-button">
+                        <input type="submit" id="tmp-button" name="tmp-button" value="임시저장">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <input type="submit" id="submit-button" name="submit-button">
-                <input type="submit" id="tmp-button" name="tmp-button" value="임시저장">
-            </div>
         </form>
     </body>
 </html>
