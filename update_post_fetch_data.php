@@ -40,8 +40,8 @@ if($_SESSION['user_id'] != $row['writer_id']){
 }
 
 
-$query = 'SELECT *, DATE_FORMAT(begin_date, "%Y-%m-%dT%H:%i") AS e_begin_date, 
-                    DATE_FORMAT(end_date, "%Y-%m-%dT%H:%i")  AS e_end_date
+$query = 'SELECT *, DATE_FORMAT(begin_date, "%Y-%m-%d") AS e_begin_date, 
+                    DATE_FORMAT(end_date, "%Y-%m-%d")  AS e_end_date
           FROM posting 
           WHERE link_keyword = "' . $post_keyword . '"';
 
