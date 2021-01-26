@@ -32,12 +32,12 @@ if(!isset($_SESSION['user_id'])) {
                 <div id="start-date"><label class="post-label"><span class="highlight">*</span> 게시 시작 기간</label><input type="datetime-local" class="date-input" name="start-date-input" required></div> 
                 <div id="end-date"><label class="post-label"><span class="highlight">*</span> 게시 종료 기간</label><input type="datetime-local" class="date-input" name="end-date-input" required> </div>
             </div>
-            <div id="scope-option">
+            <div id="scope-option" style="display:flex">
                 <label class="post-label">공개 범위 </label>
                 <input type="radio" id="public" name="scope" value="1" checked> <label class="option">전체 공개</label>
                 <input type="radio" id="private" name="scope" value="0"> <label class="option">한동대 학생만</label>
             </div>
-            <div id="comment-option">
+            <div id="comment-option" style="display:flex">
                 <label class="post-label">1대1 채팅 허용 </label>
                 <input type="radio" id="allow" name="comment" value="1" checked> <label class="option">허용</label>
                 <input type="radio" id="disallow" name="comment" value="0"> <label class="option">비허용</label>
