@@ -45,7 +45,7 @@ referrerpolicy="origin"></script>
                         <form action="/delete_post_process.php" method="post">
                             <input type="hidden" name="post_id" value="<?=$post['id']?>">
                             <input type="hidden" name="writer_id" value="<?=$post['writer_id']?>">
-                            <input type="submit" value="삭제하기">
+                            <input type="submit" value="delete" id="delete-button">
                         </form>
                     </div>
 

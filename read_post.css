@@ -10,23 +10,37 @@
 
 .img-container img {
     object-fit: contain;
-    width: 100%;
+    width: 95%;
     height: 100%;
 }
 
 .post-container {
-    width: 40%;
+    width: 45%;
     height: 80vh;
     overflow:scroll;
-    padding: 2em 1em;
+    /* padding-bottom: 5% 2%; */
 }
 
 .post__header {
+    background-color: white;
+    /* position: -webkit-sticky;
+    position: sticky;
+    top: 0px; */
     display: flex;
     justify-content: space-between;
     width: 100%;
     border-bottom: solid lightgray 1px;
+    margin-top: 1em;
 }
+
+.post__header__info {
+    width : 85%;
+}
+
+.post__header__info .title h1{
+    margin-top : 0;
+}
+
 
 .post__header__info .writer {
     display: flex;
@@ -38,7 +52,6 @@
     height: 2em;
     border-radius: 100%;
 
-    margin-right: 1em;
 }
 
 .post__header__info .period {
@@ -46,10 +59,17 @@
     margin-bottom: 0.5em;
 }
 
+.post__header__setting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10%;
+}
+
 .post__header__setting .toggle {
-    margin-top: 2em;
-    margin-right: 1em;
-    padding: 0.25em;
+    width: 1.5em;
+    height: 1em;
+    text-align: center;
     border-radius: 7px;
     border: solid 0.125em var(--text-color);
 }
@@ -65,6 +85,14 @@
 .tooltip.active {
     display: flex;
     flex-direction: column;
+}
+
+#delete-button {
+    display: block;
+    background-color: inherit;
+    font: inherit;
+    border: none;
+    padding: 0;
 }
 
 .content {

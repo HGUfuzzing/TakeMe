@@ -4,7 +4,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/view/header.php');
 ?>
 
 <style>
-    div {
+    .delete-message {
         position: absolute;
         top: 30%;
         left: 30%;
@@ -14,7 +14,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/view/header.php');
 
 </style>
 
-<div>
+<div class="delete-message">
     삭제가 완료되었습니다. <br>
     <a href="<?=$url_main?>">메인페이지로 돌아가기</a>
 </div>
