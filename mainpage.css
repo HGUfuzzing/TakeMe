@@ -10,8 +10,8 @@
     display: flex;
     flex-direction: column;
 
-    width: 23em;
-    height: 26em;
+    width: 18em;
+    height: 21em;
 
     background-color: #fcfcfc;
     margin: 20px;
@@ -34,8 +34,8 @@
     width: 100%;
     display: flex;
     flex-flow: column wrap;
-    /* align-items: baseline; */
     justify-content: space-evenly;
+    font-size: 0.75em;
 }
 
 .title{
