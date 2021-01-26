@@ -9,7 +9,7 @@
 <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" 
 referrerpolicy="origin"></script>
 <script src="/add_tiny.js"> </script>
-<script src="/read_post.js"> </script>
+<script src="/read_post.js" defer> </script>
 
 <div class="container">
     <section class="img-container">
@@ -37,14 +37,15 @@ referrerpolicy="origin"></script>
                 if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {
             ?>
             <div class="post__header__setting">
-                <i class="fas fa-ellipsis-h" id="toggle"></i>
-                
+                <a class="toggle" id="toggle">
+                    <i class="fas fa-ellipsis-h"></i>
+                </a>
                 <div class="tooltip">
                     <div class="delete">
                         <form action="/delete_post_process.php" method="post">
                             <input type="hidden" name="post_id" value="<?=$post['id']?>">
                             <input type="hidden" name="writer_id" value="<?=$post['writer_id']?>">
-                            <input type="submit" value="삭제하기">
+                            <input type="submit" value="delete" id="delete-button">
                         </form>
                     </div>
 

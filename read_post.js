@@ -1,7 +1,6 @@
-const toggleIcon = document.querySelector('#toggle');
-const tooltip = document.querySelector('.post__header__setting .tooltip');
+const toggle = document.querySelector('.toggle');
+const tooltip = document.querySelector('.tooltip');
 
-
-toggleIcon.addEventListener('click', () => {
+toggle.addEventListener('click', () => {
     tooltip.classList.toggle('active');
 });
