@@ -25,7 +25,8 @@
 
     
     $sql = ''
-    . 'SELECT writer_id, user.firstname, user.lastname, title, image, content, link_keyword, begin_date, end_date, created_at, updated_at '
+    . 'SELECT writer_id, user.firstname, user.lastname, picture_url, '
+    . 'title, image, content, link_keyword, begin_date, end_date, created_at, updated_at '
     . 'FROM posting '
     . 'LEFT JOIN user '
     . 'ON posting.writer_id = user.id '
@@ -46,7 +47,8 @@
         'content' => $row['content'],
         'id' => $post_id,
         'writer_id' => $row['writer_id'],
-        'keyword' => $row['link_keyword']
+        'keyword' => $row['link_keyword'],
+        'picture_url' => $row['picture_url']
     );
 
 

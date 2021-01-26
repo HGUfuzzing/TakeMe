@@ -7,9 +7,9 @@ tinymce.init({
         'table emoticons template paste'
     ],
     toolbar: 
-        'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-        'bullist numlist outdent indent | link image code|' +
+        ' alignleft aligncenter alignright alignjustify | ' +
+        'bullist numlist outdent indent code|' +
         'forecolor backcolor emoticons',
-    menubar: 'favs file edit view insert format tools table',
+    menubar: '',
     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
 });

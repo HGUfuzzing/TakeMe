@@ -6,96 +6,93 @@
 ?>
 
 <link rel="stylesheet" href="/read_post.css">
-<script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script> 
-tinymce.init({
-    selector: 'textarea',
-    height: "500",
-    plugins: [
-        'advlist autolink link image code lists charmap hr anchor pagebreak',
-        'searchreplace wordcount visualblocks visualchars code fullscreen nonbreaking',
-        'table emoticons template paste'
-    ],
-    toolbar: 
-        'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-        'bullist numlist outdent indent | link image code|' +
-        'forecolor backcolor emoticons',
-    menubar: 'favs file edit view insert format tools table',
-    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-});
-</script>
-
+<script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" 
+referrerpolicy="origin"></script>
+<script src="/add_tiny.js"> </script>
+<script src="/read_post.js"> </script>
 
 <div class="container">
+    <section class="img-container">
+        <img src="<?=$post['image']?>" alt="">
+    </section>
 
 
-<?php
-    if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {
-?>
-<div class="delete">
-    <form action="/delete_post_process.php" method="post">
-        <input type="hidden" name="post_id" value="<?=$post['id']?>">
-        <input type="hidden" name="writer_id" value="<?=$post['writer_id']?>">
-        <input type="submit" value="삭제하기">
-    </form>
-</div>
+    <section class="post-container">
 
-<div class="edit">
-    <a href="<?=$url_update?>/<?=$post['keyword']?>">edit</a>
-</div>
-<?php
-    }
-?>
+        <header class="post__header">
+            <div class="post__header__info">
+                <div class="title">
+                    <h1><?=$post['title']?></h1>
+                </div>
+                <div class="writer">
+                    <img src="<?=$post['picture_url']?>" alt="">
+                    <div class="name"><?=$post['name']?></div>
+                </div>
+                <div class="period">
+                    <?=$post['period']?>
+                </div>
+            </div>
 
-<div class="information">
-    <div class="title">
-        <h1><?=$post['title']?></h1>
-    </div>
-        <div>
-            <?=$post['name']?>
-        </div>
-        <div>
-            <?=$post['period']?>
-        </div>
-</div>
+            <?php
+                if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {
+            ?>
+            <div class="post__header__setting">
+                <i class="fas fa-ellipsis-h" id="toggle"></i>
+                
+                <div class="tooltip">
+                    <div class="delete">
+                        <form action="/delete_post_process.php" method="post">
+                            <input type="hidden" name="post_id" value="<?=$post['id']?>">
+                            <input type="hidden" name="writer_id" value="<?=$post['writer_id']?>">
+                            <input type="submit" value="삭제하기">
+                        </form>
+                    </div>
 
-<div class="img-container">
-    <img src="<?=$post['image']?>" alt="">
-</div>
+                    <div class="edit">
+                        <a href="<?=$url_update?>/<?=$post['keyword']?>">edit</a>
+                    </div>
+                </div>
+            </div>
+            <?php
+                }
+            ?>
+        </header>
+        
 
+        <article class="contents-container">
+    
+            <div class="content">
+                <?=$post['content']?>
+            </div>
+            
+            <?php
+                foreach($newses as $news) {
+            ?>
+            <div class="news">
+                <?=$news['content']?>
+            </div>
+            <?php
+                }
+            ?>
 
-<div class="content">
-    <?=$post['content']?>
-</div>
+            <?php
+                if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {
+            ?>
 
+            <div class="news-form">
+                <form action="/create_news_process.php" method="post">
+                <input type="hidden" name="keyword" value="<?=$post['keyword']?>">
+                <input type="hidden" name="post_id" value="<?=$post['id']?>">
+                <textarea name="content" id="editor"></textarea>
+                <input type="submit" id="submit-button" name="submit-button">
+                </form>
+            </div>
 
-<?php
-    foreach($newses as $news) {
-?>
-<div class="news">
-    <?=$news['content']?>
-</div>
-<?php
-    }
-?>
-
-<?php
-    if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {
-?>
-
-<div class="content">
-    글 추가 작성
-    <form action="/create_news_process.php" method="post">
-    <input type="hidden" name="keyword" value="<?=$post['keyword']?>">
-    <input type="hidden" name="post_id" value="<?=$post['id']?>">
-    <textarea name="content" id="editor"></textarea>
-    <input type="submit" id="submit-button" name="submit-button">
-    </form>
-</div>
-
-<?php
-    }
-?>
+            <?php
+                }
+            ?>
+        </article>
+    </section>
 
 </div>
 
