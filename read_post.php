@@ -28,8 +28,8 @@ referrerpolicy="origin"></script>
                     <img src="<?=$post['picture_url']?>" alt="">
                     <div class="name"><?=$post['name']?></div>
                 </div>
-                <div class="period">
-                    <?=$post['period']?>
+                <div class="create_date">
+                    생성일 : <?=$post['created_at']?>
                 </div>
             </div>
 
@@ -69,9 +69,18 @@ referrerpolicy="origin"></script>
             <?php
                 foreach($newses as $news) {
             ?>
-            <div class="news">
-                <div class="news__content">
-                    <?=$news['content']?>
+            <div class="news-container">
+                <div class="news">
+                    <div class="news__writer">
+                        <img src="<?=$post['picture_url']?>" alt="">
+                        <div class="name"><?=$post['name']?></div>
+                    </div>
+                    <div class="news__create_date">
+                        생성일 : <?=$news['created_at']?>
+                    </div>
+                    <div class="news__content">
+                        <?=$news['content']?>
+                    </div>
                 </div>
                 <?php
                     if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {

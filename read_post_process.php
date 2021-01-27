@@ -48,7 +48,8 @@
         'id' => $post_id,
         'writer_id' => $row['writer_id'],
         'keyword' => $row['link_keyword'],
-        'picture_url' => $row['picture_url']
+        'picture_url' => $row['picture_url'],
+        'created_at' => $row['created_at']
     );
 
 
