@@ -19,6 +19,7 @@ if(!isset($_SESSION['user_id'])) {
         <link rel="stylesheet" href="/create_post.css">
         <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script src="/add_tiny.js"> </script>
+        <script src="/create_post.js" defer></script>
         
         <form enctype="multipart/form-data" id="post-area" method="POST" action="/create_post_process.php"> 
                 <div id='block1' class='col'>
@@ -36,11 +37,11 @@ if(!isset($_SESSION['user_id'])) {
                             <input type="text" name="link-input">
                         </div>
                         <div class = "input-block">
-                            <label class="post-label"><span class="highlight">*</span> 게시 시작</label>
+                            <label class="post-label"><span class="highlight">*</span> 행사 시작</label>
                             <input type="date" class="date-input" name="start-date-input" value="<?php echo date('Y-m-d'); ?>" required>
                         </div>
                         <div class="input-block">
-                            <label class="post-label"><span class="highlight">*</span> 게시 종료</label>
+                            <label class="post-label"><span class="highlight">*</span> 행사 종료</label>
                             <input type="date" class="date-input" name="end-date-input" required> 
                         </div>
                         <div class="input-block" style="display:flex">
@@ -48,17 +49,19 @@ if(!isset($_SESSION['user_id'])) {
                             <input type="radio" id="public" name="scope" value="1" checked> <label class="option">전체 공개</label>
                             <input type="radio" id="private" name="scope" value="0"> <label class="option">한동대 학생만</label>
                         </div>
-                        <div class="input-block" id="comment-option" style="display:flex">
+                        <div class="input-block" style="display:flex">
                             <label class="post-label">1대1 채팅 허용 </label>
                             <input type="radio" id="allow" name="comment" value="1" checked> <label class="option">허용</label>
                             <input type="radio" id="disallow" name="comment" value="0"> <label class="option">비허용</label>
                         </div>
                         <div class="input-block">
-                            <label class="post-label">포스터 업로드 </label><input type="file" id="file-input" name="file-input">
+                            <label class="post-label">포스터 업로드 </label>
+                            <input type="file" id="file-input" name="file-input" accept="image/*">
                         </div>
                     </div>
-                    <div id='col2' class="input-block">
-                        <img id="show-poster" src="/images/google-logo.png" alt="no img"></img>
+                    <div id='col2' style='visibility:hidden;' class="input-block">
+                        <span id="preview-img" style= 'display:none; text-align:center;'>게시글 사이즈 보기</span>
+                        <img id="show-poster" style= 'visibility:hidden;' alt="no img"></img>
                     </div>
                 </div>
                 <div id='block2'>
