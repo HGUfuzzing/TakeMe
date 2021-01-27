@@ -70,13 +70,8 @@ referrerpolicy="origin"></script>
                 foreach($newses as $news) {
             ?>
             <div class="news">
-                <div>
-                    <div class="news__created_date">
-
-                    </div>
-                    <div class="news__content">
-                        <?=$news['content']?>
-                    </div>
+                <div class="news__content">
+                    <?=$news['content']?>
                 </div>
                 <?php
                     if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['writer_id']) {
