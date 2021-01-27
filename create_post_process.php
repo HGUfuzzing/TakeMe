@@ -79,11 +79,17 @@ $filtered = array(
 if($filtered['link_keyword'] == '')
     error_msg('키워드를 영어,한글,숫자,"-"만 이용하여 다시 작성해주세요');
 
-$query = "INSERT INTO posting (writer_id, title, image, content, link_keyword, is_public, has_comment, begin_date, end_date, created_at, updated_at)
-            VALUES ({$user_id}, '{$filtered['title']}', '{$image_data}', '{$filtered['content']}',". "'" . $filtered['link_keyword'] . "', {$scope}, {$comment},'{$begin_date}', '{$end_date}', '{$created_at}', '{$created_at}')";
+
+$is_temp = 0;
+if(isset($_POST['tmp-button']))
+    $is_temp = 1;
+
+$query =   "INSERT INTO posting (writer_id, title, image, content, link_keyword, is_public, has_comment, begin_date, end_date, created_at, updated_at, is_temporary)
+            VALUES ({$user_id}, '{$filtered['title']}', '{$image_data}', '{$filtered['content']}',". "'" . $filtered['link_keyword'] . "', {$scope}, {$comment},'{$begin_date}', '{$end_date}', '{$created_at}', '{$created_at}', {$is_temp})";
 
 $query_run = mysqli_query($conn, $query);
 
+// check link keyword is unique or not
 $is_Keyword_Unique = 1;
 
 $query = $conn->prepare("SELECT link_keyword FROM posting WHERE link_keyword='{$filtered['link_keyword']}';");

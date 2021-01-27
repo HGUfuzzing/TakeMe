@@ -10,6 +10,8 @@
     <body>
         <!-- file post 하기 위해서는 enctype 필수 -->
         <form id="post-area" enctype="multipart/form-data" method="POST" action="/update_post_process.php">
+                    <input type='text'  name='id' value="<?php echo $post_id;?>" style='display:none'> 
+                    <input type='text' name='link-keyword' value="<?php echo $link_keyword;?>" style='display:none'>
                     <div id='block1' class="col">
                         <div id='col1'>
                             <div class="input-block">

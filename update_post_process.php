@@ -49,6 +49,10 @@ $filtered = array(
     'content' => mysqli_real_escape_string($conn, $content),
 );
 
+$is_temp = 0;
+if(isset($_POST['tmp-button']))
+    $is_temp = 1;
+
 // 이미지 파일 새로 업로드 하는 경우(서버 blob을 가져와 value로 지정하는게 불가라 따로 처리해줘야함)
 if( $_FILES['file-input']['name'] != "" )
 {   
@@ -74,7 +78,8 @@ if( $_FILES['file-input']['name'] != "" )
                     has_comment = {$comment},
                     begin_date = '{$begin_date}', 
                     end_date = '{$end_date}', 
-                    updated_at = '{$updated_at}'
+                    updated_at = '{$updated_at}',
+                    is_temporary = {$is_temp}
                 WHERE id={$post_id}";
 }
 else{
@@ -86,7 +91,8 @@ else{
                     has_comment = {$comment},
                     begin_date = '{$begin_date}', 
                     end_date = '{$end_date}', 
-                    updated_at = '{$updated_at}'
+                    updated_at = '{$updated_at}',
+                    is_temporary = {$is_temp}
                 WHERE id={$post_id}";
 }
 
@@ -97,7 +103,7 @@ if($query_run === false) {
     die();
 }
 
-header("Location: " . $url_root . '/' . $_POST['keyword']);
+header("Location: " . $url_root . '/' . $_POST['link-keyword']);
     
 
 mysqli_close($conn);
