@@ -33,7 +33,7 @@ keywordInput.addEventListener('focusout', function(event) {
 })
 
 function check_keyword(keyword) {
-    let httpRequest = new XMLHttpRequest();
+    const httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = () => {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
