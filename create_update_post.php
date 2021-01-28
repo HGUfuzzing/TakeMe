@@ -22,7 +22,7 @@ if(!isset($_SESSION['user_id'])) {
     $end_date = '';
     $ispublic = 1;
     $hascomment = 1;
-    $process_php = 'create_post_process.php';
+    $process_php = '/create_post_process.php';
 
     if( isset($_GET['keyword']) ){
         $keyword = $_GET['keyword'];
@@ -70,7 +70,7 @@ if(!isset($_SESSION['user_id'])) {
         $ispublic = $row['is_public'];
         $hascomment = $row['has_comment'];
         $is_temporary = $row['is_temporary'];
-        $process_php = 'update_post_process.php';
+        $process_php = '/update_post_process.php';
     }
 ?>
 
@@ -80,6 +80,12 @@ if(!isset($_SESSION['user_id'])) {
     <script src="/create_post.js" defer></script>
 
         <form enctype="multipart/form-data" id="post-area" method="POST" action="<?php echo $process_php?>">
+            <?php 
+                if($process_php == '/update_post_process.php'){
+                    echo "<input type='text' style='display:none' name='id' value='". $post_id ."'>";
+                    echo "<input type='text' style='display:none' name='link-keyword' value='". $link_keyword ."'>";
+                }
+            ?>
             <div id="block1" class="col">
                 <div id="col1">
                     <div class="input-block">

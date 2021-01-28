@@ -26,6 +26,7 @@ $image_name = NULL;
 
 $user_id = $_SESSION['user_id'];
 $post_id = $_POST['id'];
+$link_keyword = $_POST['link-keyword'];
 
 //DB에 저장
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mysql_connect.php');
@@ -99,6 +100,7 @@ else{
 $query_run = mysqli_query($conn, $query);
 
 if($query_run === false) {
+    die($query);
     error_msg('포스트 업로드에 실패했습니다');
     die();
 }
