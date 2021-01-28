@@ -16,7 +16,7 @@ echo
 // replace space to '-' and remove all characters except english and number
 function url_escape($url){
     $url = str_replace(' ', '-', $url);
-    return preg_replace('[^a-zA-Z0-9-]/', '', $url);
+    return preg_replace('/[^a-zA-Z0-9-]/', '', $url);
 }
 
 function error_msg($message){
