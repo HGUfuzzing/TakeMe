@@ -16,7 +16,7 @@ echo
 // replace space to '-' and remove all characters except english and number
 function url_escape($url){
     $url = str_replace(' ', '-', $url);
-    return preg_replace('/[^a-zA-Z0-9-]/', '', $url);
+    return preg_replace('[^a-zA-Z0-9-]/', '', $url);
 }
 
 function error_msg($message){
@@ -77,7 +77,7 @@ $filtered = array(
 );
 
 if($filtered['link_keyword'] == '')
-    error_msg('키워드를 영어,한글,숫자,"-"만 이용하여 다시 작성해주세요');
+    error_msg('키워드를 영어,숫자,"-"만 이용하여 다시 작성해주세요');
 
 
 $is_temp = 0;
