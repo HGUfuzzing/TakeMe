@@ -74,10 +74,10 @@ if(!isset($_SESSION['user_id'])) {
     }
 ?>
 
-    <link rel="stylesheet" href="/create_post.css">
+    <link rel="stylesheet" href="/create_update_post.css">
     <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="/add_tiny.js"> </script>
-    <script src="/create_post.js" defer></script>
+    <script src="/create_update_post.js" defer></script>
 
         <form enctype="multipart/form-data" id="post-area" method="POST" action="<?php echo $process_php?>">
             <?php 
