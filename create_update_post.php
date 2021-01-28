@@ -18,7 +18,7 @@ if(!isset($_SESSION['user_id'])) {
     $content = '';
     $link_keyword = '';
     $link_url = '';
-    $begin_date = '';
+    $begin_date = date('Y-m-d');
     $end_date = '';
     $ispublic = 1;
     $hascomment = 1;
@@ -98,7 +98,7 @@ if(!isset($_SESSION['user_id'])) {
                             if($link_keyword!='')
                                 echo ('<label id="keyword"> '. $link_keyword . '</label>');
                             else
-                                echo ('<input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 숫자, - 가능" required>');
+                                echo ('<br/><input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 숫자, - 가능" required>');
                         ?>
                     </div>
                     <div class = "input-block">
@@ -107,11 +107,11 @@ if(!isset($_SESSION['user_id'])) {
                     </div>
                     <div class="input-block">
                         <label class="post-label"><span class="highlight">*</span> 행사 시작</label>
-                        <input type="date" class="date-input" name="start-date-input" value="<?php echo $begin_date?>">
+                        <input type="date" class="date-input" name="start-date-input" value="<?php echo $begin_date?>" required>
                     </div>
                     <div class="input-block">
                         <label class="post-label"><span class="highlight">*</span> 행사 종료</label>
-                        <input type="date" class="date-input" name="end-date-input" value="<?php echo $end_date?>">
+                        <input type="date" class="date-input" name="end-date-input" value="<?php echo $end_date?>" required>
                     </div>
                     <div class="input-block" style="display:flex">
                         <label class="post-label">공개 범위 </label>
