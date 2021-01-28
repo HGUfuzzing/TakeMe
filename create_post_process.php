@@ -77,7 +77,7 @@ $filtered = array(
 );
 
 if($filtered['link_keyword'] == '')
-    error_msg('키워드를 영어,한글,숫자,"-"만 이용하여 다시 작성해주세요');
+    error_msg('키워드를 영어,숫자,"-"만 이용하여 다시 작성해주세요');
 
 
 $is_temp = 0;
