@@ -3,21 +3,34 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mysql_connect.php');
 
 $keyword = $_GET['keyword'];
 
-if(!$keyword) {
-    echo 'url로 사용할 키워드를 입력 해주세요';
+if($keyword === '') {
+    echo 'empty';
     return;
 }
+
+if(preg_match('/^[0-9a-zA-Z-]+$/', $keyword) == false) {
+    echo 'invalid';
+    return;
+}
+
 
 $sql = ''
 . 'SELECT count(*) FROM posting WHERE link_keyword = "' . $keyword . '"';
 
 $result = mysqli_query($conn, $sql);
+if($result === false) {
+    echo 'error';
+    return;
+}
+
 $row = mysqli_fetch_array($result);
 
-if($row[0] == 0) {
-    echo '사용 가능한 키워드입니다.';
+$count = $row[0];
+
+if($count == 0) {
+    echo 'good';
 }
 else {
-    echo '사용 불가능한 키워드 입니다.';
+    echo 'duplicate';
 }
 ?>

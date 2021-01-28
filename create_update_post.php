@@ -28,8 +28,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/view/header.php');
                             if($link_keyword!='')
                                 echo ('<label id="keyword"> '. $link_keyword . '</label>');
                             else
-                                echo ('<br/><input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 숫자, - 가능" required>');
+                                echo ('<br><input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 숫자, - 가능" required>');
                         ?>
+                        <div class="keyword_check_msg"></div>
                     </div>
                     <div class = "input-block">
                         <label class="post-label">링크 주소</label><br/>
