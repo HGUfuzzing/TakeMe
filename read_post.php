@@ -1,5 +1,7 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] .  "/read_post_process.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/read_post_favorite_process.php');
+    
     require_once($_SERVER['DOCUMENT_ROOT'] .  "/lib/links.php");
 
     include_once($_SERVER['DOCUMENT_ROOT'] .  "/view/header.php");
@@ -31,6 +33,17 @@ referrerpolicy="origin"></script>
                 <div class="create_date">
                     생성일 : <?=$post['created_at']?>
                 </div>
+            </div>
+
+            <div id='favorite' keyword="<?php echo $post['keyword']?>" status="<?php echo $favorite_status ?>">
+                <?php
+                    if(isset($_SESSION['user_id'])) {
+                        if($favorite_status === 'true')
+                            echo ("<i id='star-icon' class='fa fa-star checked'></i>");
+                        else if ($favorite_status === 'false')
+                            echo ("<i id='star-icon' class='fa fa-star-o' aria-hidden='true'></i>");
+                    }
+                ?>
             </div>
 
             <?php

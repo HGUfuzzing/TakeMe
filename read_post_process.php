@@ -1,6 +1,7 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/mysql_connect.php");
     require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/links.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/read_post_favorite_process.php');
 
     if(!isset($_GET['keyword'])) {
         header("Location: " . $url_main);

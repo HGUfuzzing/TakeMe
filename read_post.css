@@ -201,6 +201,9 @@
     background-color: var(--accent-color);
     cursor: pointer;
 }
+#star-icon{
+    cursor: pointer;
+}
 
 @media screen and (max-width: 768px) {
     .container {

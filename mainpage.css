@@ -98,3 +98,12 @@ img {
     width: 100%;
     height: auto;
 }
+
+div.more-page {
+    display: flex;
+    justify-content: center;
+} 
+.more-page-btn {
+    width: 280px;
+    height: 90px;
+}

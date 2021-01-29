@@ -6,37 +6,15 @@
 
 
     <link rel="stylesheet" href="/mainpage.css">
-
+    <script src="/mainpage.js" defer></script>
     <div class="posts-container">
-        <?php
-        foreach ($posts as $post){
-        ?>
         
-        <div class="post">
-
-            <div class="img-container">
-                <a href="/<?=$post['keyword']?>">
-                <img src="<?=$post['image']?>" alt="">
-                </a>
-            
-            </div>
-
-            <div class="post-info">
-            <a href="/<?=$post['keyword']?>" class="title">
-                <?=$post['title']?>
-            </a>
-                <div class="period"><?=$post['period']?></div>
-                <div class="writer-info">
-                    <div class="picture"><img src="<?=$post['writer_picture_url']?>"></div>
-                    <div class="name"><?=$post['writer']?></div>
-                </div>
-            </div>
-        </div>
-
-        <?php
-        }
-        ?>
     </div>
+    
+    <div class="more-page">
+        <button class="more-page-btn"> 더보기 </button>
+    </div>
+    <input type="hidden" id="page_no" value="1">
 
 </body>
 </html>

@@ -23,7 +23,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/view/header.php');
                         <input type="text" id="title-input" name="title-input" value="<?php echo "$title"; ?>" required>
                     </div>
                     <div class="input-block">
-                        <label class="post-label">링크 키워드</label>
+                    <label class="post-label"><?php if($process_php == '/create_post_process.php')  echo '<span class="highlight">*</span>'?> 링크 키워드</label>
                         <?php 
                             if($link_keyword!='')
                                 echo ('<label id="keyword"> '. $link_keyword . '</label>');
