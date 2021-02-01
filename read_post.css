@@ -203,6 +203,14 @@
 }
 #star-icon{
     cursor: pointer;
+    color: var(--accent-color);
+    font-size: 1.25em;
+}
+
+#favorite {
+    text-align: center;
+    width: 1.5em;
+    height: 1.5em;
 }
 
 @media screen and (max-width: 768px) {

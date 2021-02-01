@@ -14,6 +14,7 @@ $sql = ''
 . 'firstname, lastname, picture_url, link_keyword '
 . ' FROM posting '  
 . ' LEFT JOIN user ON posting.writer_id=user.id '
+. ' ORDER BY created_at DESC'
 . ' LIMIT ' .  $offset . ', ' . $no_of_records_per_page;
 
 
@@ -25,13 +26,38 @@ while($row = mysqli_fetch_array($result)) {
         'id' => $row['id'],
         'image' => 'data: image/;base64,' .  base64_encode($row['image']),
         'title' => htmlspecialchars($row['title']),
-        'period' => $row['begin_date'] . ' ~ ' . $row['end_date'],
+        'begin_date' => $row['begin_date'],
+        'end_date' => $row['end_date'],
         'writer' => $row['lastname'] . ' ' . $row['firstname'],
         'writer_picture_url' => $row['picture_url'],
         'keyword' => $row['link_keyword']
     );
 
     array_push($posts, $post);
+}
+function show_event_day($begin_date, $end_date){
+
+    $cur = date_create(date("Y-m-d"));
+    $begin = date_create($begin_date);
+    $end = date_create($end_date);
+
+    $diff_started = date_diff($begin, $cur);
+    $diff_ended = date_diff($end, $cur);
+
+    $has_started = ($diff_started->format('%R%a') >= 0)? true : false;
+    $has_ended = ($diff_ended->format('%R%a') >= 0)? true: false;
+
+    if($has_started && $has_ended){
+        return '<span class="event-info" style="color: red">끝난 이벤트</span>';
+    }
+    else if($has_started && !$has_ended){
+        return '<span class="event-info" style="color: blue">[진행중] ' . abs($diff_ended->format('%R%a')) . '일 남음</span>';
+    }
+    else if(!$has_started && !$has_ended){
+        return '<span class="event-info" style="color: green">시작까지 Day ' . $diff_started->format('%R%a') . '일</span>';
+    }
+    
+    return '<span>잘못된 날짜</span>';
 }
 ?>
 
@@ -52,7 +78,9 @@ while($row = mysqli_fetch_array($result)) {
             <a class="title" href="/<?=$post['keyword']?>">
                 <?=$post['title']?>
             </a>
-            <div class="period"><?=$post['period']?></div>
+            <div class="period">
+                <?=show_event_day($post['begin_date'], $post['end_date']);?>
+            </div>
             <div class="writer-info">
                 <div class="picture">
                     <img src="<?=$post['writer_picture_url']?>">
