@@ -37,11 +37,6 @@
     width : 85%;
 }
 
-.post__header__info .title h1{
-    margin-top : 0;
-}
-
-
 .post__header__info .writer {
     display: flex;
     align-items: center;
