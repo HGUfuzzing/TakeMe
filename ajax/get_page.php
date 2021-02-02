@@ -5,7 +5,7 @@ if(!isset($_GET['page_no']))
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mysql_connect.php');
 
 $page_no = $_GET['page_no'];
-$no_of_records_per_page = 10;
+$no_of_records_per_page = 5;
 $offset = ($page_no-1) * $no_of_records_per_page;
 
 $sql = ''
@@ -35,6 +35,12 @@ while($row = mysqli_fetch_array($result)) {
 
     array_push($posts, $post);
 }
+
+if(count($posts) === 0) {
+    echo 'end';
+    return;
+}
+
 function show_event_day($begin_date, $end_date){
 
     $cur = date_create(date("Y-m-d"));

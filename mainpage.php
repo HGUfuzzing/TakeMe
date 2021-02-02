@@ -10,9 +10,8 @@
     <div class="posts-container">
         
     </div>
-    
-    <div class="more-page">
-        <button class="more-page-btn"> 더보기 </button>
+    <div class="loading-img-container">
+        <img src="/images/loading.gif" alt="">
     </div>
     <input type="hidden" id="page_no" value="1">
 

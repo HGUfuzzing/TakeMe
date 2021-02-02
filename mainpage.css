@@ -99,11 +99,14 @@ img {
     height: auto;
 }
 
-div.more-page {
+
+.loading-img-container {
     display: flex;
     justify-content: center;
-} 
-.more-page-btn {
-    width: 280px;
-    height: 90px;
+}
+
+.loading-img-container img {
+    display: none;
+    width: 300px;
+    height: 300px;
 }
