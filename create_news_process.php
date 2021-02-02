@@ -30,7 +30,58 @@
         die('error: insert into news');
     }
 
+
+    //이메일 전송
+    $sql = ''
+    . 'SELECT title, link_keyword '
+    . 'FROM posting '
+    . 'WHERE id = ' . $filtered['post_id'];
+
+    $result = mysqli_query($conn, $sql);
+    if($result === false) {
+        die('error : select from posting');
+    }
+    $row = mysqli_fetch_array($result);
+    $post_title = $row['title'];
+    $post_keyword = $row['link_keyword'];
+
+    $sql = ''
+    . 'SELECT email FROM favorite '
+    . 'LEFT JOIN user ON favorite.user_id = user.id '
+    . 'where post_id = ' . $filtered['post_id'];
+
+    $result = mysqli_query($conn, $sql);
+
+    if(result === false) {
+        die('error : select from email');
+    }
+
+    $email_addresses = array();
+    while($row = mysqli_fetch_array($result)) {
+        array_push($email_addresses, $row['email']);
+    }
+    
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/mail.php');
+
+    $short_post_title = $post_title;
+    $encodes = array('ASCII', 'UTF-8', 'EUC-KR');
+    $title_encode = mb_detect_encoding($post_title, $encodes); 
+    
+    if(mb_strlen($short_post_title, $title_encode) > 7) {
+        $short_post_title = mb_substr($short_post_title, 0, 7, $title_encode);
+        $short_post_title .= '...';
+    }
+
+    $subject = '즐겨찾기 한 게시물 "' . $short_post_title . '" 에 news가 생겼습니다.';
+    $body = ''
+    . '즐겨찾기 한 게시물 "' . $post_title . '" 에 news가 생겼습니다. <br><br>'
+    . '<a href="'. $url_root . '/' . $post_keyword . '"> 바로가기 </a>';
+
+    $result = send_mail($email_addresses, $subject, $body);
+
+    if($result === false)
+        die('<br><br>send_email fail');
+    
     header("Location: " . $url_root . '/' . $_POST['keyword']);
     die();
-
 ?>
