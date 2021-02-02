@@ -73,10 +73,13 @@
     }
 
     $subject = '즐겨찾기 한 게시물 "' . $short_post_title . '" 에 news가 생겼습니다.';
+    $content = str_replace(array('\\r\\n', '\\r\\n', '\\r', '\\n'),'',$filtered['content']);
     $body = ''
     . '즐겨찾기 한 게시물 "' . $post_title . '" 에 news가 생겼습니다. <br><br>'
-    . '<a href="'. $url_root . '/' . $post_keyword . '"> 바로가기 </a>';
-
+    . '<a href="'. $url_root . '/' . $post_keyword . '"> 바로가기 </a><br>'
+    . '<br>------------------------------------------------------------------------ <br> '
+    . '<div> ' . $content. '</div>'
+    . '<br>------------------------------------------------------------------------ <br> ';
     $result = send_mail($email_addresses, $subject, $body);
 
     if($result === false)
