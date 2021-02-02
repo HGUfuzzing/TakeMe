@@ -15,8 +15,14 @@ echo
 
 // replace space to '-' and remove all characters except english and number
 function url_escape($url){
-    $url = str_replace(' ', '-', $url);
+    $url = str_replace(' ', '', $url);
     return preg_replace('/[^a-zA-Z0-9-]/', '', $url);
+}
+
+function check_keyword($url){
+    if(preg_match('/[^A-Za-z0-9-]/', $url)){
+        error_msg('키워드에 영어, 숫자, -(대쉬) 만 가능합니다');
+    }
 }
 
 function error_msg($message){
@@ -58,6 +64,8 @@ require_once './lib/mysql_connect.php';
 $title = $_POST['title-input'];
 $content = $_POST['editor'];
 $link_keyword = $_POST['link-keyword-input'];
+check_keyword($link_keyword);
+
 $scope = $_POST['scope'];
 $comment = $_POST['comment'];
 $begin_date = $_POST['start-date-input'];
