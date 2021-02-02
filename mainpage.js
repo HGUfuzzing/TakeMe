@@ -12,7 +12,7 @@ document.body.onload = () => {
 
 //스크롤이 맨 밑으로 내려갔을 때 page 가져오기
 window.addEventListener('scroll', (e) => {
-    if(document.body.scrollHeight - window.innerHeight <= window.scrollY) {
+    if(document.body.scrollHeight <= window.scrollY + window.innerHeight + 1 ) {
         get_more_page();
     }
 })
