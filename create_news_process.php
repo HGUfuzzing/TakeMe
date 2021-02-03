@@ -52,7 +52,7 @@
 
     $result = mysqli_query($conn, $sql);
 
-    if(result === false) {
+    if($result === false) {
         die('error : select from email');
     }
 
