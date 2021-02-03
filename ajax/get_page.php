@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if(!isset($_GET['page_no'])) 
     return;
 
@@ -42,7 +44,6 @@ if(count($posts) === 0) {
 }
 
 function show_event_day($begin_date, $end_date){
-
     $cur = date_create(date("Y-m-d"));
     $begin = date_create($begin_date);
     $end = date_create($end_date);
@@ -64,6 +65,31 @@ function show_event_day($begin_date, $end_date){
     }
     
     return '<span>잘못된 날짜</span>';
+}
+
+
+function print_star_icon($post_id) {
+    global $conn;
+
+    if(!isset($_SESSION['user_id'])) {
+        return;
+    }
+
+    $sql = ''
+    . 'SELECT * '
+    . 'FROM favorite '
+    . 'WHERE post_id = ' . $post_id . ' and user_id = ' . $_SESSION['user_id'];
+
+    $result = mysqli_query($conn, $sql);
+    if($result === false) {
+        die('error : select from favorite');
+    }
+
+    if(mysqli_num_rows($result) === 0) {
+        return '<i class="fa fa-star-o"></i>';
+    }
+
+    return '<i class="fa fa-star checked"></i>';
 }
 ?>
 
@@ -87,13 +113,18 @@ function show_event_day($begin_date, $end_date){
             <div class="period">
                 <?=show_event_day($post['begin_date'], $post['end_date']);?>
             </div>
-            <div class="writer-info">
-                <div class="picture">
-                    <img src="<?=$post['writer_picture_url']?>">
+            <div class="bottom">
+                <div class="writer-info">
+                    <div class="picture">
+                        <img src="<?=$post['writer_picture_url']?>">
+                    </div>
+                    <div class="name">
+                        <?=$post['writer']?>
+                    </div>
                 </div>
-                <div class="name">
-                    <?=$post['writer']?>
-                </div>
+                <a class="favorite">
+                    <?php echo print_star_icon($post['id'])?>
+                </a>
             </div>
         </div>
     </div>

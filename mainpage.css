@@ -28,6 +28,21 @@
     height: 65%;
 }
 
+.img-container a {
+    width: 100%;
+}
+
+
+.img-container a img {
+    width: 100%;
+    height: auto;
+}
+
+.img-container img:hover{
+    color: gray;
+    text-decoration: underline;
+    transform:scale(1.1); 
+}
 
 .post-info {
     height: 35%;
@@ -56,9 +71,16 @@
 }
 
 .period {
-    margin: 0 0 0 1em;
+
 }
 
+
+/* .post .bottom */
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+}
 
 .writer-info {
     display: flex;
@@ -66,39 +88,37 @@
     align-items: baseline;
 }
 
-.writer-info>.picture {
+.writer-info .picture {
     overflow: hidden;
     width: 2em;
     height: 2em;
     border-radius: 100%;
-    margin: 0 0 0 1em;
 }
 
-.writer-info>.picture>img {
+.writer-info .picture img {
     vertical-align:middle;
-}
-
-.writer-info>.name {
-    margin: 0.5em;
-}
-
-img:hover{
-    color: gray;
-    text-decoration: underline;
-    transform:scale(1.1); 
-}
-
-.img-container a {
-    width: 100%;
-    text-decoration: none;
-}
-
-
-img {
     width: 100%;
     height: auto;
 }
 
+.writer-info .name {
+    margin: 0.5em;
+}
+
+.favorite {
+    width: 1.25em;
+    height: 1.25em;
+
+    font-size: 1.25em;
+    color: var(--accent-color);
+}
+
+.favorite i:hover {
+    cursor: pointer;
+}
+
+
+/* page loading image */
 
 .loading-img-container {
     display: flex;
@@ -110,3 +130,4 @@ img {
     width: 100px;
     height: 100px;
 }
+
