@@ -1,7 +1,7 @@
 <?php
+    session_start();
     require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/mysql_connect.php");
     require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/links.php');
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/read_post_favorite_process.php');
 
     if(!isset($_GET['keyword'])) {
         header("Location: " . $url_main);
@@ -76,4 +76,31 @@
         array_push($newses, $news);
     }
 
+?>
+
+
+<?php
+// favorite  설정
+
+if(isset($_SESSION['user_id'])) {
+    $sql = ''
+    . 'SELECT count(*) FROM favorite '
+    . 'WHERE post_id = "'. $post_id . '" AND user_id = ' . $_SESSION['user_id'];
+    //die($sql);
+    $result = mysqli_query($conn, $sql);
+    if($result === false) {
+        die ('error : select from favorite');
+    }
+
+    $row = mysqli_fetch_array($result);
+    $count = $row[0];
+    $favorite_status = "";
+
+    if($count > 0)
+        $favorite_status = "true";
+    else if ($count == 0)
+        $favorite_status = "false";
+    else 
+        die('whhhaaat');
+}
 ?>

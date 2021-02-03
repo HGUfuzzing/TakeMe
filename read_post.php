@@ -1,7 +1,5 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] .  "/read_post_process.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/read_post_favorite_process.php');
-    
     require_once($_SERVER['DOCUMENT_ROOT'] .  "/lib/links.php");
 
     include_once($_SERVER['DOCUMENT_ROOT'] .  "/view/header.php");
@@ -35,7 +33,7 @@ referrerpolicy="origin"></script>
                 </div>
             </div>
 
-            <div id='favorite' keyword="<?php echo $post['keyword']?>" status="<?php echo $favorite_status ?>">
+            <div id='favorite' post_id="<?= $post['id']?>" status="<?=$favorite_status ?>">
                 <?php
                     if(isset($_SESSION['user_id'])) {
                         if($favorite_status === 'true')
