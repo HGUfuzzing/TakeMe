@@ -37,9 +37,9 @@ referrerpolicy="origin"></script>
                 <?php
                     if(isset($_SESSION['user_id'])) {
                         if($favorite_status === 'true')
-                            echo ("<i id='star-icon' class='fa fa-star checked'></i>");
+                            echo ('<i id="star-icon" class="fas fa-star"></i>');
                         else if ($favorite_status === 'false')
-                            echo ("<i id='star-icon' class='fa fa-star-o' aria-hidden='true'></i>");
+                            echo ('<i id="star-icon" class="far fa-star"></i>');
                     }
                 ?>
             </div>

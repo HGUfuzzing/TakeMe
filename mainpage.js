@@ -8,14 +8,18 @@ const postContainer = document.querySelector('.posts-container');
 document.body.onload = () => {
     if(document.body.scrollHeight <= window.innerHeight)
         get_more_page();
-}
+};
 
 //스크롤이 맨 밑으로 내려갔을 때 page 가져오기
 window.addEventListener('scroll', (e) => {
     if(document.body.scrollHeight <= window.scrollY + window.innerHeight + 1 ) {
         get_more_page();
     }
-})
+});
+
+
+
+
 
 function get_more_page() {
     

@@ -86,10 +86,10 @@ function print_star_icon($post_id) {
     }
 
     if(mysqli_num_rows($result) === 0) {
-        return '<i class="fa fa-star-o"></i>';
+        return '<i class="far fa-star"></i>';
     }
 
-    return '<i class="fa fa-star checked"></i>';
+    return '<i class="fas fa-star"></i>';
 }
 ?>
 
@@ -122,7 +122,7 @@ function print_star_icon($post_id) {
                         <?=$post['writer']?>
                     </div>
                 </div>
-                <a class="favorite">
+                <a class="favorite" post_id="<?=$post['id']?>" status="<?=$favorite_status ?>">
                     <?php echo print_star_icon($post['id'])?>
                 </a>
             </div>

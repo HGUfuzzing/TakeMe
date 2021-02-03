@@ -30,13 +30,13 @@ if(favorite !== null) {
         if(isFavorite == 'true'){
             if(set_unset_favorite(post_id, isFavorite)){
                 favorite.setAttribute('status', 'false');
-                icon.className = 'fa fa-star-o';
+                icon.className = 'far fa-star';
             }
         }
         else if(isFavorite == 'false'){
             if(set_unset_favorite(post_id, isFavorite)){
                 favorite.setAttribute('status', 'true');
-                icon.className = 'fa fa-star checked';
+                icon.className = 'fas fa-star';
             }
         }
         else{
