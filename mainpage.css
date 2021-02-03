@@ -113,9 +113,9 @@
     color: var(--accent-color);
 }
 
-.favorite i:hover {
+/* .favorite i:hover {
     cursor: pointer;
-}
+} */
 
 
 /* page loading image */
