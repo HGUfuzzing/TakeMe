@@ -33,8 +33,17 @@
     margin-top: 1em;
 }
 
+
+
 .post__header__info {
     width : 85%;
+}
+
+.post__header__info .title {
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: bold;
+    word-wrap: break-word;
 }
 
 .post__header__info .writer {
@@ -210,10 +219,15 @@
     font-size: 1.25em;
 }
 
+#star-icon:hover {
+    transform:scale(1.3); 
+}
+
 #favorite {
     text-align: center;
     width: 1.5em;
     height: 1.5em;
+    margin-right: 1em;
 }
 
 .loading-img-container {

@@ -22,7 +22,7 @@ referrerpolicy="origin"></script>
         <header class="post__header">
             <div class="post__header__info">
                 <div class="title">
-                    <h1><?=$post['title']?></h1>
+                    <?=$post['title']?>
                 </div>
                 <div class="writer">
                     <img src="<?=$post['picture_url']?>" alt="">
