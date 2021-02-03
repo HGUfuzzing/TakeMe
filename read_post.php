@@ -123,6 +123,11 @@ referrerpolicy="origin"></script>
                 </form>
             </div>
 
+            <div class="loading-img-container">
+                <img src="/images/loading.gif" alt="">
+            </div>
+            
+
             <?php
                 }
             ?>

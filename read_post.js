@@ -1,11 +1,21 @@
 const toggle = document.querySelector('.toggle');
 const tooltip = document.querySelector('.tooltip');
+const newsForm = document.querySelector('.form-news form');
+const newsSubmitBtn = document.querySelector('#news-submit-button');
+const loadingImg = document.querySelector('.loading-img-container img');
+
+
 
 if(toggle !== null){
     toggle.addEventListener('click', () => {
         tooltip.classList.toggle('active');
     });
 }
+
+newsForm.addEventListener('submit', () => {
+    loadingImg.style.display = 'block';
+    newsSubmitBtn.style.display = 'none';
+});
 
 
 const favorite = document.getElementById('favorite');
