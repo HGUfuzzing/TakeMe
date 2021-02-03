@@ -1,6 +1,7 @@
 tinymce.init({
     selector: 'textarea',
-    height: "500",
+    height: '500',
+    width: '100%',
     plugins: [
         'advlist autolink link image code lists charmap hr anchor pagebreak',
         'searchreplace wordcount visualblocks visualchars code fullscreen nonbreaking',
