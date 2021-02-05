@@ -58,8 +58,7 @@ if(isset($_POST['tmp-button']))
 if( $_FILES['file-input']['name'] != "" )
 {   
     $image = $_FILES['file-input']['tmp_name'];
-    $image_data = addslashes(file_get_contents($image));
-    $image_name = addslashes($_FILES['file-input']['name']);
+    $image_data = base64_encode(file_get_contents($image));
     
     //check image or not
     $check = getimagesize($_FILES['file-input']['tmp_name']);

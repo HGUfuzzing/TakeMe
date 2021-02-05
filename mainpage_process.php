@@ -14,7 +14,7 @@
     while($row = mysqli_fetch_array($result)) {
         $post = array(
             'id' => $row['id'],
-            'image' => 'data: image/;base64,' .  base64_encode($row['image']),
+            'image' => 'data: image/;base64,' . $row['image'],
             'title' => htmlspecialchars($row['title']),
             'period' => $row['begin_date'] . ' ~ ' . $row['end_date'],
             'writer' => $row['lastname'] . ' ' . $row['firstname'],

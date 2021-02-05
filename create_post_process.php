@@ -35,7 +35,6 @@ function error_msg($message){
 <?php
 $image = NULL;
 $image_data = NULL;
-$image_name = NULL;
 
 $user_id = $_SESSION['user_id'];
 
@@ -43,8 +42,7 @@ $user_id = $_SESSION['user_id'];
 if(($_FILES['file-input']['name']!=""))
 {   
     $image = $_FILES['file-input']['tmp_name'];
-    $image_data = addslashes(file_get_contents($image));
-    $image_name = addslashes($_FILES['file-input']['name']);
+    $image_data = base64_encode(file_get_contents($image));
     
     //check whether it is image or not
     $check = getimagesize($_FILES['file-input']['tmp_name']);
@@ -111,7 +109,7 @@ if($rows > 0)
 if($query_run)
     header("Location: " . $url_root . '/' . $link_keyword);
 else{
-    echo '<div> 포스트 업로드에 실패했습니다';
+    echo '<div> 포스트 업로드에 실패했습니다<br>';
     if($is_Keyword_Unique == 0){
         echo '<p style="color: red; font-weight:bold;">동일한 링크 키워드를 발견했습니다. 검색 링크 키워드를 변경하세요</p>';
     }

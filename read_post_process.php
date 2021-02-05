@@ -42,7 +42,8 @@
 
     $post = array(
         'title' => $row['title'],
-        'image' => 'data: image/;base64,' .  base64_encode($row['image']),
+        // 'image' => 'data: image/;base64,' .  base64_encode($row['image']),
+        'image' => 'data: image/gif;base64,' . $row['image'],
         'name' => $row['firstname'] . ' ' . $row['lastname'],
         'period' => $row['begin_date'] . ' ~ ' . $row['end_date'],
         'content' => $row['content'],
@@ -82,11 +83,12 @@
 <?php
 // favorite  설정
 
-if(isset($_SESSION['user_id'])) {
+if(isset($_SESSION['user_id'])) 
+{
     $sql = ''
     . 'SELECT count(*) FROM favorite '
     . 'WHERE post_id = "'. $post_id . '" AND user_id = ' . $_SESSION['user_id'];
-    //die($sql);
+
     $result = mysqli_query($conn, $sql);
     if($result === false) {
         die ('error : select from favorite');
