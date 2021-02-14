@@ -1,4 +1,2 @@
-api/*/client_secret.json
-vendor/
-lib/mysql_connect.php
-lib/mail_secret.json
+private
+vendor

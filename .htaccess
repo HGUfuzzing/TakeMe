@@ -1,17 +1,18 @@
 RewriteEngine On
 
-RewriteRule ^$ mainpage.php
-
 RewriteBase /
+
+RewriteRule ^([^.?]+)$ /index.php
+
+
+
+
+
+
+
 Options -Indexes
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^p/mainpage$ mainpage.php
-RewriteRule ^p/write$ create_update_post.php
-RewriteRule ^p/edit/([가-힣a-zA-Z0-9-]+)$ create_update_post.php?keyword=$1
-
-
-RewriteRule ^([가-힣a-zA-Z0-9-]+)$ read_post.php?keyword=$1
-
+RewriteRule ^@([a-zA-Z0-9-]+)$ read?keyword=$1

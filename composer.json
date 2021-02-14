@@ -1,4 +1,9 @@
 {
+    "autoload" : {
+        "classmap" : [
+            "core/"
+        ]
+    },
     "require": {
         "google/apiclient":"^2.0",
         "phpmailer/phpmailer": "^6.2"
