@@ -62,7 +62,7 @@
                 if($post->image != ''){
                     echo '<div id = "col2" class="input-block">'
                     . '<span id="preview-img" style= "display:block; text-align:center;">게시글 사이즈 보기</span>' 
-                    . '<img id="show-poster" style="background-color:white" src="data:image/;base64, '. $post->image .'" alt="no-image"/>';
+                    . '<img id="show-poster" style="background-color:white" src="'. $post->image .'" alt="no-image"/>';
                 }
                 else {
                     echo '<div id="col2" style="visibility:hidden;" class="input-block">'

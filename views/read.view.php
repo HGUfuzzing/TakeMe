@@ -8,7 +8,7 @@ referrerpolicy="origin"></script>
 
 <div class="container">
     <section class="img-container">
-        <img src="data: image;base64, <?=$post->image?>" alt="">
+        <img src="<?=$post->image?>" alt="">
     </section>
 
 

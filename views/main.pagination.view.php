@@ -2,7 +2,7 @@
         <div class="post">
             <div class="img-container">
                 <a href="/read?keyword=<?=$post->link_keyword?>">
-                <img src="data: image;base64, <?=$post->image?>" alt="">
+                <img src="<?=$post->image?>" alt="">
                 </a>
             </div>
 
