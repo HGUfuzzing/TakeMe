@@ -1,15 +1,15 @@
-<? require('partials/header.php'); ?>
+<?php require('partials/header.php'); ?>
 
 <link rel="stylesheet" href="/public/css/write.css">
 <script src="https://cdn.tiny.cloud/1/xvy7v46l3ku3z9ahq8ri2nv0yo4kp1epmg38njljdpvaywk3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="/public/js/add_tiny.js"> </script>
 <script src="/public/js/write.js" defer></script>
 
-<form enctype="multipart/form-data" id="post-area" method="POST" action="/<?= $action?>">
+<form enctype="multipart/form-data" id="post-area" method="POST" action="/<?=$action?>">
     <?php if($action == 'post/edit'): ?>
         <input type='text' style='display:none' name="id" value="<?=$post->id?>">
         <input type='text' style='display:none' name="link-keyword" value="<?=$post->link_keyword?>">
-    <? endif; ?>
+    <?php endif; ?>
 
     <div id="block1" class="col">
         <div id="col1">
@@ -35,11 +35,11 @@
             </div>
             <div class="input-block">
                 <label class="post-label"><span class="highlight">*</span> 행사 시작</label>
-                <input type="date" class="date-input" name="start-date-input" value="<?=$post->e_begin_date?>" required>
+                <input type="date" class="date-input" name="begin_date" value="<?=$post->e_begin_date?>" required>
             </div>
             <div class="input-block">
                 <label class="post-label"><span class="highlight">*</span> 행사 종료</label>
-                <input type="date" class="date-input" name="end-date-input" value="<?=$post->e_end_date?>" required>
+                <input type="date" class="date-input" name="end_date" value="<?=$post->e_end_date?>" required>
             </div>
             <div class="input-block" style="display:flex">
                 <label class="post-label">공개 범위 </label>

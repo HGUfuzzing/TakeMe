@@ -22,8 +22,8 @@ $title = $_POST['title-input'];
 $content = $_POST['editor'];
 $scope = $_POST['scope'];
 $has_chatting = $_POST['has_chatting'];
-$begin_date = $_POST['start-date-input'];
-$end_date = $_POST['end-date-input'];
+$begin_date = $_POST['begin_date'];
+$end_date = $_POST['end_date'];
 $updated_at = date('Y-m-d H:i');
 
 if ( (strtotime($begin_date)) > (strtotime($end_date)) )

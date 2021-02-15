@@ -4,16 +4,21 @@ if(!isset($_SESSION['user_id'])) {
     return;
 }
 
-$post_id = NULL;
-$title = '';
-$image = '';
-$content = '';
-$link_keyword = '';
-$link_url = '';
-$begin_date = date('Y-m-d');
-$end_date = '';
-$is_public = 1;
-$has_chatting = 1;
+$post = [
+    'post_id' => NULL,
+    'title' => '',
+    'image' => '',
+    'content' => '',
+    'link_keyword' => '',
+    'link_url' => '',
+    'begin_date' => date('Y-m-d'),
+    'end_date' => '',
+    'is_public' => 1,
+    'has_chatting' => 1,
+];
+
+$post = (object)$post;
+
 $action = 'post/create';
 
 if(isset($_GET['keyword']) ){
