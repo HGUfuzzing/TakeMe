@@ -16,6 +16,11 @@ $sql = ''
 
 $posts = App::get('database')->query($sql);
 
+if(count($posts) === 0) {
+    echo 'end';
+    return;
+}
+
 
 foreach($posts as $post) 
 {

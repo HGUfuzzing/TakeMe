@@ -45,27 +45,28 @@ if (isset($_GET['code']))
 
     $sql = 'SELECT * FROM user WHERE email="'. $googleEmail. '"';
 	
-	$user_in_db = App::get('database')->query($sql);
+	$count = App::get('database')->rowCount($sql);
 
 	// 해당 user의 data가 db에 없을 때
-	if(count($user_in_db) === 0) {
-		$sql = ''
-		. 'INSERT INTO user (email, firstname, lastname, picture_url) VALUES("' 
-		. $googleEmail . '", "'
-		. $googleFirstname . '", "'
-		. $googleLastname . '", "'
-		. $googlePicture. '")';
-		
-		App::get('database')->query($sql);
+	if($count === 0) {
+		$user = [
+			'email' => $googleEmail,
+			'firstname' => $googleFirstname,
+			'lastname' => $googleLastname,
+			'picture_url' => $googlePicture
+		];
+
+		App::get('database')->insert('user', $user);
 	}
 	
 	//바뀐 데이터가 없는지 확인(TODO) + user id 가져오기
 	$sql = ''
 	. 'SELECT id FROM user WHERE email = "' . $googleEmail  . '"';
 
-	$user_in_db = App::get('database')->query($sql);
+	$user_in_db = App::get('database')->selectOne('user', 'email = "' . $googleEmail . '"');
+	//App::get('database')->query($sql);
 
-	$_SESSION['user_id'] = $user_in_db[0]->id;
+	$_SESSION['user_id'] = $user_in_db->id;
 
 	header('Location: /main'); //redirect user back to page
 	return;
