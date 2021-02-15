@@ -31,7 +31,7 @@
             </div>
             <div class = "input-block">
                 <label class="post-label">링크 주소</label><br/>
-                <input type="text" name="url-input" >
+                <input type="text" name="url-input" placeholder="Zoom, Youtube 링크 등..">
             </div>
             <div class="input-block">
                 <label class="post-label"><span class="highlight">*</span> 행사 시작</label>

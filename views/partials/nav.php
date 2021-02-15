@@ -16,7 +16,7 @@
                 <li>
                     <a href="/write"> 
                     <i class="fas fa-pencil-alt"></i> 
-                        Write 
+                        Post 
                     </a>
                 </li>
             <?php endif; ?>
