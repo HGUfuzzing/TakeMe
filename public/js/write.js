@@ -53,11 +53,10 @@ function check_keyword(keyword) {
             case 'empty':
                 keywordCheckMessage.style.color = 'red';
                 keywordCheckMessage.innerHTML = 'link keyword를 넣어주세요';
-                keywordInput.focus();
                 break;
             case 'invalid':
                 keywordCheckMessage.style.color = 'red';
-                keywordCheckMessage.innerHTML = '영어, 숫자, -(Dash) 만 입력할 수 있습니다.';
+                keywordCheckMessage.innerHTML = '한글, 영어, 숫자, -(Dash) 만 입력할 수 있습니다.';
                 keywordInput.focus();
                 break;
             case 'duplicate':

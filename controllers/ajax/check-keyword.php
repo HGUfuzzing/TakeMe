@@ -6,7 +6,7 @@ if($keyword === '') {
     return;
 }
 
-if(preg_match('/^[0-9a-zA-Z-]+$/', $keyword) == false) {
+if(preg_match('/^[0-9a-zA-Z가-힣-]+$/', $keyword) == false) {
     echo 'invalid';
     return;
 }

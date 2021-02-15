@@ -24,7 +24,7 @@
                 <?php if($action === 'post/edit'): ?>
                     <label id="keyword"><?=$post->link_keyword?></label>
                 <?php else: ?>
-                    <br><input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="영어, 숫자, - 가능" required>
+                    <br><input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="한글, 영어, 숫자, - 가능" required>
                 <?php endif; ?>
 
                 <div class="keyword_check_msg"></div>
@@ -58,18 +58,15 @@
                 <input type='file' id='file-input' name='file-input' accept="image/*">
             </div>
         </div>
-            <?php 
-                if($post->image != ''){
-                    echo '<div id = "col2" class="input-block">'
-                    . '<span id="preview-img" style= "display:block; text-align:center;">게시글 사이즈 보기</span>' 
-                    . '<img id="show-poster" style="background-color:white" src="'. $post->image .'" alt="no-image"/>';
-                }
-                else {
-                    echo '<div id="col2" style="visibility:hidden;" class="input-block">'
-                    . '<span id="preview-img" style= "display:none; text-align:center;">게시글 사이즈 보기</span>' 
-                    . '<img id="show-poster" style= "visibility:hidden;" alt="no img"></img>';
-                }  
-            ?>
+            <?php if($post->image != ''): ?>
+                <div id = "col2" class="input-block">
+                <span id="preview-img" style= "display:block; text-align:center;">게시글 사이즈 보기</span>
+                <img id="show-poster" style="background-color:white" src="<?=$post->image?>" alt="no-image"/>
+            <?php else: ?>
+                <div id="col2" style="visibility:hidden;" class="input-block">
+                <span id="preview-img" style= "display:none; text-align:center;">게시글 사이즈 보기</span>
+                <img id="show-poster" style= "visibility:hidden;" alt="no img"></img>
+            <?php endif; ?>
         </div>
     </div>
     <div id='block2'>

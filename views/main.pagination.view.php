@@ -8,7 +8,7 @@
 
             <div class="post-info">
                 <a class="title" href="/read?keyword=<?=$post->link_keyword?>">
-                    <?=$post->title?>
+                    @<?=$post->link_keyword?>
                 </a>
                 <div class="period">
                     

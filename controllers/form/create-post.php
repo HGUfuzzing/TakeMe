@@ -6,11 +6,11 @@ if(!isset($_SESSION['user_id'])) {
 
 // replace space to '-' and remove all characters except english and number
 function url_escape($url){
-    return preg_replace('/[^a-zA-Z0-9-]/', '', str_replace(' ', '', $url));
+    return preg_replace('/[^a-zA-Z0-9가-힣-]/', '', str_replace(' ', '', $url));
 }
 
 function check_keyword($url){
-    if(preg_match('/[^A-Za-z0-9-]/', $url)){
+    if(preg_match('/[^A-Za-z0-9가-힣-]/', $url)){
         error_msg('키워드에 영어, 숫자, -(대쉬) 만 가능합니다');
     }
 }
@@ -37,9 +37,6 @@ if(($_FILES['file-input']['name'] != ""))
     if($check === false)
         error_msg('포스터가 이미지 형식이 아닙니다!');
 
-    // Check file size (at most 6 MB)
-    if ($_FILES["file-input"]["size"] > 5000000)
-        error_msg('포스터 용량이 큽니다 (최대 5MB)');
 }
 
 

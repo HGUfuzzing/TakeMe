@@ -16,7 +16,6 @@ $post = [
     'is_public' => 1,
     'has_chatting' => 1,
 ];
-
 $post = (object)$post;
 
 $action = 'post/create';
