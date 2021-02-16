@@ -20,27 +20,13 @@ $post_id = $row[0]->id;
 
 $sql = ''
 . 'SELECT writer_id, user.firstname, user.lastname, picture_url, '
-. 'title, image, content, link_keyword, begin_date, end_date, created_at, updated_at '
+. 'title, image, image_path, content, link_keyword, begin_date, end_date, created_at, updated_at '
 . 'FROM posting '
 . 'LEFT JOIN user '
 . 'ON posting.writer_id = user.id '
 . 'WHERE posting.id = ' . $post_id;
 
 $post = App::get('database')->query($sql)[0];
-
-$arr_post = array(
-    'title' => $row->title,
-    'image' => 'data: image/gif;base64,' . $row->image,
-    'name' => $row->firstname . ' ' .$row->lastname,
-    'period' => $row->begin_date . ' ~ ' . $row->end_date,
-    'content' => $row->content,
-    'id' => $post_id,
-    'writer_id' => $row->writer_id,
-    'keyword' => $row->link_keyword,
-    'picture_url' => $row->picture_url,
-    'created_at' => $row->created_at
-);
-
 $newses = App::get('database')->selectAll('news', 'post_id = ' . $post_id);
 
 // favorite  설정

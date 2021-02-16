@@ -5,6 +5,10 @@ const previewImage = document.getElementById('show-poster');
 const previewMessage = document.getElementById('preview-img');
 const keywordInput = document.getElementById('link-keyword-input');
 const keywordCheckMessage = document.querySelector('.keyword_check_msg');
+const eventDateTime = document.getElementById('eventdatetime-container');
+const beginDate = document.getElementById('begin_date');
+const endDate = document.getElementById('end_date');
+
 
 file.addEventListener('change', function(){
     const f = this.files[0];
@@ -72,4 +76,19 @@ function check_keyword(keyword) {
                 alert('???');
         }
     }
+}
+
+function showNone(){
+    beginDate.value = '';
+    endDate.value = '';
+    beginDate.removeAttribute('required');
+    endDate.removeAttribute('required');
+    eventDateTime.style.display = 'none';
+
+}
+
+function showDate(){
+    beginDate.setAttribute('required', '');
+    endDate.setAttribute('required', '');
+    eventDateTime.style.display = 'block';
 }

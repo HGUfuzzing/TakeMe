@@ -8,7 +8,7 @@ referrerpolicy="origin"></script>
 
 <div class="container">
     <section class="img-container">
-        <img src="<?=$post->image?>" alt="">
+        <img src="<?=$post->image_path?>" alt="">
     </section>
 
 

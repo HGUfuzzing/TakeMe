@@ -6,7 +6,7 @@ $offset = ($page_no-1) * $no_of_records_per_page;
 
 $sql = ''
 . 'SELECT '
-. 'posting.id, image, title, begin_date, end_date, '
+. 'posting.id, image, image_path, title, begin_date, end_date, '
 . 'firstname, lastname, picture_url, link_keyword '
 . ' FROM posting '  
 . ' LEFT JOIN user ON posting.writer_id=user.id '

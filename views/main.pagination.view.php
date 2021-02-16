@@ -2,7 +2,7 @@
         <div class="post">
             <div class="img-container">
                 <a href="/read?keyword=<?=$post->link_keyword?>">
-                <img src="<?=$post->image?>" alt="">
+                <img src="<?=$post->image_path?>" alt="">
                 </a>
             </div>
 

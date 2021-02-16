@@ -8,22 +8,19 @@ function error_msg($message){
     die ('<a href="javascript:history.go(-1)">이전 페이지로 돌아가기</a></div>');
 }
 
-$image = NULL;
-$image_data = NULL;
-$image_name = NULL;
-
 
 $user_id = $_SESSION['user_id'];
 $post_id = $_POST['id'];
 $link_keyword = $_POST['link-keyword'];
+$link_url = $_POST['url-input'];
 
 //DB에 저장
 $title = $_POST['title-input'];
 $content = $_POST['editor'];
 $scope = $_POST['scope'];
 $has_chatting = $_POST['has_chatting'];
-$begin_date = $_POST['begin_date'];
-$end_date = $_POST['end_date'];
+$begin_date = ($_POST['begin_date'] === '')? null : $_POST['begin_date'];
+$end_date = ($_POST['end_date'] === '')? null : $_POST['end_date'];
 $updated_at = date('Y-m-d H:i');
 
 if ( (strtotime($begin_date)) > (strtotime($end_date)) )
@@ -33,7 +30,8 @@ if ( (strtotime($begin_date)) > (strtotime($end_date)) )
 
 $filtered = array(
     'title' => htmlspecialchars($title, ENT_QUOTES),
-    'content' => $content,
+    'content' => $content, ENT_QUOTES,
+    'link_url' => htmlspecialchars($link_url, ENT_QUOTES),
 );
 
 $is_temp = 0;
@@ -43,27 +41,26 @@ if(isset($_POST['tmp-button']))
 // 이미지 파일 새로 업로드 하는 경우(서버 blob을 가져와 value로 지정하는게 불가라 따로 처리해줘야함)
 if( $_FILES['file-input']['name'] != "" )
 {   
-    $image = $_FILES['file-input']['tmp_name'];
-    $image_data = base64_encode(file_get_contents($image));
+    //이미지 경로 저장
+    $image_path = '/public/image/post/'. 'user' . $user_id . '__' . $link_keyword . '__' . basename($_FILES['file-input']['name']);
     
     //check image or not
     $check = getimagesize($_FILES['file-input']['tmp_name']);
-    
     if($check === false)
         error_msg('포스터가 이미지 형식이 아닙니다!');
 
-    // Check file size
-    if ($_FILES["file-input"]["size"] > 5000000)
-        error_msg('포스터 용량이 큽니다 (최대 5MB)');
-
+    if (!move_uploaded_file($_FILES['file-input']['tmp_name'], $_SERVER["DOCUMENT_ROOT"] . $image_path))
+        die("Upload to server failed");
+    
     $post = [
         'title' => $filtered['title'],
-        'image' => $image_data, 
+        'image_path' => $image_path,
         'content' => $filtered['content'],
+        'link' => $filtered['link_url'],
         'is_public' => $scope, 
         'has_chatting' => $has_chatting,
         'begin_date' => $begin_date, 
-       'end_date' => $end_date, 
+        'end_date' => $end_date, 
         'updated_at' => $updated_at,
         'is_temporary' => $is_temp
     ];
@@ -73,10 +70,11 @@ else{
     $post = [
         'title' => $filtered['title'],
         'content' => $filtered['content'],
+        'link' => $filtered['link_url'],
         'is_public' => $scope, 
         'has_chatting' => $has_chatting,
         'begin_date' => $begin_date, 
-       'end_date' => $end_date, 
+        'end_date' => $end_date, 
         'updated_at' => $updated_at,
         'is_temporary' => $is_temp
     ];

@@ -14,16 +14,15 @@
     <div id="block1" class="col">
         <div id="col1">
             <div class="input-block">
-                <label class="post-label"><span class="highlight">*</span> 글 제목</label><br/>
-                <input type="text" id="title-input" name="title-input" value="<?=$post->title?>" required>
-            </div>
-            <div class="input-block">
-            <label class="post-label">
-                <span class="highlight">*</span> 링크 키워드
-            </label>
                 <?php if($action === 'post/edit'): ?>
-                    <label id="keyword"><?=$post->link_keyword?></label>
+                    <label class="post-label">
+                        포스트 주소
+                    </label>
+                    <label id="keyword">http://gohandong.cafe24.com/@<?=$post->link_keyword?></label>
                 <?php else: ?>
+                    <label class="post-label">
+                        <span class="highlight">*</span> 포스트 키워드
+                    </label>
                     <br><input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="한글, 영어, 숫자, - 가능" required>
                 <?php endif; ?>
 
@@ -31,27 +30,19 @@
             </div>
             <div class = "input-block">
                 <label class="post-label">링크 주소</label><br/>
-                <input type="text" name="url-input" placeholder="Zoom, Youtube 링크 등..">
+                <input type="text" name="url-input" value="<?=$post->link?>" placeholder="Zoom, Youtube 링크 등..">
             </div>
             <div class="input-block">
-                <label class="post-label"><span class="highlight">*</span> 행사 시작</label>
-                <input type="date" class="date-input" name="begin_date" value="<?=$post->e_begin_date?>" required>
-            </div>
-            <div class="input-block">
-                <label class="post-label"><span class="highlight">*</span> 행사 종료</label>
-                <input type="date" class="date-input" name="end_date" value="<?=$post->e_end_date?>" required>
-            </div>
-            <div class="input-block" style="display:flex">
-                <label class="post-label">공개 범위 </label>
+                <label class="post-label">행사 게시 기간</label>
+                <input type="radio" id="set-eventdate" name="eventdate" onclick="showDate()" checked> <label class="option">설정</label>
+                <input type="radio" id="unset-eventdate" name="eventdate" onclick="showNone()"> <label class="option">미설정</label>
 
-                <input type="radio" id="public" name="scope" value="<?=$post->is_public?>" checked> <label class="option">전체 공개</label>
-                <input type="radio" id="private" name="scope" value="<?=$post->is_public ? 0 : 1 ?>"> <label class="option">한동대 학생만</label>
-                
-            </div>
-            <div class="input-block" style="display:flex">
-                <label class="post-label">1대1 채팅 허용</label>
-                <input type="radio" id="allow" name="comment" value="<?=$post->has_chatting?>" checked> <label class="option">허용</label>
-                <input type="radio" id="disallow" name="comment" value="<?=$post->has_chatting ? 0 : 1?>"> <label class="option">비허용</label>
+                <div id="eventdatetime-container">
+                    <label class="post-label"><span class="highlight">*</span> 행사 시작</label>
+                    <input type="date" class="date-input" id="begin_date" name="begin_date" value="<?=$post->e_begin_date?>" required> <br><br>
+                    <label class="post-label"><span class="highlight">*</span> 행사 종료</label>
+                    <input type="date" class="date-input" id="end_date" name="end_date" value="<?=$post->e_end_date?>" required>
+                </div>
             </div>
             <div class="input-block" id="file-upload">
                 <label class="post-label">포스터 업로드 </label>
@@ -61,7 +52,7 @@
             <?php if($post->image != ''): ?>
                 <div id = "col2" class="input-block">
                 <span id="preview-img" style= "display:block; text-align:center;">게시글 사이즈 보기</span>
-                <img id="show-poster" style="background-color:white" src="<?=$post->image?>" alt="no-image"/>
+                <img id="show-poster" style="background-color:white" src="<?=$post->image_path?>" alt="no-image"/>
             <?php else: ?>
                 <div id="col2" style="visibility:hidden;" class="input-block">
                 <span id="preview-img" style= "display:none; text-align:center;">게시글 사이즈 보기</span>
