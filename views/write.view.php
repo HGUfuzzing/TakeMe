@@ -49,7 +49,7 @@
                 <input type='file' id='file-input' name='file-input' accept="image/*">
             </div>
         </div>
-            <?php if($post->image != ''): ?>
+            <?php if($post->image_path != ''): ?>
                 <div id = "col2" class="input-block">
                 <span id="preview-img" style= "display:block; text-align:center;">게시글 사이즈 보기</span>
                 <img id="show-poster" style="background-color:white" src="<?=$post->image_path?>" alt="no-image"/>
