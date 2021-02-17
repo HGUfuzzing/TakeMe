@@ -6,7 +6,7 @@ $offset = ($page_no-1) * $no_of_records_per_page;
 
 $sql = ''
 . 'SELECT '
-. 'posting.id, image, image_path, title, begin_date, end_date, '
+. 'posting.id, image_path, title, begin_date, end_date, '
 . 'firstname, lastname, picture_url, link_keyword '
 . ' FROM posting '  
 . ' LEFT JOIN user ON posting.writer_id=user.id '
@@ -40,6 +40,10 @@ require 'views/main.pagination.view.php';
 
 
 function get_event_state($begin_date, $end_date){
+    if($begin_date === null || $end_date === null){
+        return ['status' => null];
+    }
+
     $cur = date_create(date("Y-m-d"));
     $begin = date_create($begin_date);
     $end = date_create($end_date);
