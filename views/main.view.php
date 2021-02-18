@@ -4,6 +4,7 @@
 <script src="/public/js/main.js" defer></script>
 
 <div class="search-container">
+    @
     <input type="text" name="text" placeholder="이동할 이벤트의 키워드를 입력하세요.">
     <button>GO</button>
 </div>
