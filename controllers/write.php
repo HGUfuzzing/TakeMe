@@ -12,8 +12,8 @@ $post = [
     'content' => '',
     'link_keyword' => '',
     'link' => '',
-    'begin_date' => '',
-    'end_date' => '',
+    'begin_date' => null,
+    'end_date' => null,
 ];
 $post = (object)$post;
 
