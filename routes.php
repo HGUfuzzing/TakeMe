@@ -25,5 +25,9 @@ $router->get('ajax/main/get-page', 'controllers/ajax/get-page.php');
 $router->get('ajax/read/toggle-favorite', 'controllers/ajax/toggle-favorite.php');
 
 
+//For a posting
+$router->get('@{keyword}', 'controllers/read.php');
+$router->get('read', 'controllers/read.php');
+
 
 //$router->get('test', 'controllers/test.php');
