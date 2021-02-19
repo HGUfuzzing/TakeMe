@@ -31,6 +31,13 @@ class Router
         if (array_key_exists($uri, $this->routes[$requestType])) {
             return $this->routes[$requestType][$uri];
         }
+        else if(preg_match("/^@[0-9a-zA-Z가-힣-]+$/u", $uri)) {  //domain.com/@{keyword} 모양이면 
+            $_GET['keyword'] = substr($uri, 1);
+            return $this->routes[$requestType]['@{keyword}'];
+        }
+        else {
+            die('"' . $_SERVER['HTTP_HOST'] . '/' . $uri . '" 에 대한 페이지를 찾을 수 없습니다');
+        }
 
         throw new Exception('No route defined for this URI.');
     }

@@ -4,6 +4,55 @@ const loadingImg = document.querySelector('.loading-img-container img');
 const pageNo = document.querySelector('#page_no');
 const postContainer = document.querySelector('.posts-container');
 
+const searchInputTxt = document.querySelector('.search-container input');
+const goBtn = document.querySelector('.search-container button');
+
+searchInputTxt.addEventListener('input', (e) => {
+    if(searchInputTxt.value === '') {
+        pageNo.value = '1';
+        postContainer.innerHTML = '';
+        get_more_page();
+    } else {
+        fetch('/ajax/main/search-keyword?keyword=' + searchInputTxt.value)
+        .then((res) => {
+            pageNo.value = 'end'
+            console.log(res);
+            res.text().then((text) => {
+                switch(text) {
+                    case 'end':
+                        if(searchInputTxt.value === '') {
+                            pageNo.value = '1';
+                            postContainer.innerHTML = '';
+                            get_more_page();
+                        } else {
+                            postContainer.innerHTML = '"' + searchInputTxt.value + '" 로 검색한 결과가 없습니다.';
+                        }
+                        break;
+
+                    default :
+                        postContainer.innerHTML = text;
+                }
+            })
+        });
+    }
+});
+
+searchInputTxt.addEventListener('keypress', (e) => {
+    if(e.which === 13) {
+        goBtn.dispatchEvent(new Event('click'));
+    }
+})
+
+
+goBtn.addEventListener('click', (e) => {
+    const firstPost = document.querySelector('.posts-container > .post .post-info a');
+    window.location.href = firstPost.getAttribute('href');
+})
+
+
+
+
+
 //처음 load시 page 가져오기.
 document.body.onload = () => {
     if(document.body.scrollHeight <= window.innerHeight)
@@ -16,6 +65,7 @@ window.addEventListener('scroll', (e) => {
         get_more_page();
     }
 });
+
 
 
 

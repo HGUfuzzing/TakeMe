@@ -1,13 +1,13 @@
 <?php foreach ($posts as $post): ?>
         <div class="post">
             <div class="img-container">
-                <a href="/read?keyword=<?=$post->link_keyword?>">
+                <a href="/@<?=$post->link_keyword?>">
                 <img src="<?=$post->image_path?>" alt="">
                 </a>
             </div>
 
             <div class="post-info">
-                <a class="title" href="/read?keyword=<?=$post->link_keyword?>">
+                <a class="title" href="/@<?=$post->link_keyword?>">
                     @<?=$post->link_keyword?>
                 </a>
                 <div class="period">

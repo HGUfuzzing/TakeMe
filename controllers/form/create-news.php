@@ -59,4 +59,4 @@ $result = send_mail($email_addresses, $subject, $body);
 if($result === false)
     die('<br><br>send_email fail');
 
-header("Location: /read?keyword=" . $_POST['keyword']);
+header("Location: /@" . $_POST['keyword']);
