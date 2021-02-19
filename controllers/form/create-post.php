@@ -20,7 +20,7 @@ function error_msg($message){
     die ('<a href="javascript:history.go(-1)">이전 페이지로 돌아가기</a></div>');
 }
 
-$image_path = '/public/image/post/';
+$image_path = '/public/image/';
 $link_keyword = url_escape(htmlspecialchars($_POST['link-keyword-input']));
 
 $user_id = $_SESSION['user_id'];
@@ -28,7 +28,7 @@ $user_id = $_SESSION['user_id'];
 // 따로 서버에 저장할 (이미지) 파일
 if(($_FILES['file-input']['name'] != ""))
 {      
-    $image_path = $image_path . 'user' . $user_id . '__' . $link_keyword . '__' . basename($_FILES['file-input']['name']);
+    $image_path = $image_path . 'post/user' . $user_id . '__' . $link_keyword . '__' . basename($_FILES['file-input']['name']);
     
     //check whether it is image or not
     $check = getimagesize($_FILES['file-input']['tmp_name']);
@@ -37,13 +37,13 @@ if(($_FILES['file-input']['name'] != ""))
         error_msg('포스터가 이미지 형식이 아닙니다!');
 
     if (!move_uploaded_file($_FILES['file-input']['tmp_name'], $_SERVER["DOCUMENT_ROOT"] . $image_path))
-        die("Upload failed");
-    
+        die("Upload failed");   
+} else {
+    $image_path .= 'noImage.jpg';
 }
 
 
 //DB에 저장
-
 $post['writer_id'] = $_SESSION['user_id'];
 $post['title'] = htmlspecialchars($_POST['title-input'], ENT_QUOTES);
 $post['content'] = $_POST['editor'];
