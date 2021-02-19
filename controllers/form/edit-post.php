@@ -17,8 +17,6 @@ $link_url = $_POST['url-input'];
 //DB에 저장
 $title = $_POST['title-input'];
 $content = $_POST['editor'];
-$scope = $_POST['scope'];
-$has_chatting = $_POST['has_chatting'];
 $begin_date = ($_POST['begin_date'] === '')? null : $_POST['begin_date'];
 $end_date = ($_POST['end_date'] === '')? null : $_POST['end_date'];
 $updated_at = date('Y-m-d H:i');
@@ -57,8 +55,6 @@ if( $_FILES['file-input']['name'] != "" )
         'image_path' => $image_path,
         'content' => $filtered['content'],
         'link' => $filtered['link_url'],
-        'is_public' => $scope, 
-        'has_chatting' => $has_chatting,
         'begin_date' => $begin_date, 
         'end_date' => $end_date, 
         'updated_at' => $updated_at,
@@ -71,8 +67,6 @@ else{
         'title' => $filtered['title'],
         'content' => $filtered['content'],
         'link' => $filtered['link_url'],
-        'is_public' => $scope, 
-        'has_chatting' => $has_chatting,
         'begin_date' => $begin_date, 
         'end_date' => $end_date, 
         'updated_at' => $updated_at,

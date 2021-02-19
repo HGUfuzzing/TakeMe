@@ -14,8 +14,6 @@ $post = [
     'link' => '',
     'begin_date' => '',
     'end_date' => '',
-    'is_public' => 1,
-    'has_chatting' => 1,
 ];
 $post = (object)$post;
 
