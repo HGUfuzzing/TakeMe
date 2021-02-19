@@ -82,4 +82,4 @@ else{
 
 App::get('database')->update('posting', $post, "id = {$post_id}");
 
-header("Location: /read?keyword=" . $_POST['link-keyword']);
+header("Location: /@" . $_POST['link-keyword']);

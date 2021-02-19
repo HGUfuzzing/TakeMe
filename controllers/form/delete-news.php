@@ -9,6 +9,6 @@ if(!isset($_SESSION['user_id']) || $news->user_id != $_SESSION['user_id']) {
 
 App::get('database')->delete('news', 'id = ' . $_POST['news_id']);
 
-header('Location: /read?keyword=' . $_POST['keyword']);
+header('Location: /@' . $_POST['keyword']);
 
 
