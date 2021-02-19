@@ -40,6 +40,9 @@ require 'views/main.pagination.view.php';
 
 
 function get_event_state($begin_date, $end_date){
+    if($begin_date === null || $end_date === null)
+        return ['status' => null];
+    
     $cur = date_create(date("Y-m-d"));
     $begin = date_create($begin_date);
     $end = date_create($end_date);
