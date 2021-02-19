@@ -33,7 +33,7 @@
                 <input type="text" name="url-input" value="<?=$post->link?>" placeholder="Zoom, Youtube 링크 등..">
             </div>
             <div class="input-block">
-                <label class="post-label">행사 게시 기간</label>
+                <label class="post-label">행사 기간</label>
                 <input type="radio" id="set-eventdate" name="eventdate" onclick="showDate()" <?php if($post->begin_date !== null) echo "checked"?>> <label class="option">설정</label>
                 <input type="radio" id="unset-eventdate" name="eventdate" onclick="showNone()" <?php if($post->begin_date === null) echo "checked"?>> <label class="option">미설정</label>
                 
