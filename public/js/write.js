@@ -9,6 +9,11 @@ const eventDateTime = document.getElementById('eventdatetime-container');
 const beginDate = document.getElementById('begin_date');
 const endDate = document.getElementById('end_date');
 
+window.onload=function(){
+    if(beginDate.value !== ''){
+        document.getElementById("set-eventdate").click();  
+    }
+};
 
 file.addEventListener('change', function(){
     const f = this.files[0];

@@ -34,9 +34,9 @@
             </div>
             <div class="input-block">
                 <label class="post-label">행사 게시 기간</label>
-                <input type="radio" id="set-eventdate" name="eventdate" onclick="showDate()" checked> <label class="option">설정</label>
-                <input type="radio" id="unset-eventdate" name="eventdate" onclick="showNone()"> <label class="option">미설정</label>
-
+                <input type="radio" id="set-eventdate" name="eventdate" onclick="showDate()" <?php if($post->begin_date !== null) echo "checked"?>> <label class="option">설정</label>
+                <input type="radio" id="unset-eventdate" name="eventdate" onclick="showNone()" <?php if($post->begin_date === null) echo "checked"?>> <label class="option">미설정</label>
+                
                 <div id="eventdatetime-container">
                     <label class="post-label"><span class="highlight">*</span> 행사 시작</label>
                     <input type="date" class="date-input" id="begin_date" name="begin_date" value="<?=$post->e_begin_date?>" required> <br><br>
