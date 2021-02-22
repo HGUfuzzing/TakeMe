@@ -19,8 +19,8 @@ $post_id = $row[0]->id;
 
 
 $sql = ''
-. 'SELECT writer_id, user.firstname, user.lastname, picture_url, '
-. 'title, image, image_path, content, link_keyword, begin_date, end_date, created_at, updated_at '
+. 'SELECT writer_id, user.firstname, user.lastname, picture_url, link, '
+. 'title, image_path, content, link_keyword, begin_date, end_date, created_at, updated_at '
 . 'FROM posting '
 . 'LEFT JOIN user '
 . 'ON posting.writer_id = user.id '

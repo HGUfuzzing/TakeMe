@@ -16,9 +16,17 @@ referrerpolicy="origin"></script>
 
         <header class="post__header">
             <div class="post__header__info">
-                <div class="title">
-                    <?=$post->title?>
+                <div class="link_keyword">
+                    @<?=$post->link_keyword?>
                 </div>
+
+                <div class="target_link">
+                    <h3>타겟 링크주소</h3>
+                    <ul>
+                        <li><a href="<?= $post->link ?>" target="_blank"><?= $post->link ?></a> </li>
+                    </ul>
+                </div>
+
                 <div class="writer">
                     <img src="<?=$post->picture_url?>" alt="">
                     <div class="name"><?=$post->firstname?> <?=$post->lastname?></div>
