@@ -5,14 +5,12 @@
         </div>
 
         <ul class="navbar__menu">
-            <?php if(isset($_SESSION['user_id'])): ?>
-                <li>
-                    <a href="/write"> 
-                    <i class="fas fa-pencil-alt"></i> 
-                        링크 만들기 
-                    </a>
-                </li>
-            <?php endif; ?>
+            <li>
+                <a href="/write"> 
+                <i class="fas fa-pencil-alt"></i> 
+                    링크 만들기 
+                </a>
+            </li>
         </ul>
         
         <ul class="navbar__user">

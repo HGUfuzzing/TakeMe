@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION['user_id'])) {
-    header("Location: /main");
+    header("Location: /login/google");
     return;
 }
 
