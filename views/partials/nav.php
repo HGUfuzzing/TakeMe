@@ -5,18 +5,11 @@
         </div>
 
         <ul class="navbar__menu">
-            <li>
-            <a href="/main"> 
-                <i class="fas fa-home"></i> 
-                Main
-            </a>
-
-            </li>
             <?php if(isset($_SESSION['user_id'])): ?>
                 <li>
                     <a href="/write"> 
                     <i class="fas fa-pencil-alt"></i> 
-                        Post 
+                        링크 만들기 
                     </a>
                 </li>
             <?php endif; ?>
