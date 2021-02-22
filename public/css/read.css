@@ -36,7 +36,7 @@
 
 
 .post__header__info {
-    width : 85%;
+    width : 95%;
 }
 
 .post__header__info .link_keyword {
@@ -47,8 +47,10 @@
 }
 
 .post__header__info .target_link {
-    padding-top: 25px;
-    padding-bottom: 80px;
+    margin-top: 25px;
+    padding: 10px 5px 30px 10px;
+    width: 100%;
+    border: 1px solid lightgray;
 }
 
 .post__header__info .target_link ul {
@@ -261,7 +263,7 @@
 
 @media screen and (max-width: 768px) {
     .container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         width: 90%;
         margin: auto;
     }
