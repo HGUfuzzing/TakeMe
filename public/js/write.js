@@ -13,6 +13,9 @@ window.onload=function(){
     if(beginDate.value !== ''){
         document.getElementById("set-eventdate").click();  
     }
+    else{
+        document.getElementById("unset-eventdate").click();  
+    }
 };
 
 file.addEventListener('change', function(){
