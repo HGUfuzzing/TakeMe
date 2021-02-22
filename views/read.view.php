@@ -20,7 +20,7 @@ referrerpolicy="origin"></script>
                     @<?=$post->link_keyword?>
                 </div>
                 <div class="buttons">
-                    <button class="link-copy">주소 복사</button>
+                     <i class="link-copy far fa-clipboard"></i>
                     <?php if(isset($_SESSION['user_id'])): ?>
                         <div id='favorite' post_id="<?= $post_id?>" status="<?=$favorite_status ? 'true' : 'false' ?>">
                             <?php if($favorite_status): ?>
@@ -31,7 +31,7 @@ referrerpolicy="origin"></script>
                         </div>
                     <?php endif; ?>
                     <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post->writer_id): ?>
-                        <div class="post__header__setting">
+                        <div class="buttons__setting">
                             <a class="toggle" id="toggle">
                                 <i class="fas fa-ellipsis-h"></i>
                             </a>

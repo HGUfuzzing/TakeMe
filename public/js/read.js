@@ -56,7 +56,7 @@ function copyText(text) {
     tmpElem.select();
     document.execCommand('copy');
     document.body.removeChild(tmpElem);
-    alert('복사되었습니다.');
+    alert('주소가 복사되었습니다.');
 }
 
 function set_unset_favorite(post_id, status){
