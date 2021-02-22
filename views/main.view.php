@@ -6,7 +6,7 @@
 <div class="search-wrapper">
     <div class="search-container">
         <i class="fas fa-at"></i>
-        <input type="text" name="text" placeholder="이동할 이벤트의 키워드를 입력하세요.">
+        <input type="text" name="text" placeholder="이동할 링크의 키워드를 입력하세요.">
         <button style="display:none"></button>
     </div>
 </div>
