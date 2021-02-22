@@ -16,7 +16,7 @@
             <div class="input-block">
                 <?php if($action === 'post/edit'): ?>
                     <label class="post-label">
-                        포스트 주소
+                        나의 주소
                     </label>
                     <label id="keyword">http://gohandong.cafe24.com/@<?=$post->link_keyword?></label>
                 <?php else: ?>
