@@ -19,36 +19,38 @@ referrerpolicy="origin"></script>
                 <div class="link_keyword">
                     @<?=$post->link_keyword?>
                 </div>
-                <div class="setting"></div>
-                <?php if(isset($_SESSION['user_id'])): ?>
-                    <div id='favorite' post_id="<?= $post_id?>" status="<?=$favorite_status ? 'true' : 'false' ?>">
-                        <?php if($favorite_status): ?>
-                            <i id="star-icon" class="fas fa-star"></i>
-                        <?php else: ?>
-                            <i id="star-icon" class="far fa-star"></i>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-                <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post->writer_id): ?>
-                    <div class="post__header__setting">
-                        <a class="toggle" id="toggle">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </a>
-                        <div class="tooltip">
-                            <div class="delete">
-                                <form action="/post/delete" method="post">
-                                    <input type="hidden" name="post_id" value="<?=$post_id?>">
-                                    <input type="hidden" name="writer_id" value="<?=$post->writer_id?>">
-                                    <input type="submit" value="delete" id="delete-button">
-                                </form>
-                            </div>
+                <div class="buttons">
+                    <button class="link-copy">주소 복사</button>
+                    <?php if(isset($_SESSION['user_id'])): ?>
+                        <div id='favorite' post_id="<?= $post_id?>" status="<?=$favorite_status ? 'true' : 'false' ?>">
+                            <?php if($favorite_status): ?>
+                                <i id="star-icon" class="fas fa-star"></i>
+                            <?php else: ?>
+                                <i id="star-icon" class="far fa-star"></i>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post->writer_id): ?>
+                        <div class="post__header__setting">
+                            <a class="toggle" id="toggle">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </a>
+                            <div class="tooltip">
+                                <div class="delete">
+                                    <form action="/post/delete" method="post">
+                                        <input type="hidden" name="post_id" value="<?=$post_id?>">
+                                        <input type="hidden" name="writer_id" value="<?=$post->writer_id?>">
+                                        <input type="submit" value="delete" id="delete-button">
+                                    </form>
+                                </div>
 
-                            <div class="edit">
-                                <a href="/write?keyword=<?=$post->link_keyword?>" id="edit-button">edit</a>
+                                <div class="edit">
+                                    <a href="/write?keyword=<?=$post->link_keyword?>" id="edit-button">edit</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php endif; ?>
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="post__header__info">
                 <div class="target_link">

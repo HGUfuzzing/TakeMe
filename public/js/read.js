@@ -3,6 +3,7 @@ const tooltip = document.querySelector('.tooltip');
 const newsCreateForm = document.querySelector('.form-news form');
 const newsSubmitBtn = document.querySelector('#news-submit-button');
 const loadingImg = document.querySelector('.loading-img-container img');
+const linkCopyBtn = document.querySelector('.link-copy');
 
 if(toggle !== null){
     toggle.addEventListener('click', () => {
@@ -41,6 +42,21 @@ if(favorite !== null) {
             alert("둘다 아님.. " + isFavorite);
         }
     });
+}
+
+linkCopyBtn.addEventListener('click', (e) => {
+    copyText(window.location.href);
+})
+
+function copyText(text) {
+    const tmpElem = document.createElement('textarea');
+    tmpElem.value = text;
+    document.body.appendChild(tmpElem);
+
+    tmpElem.select();
+    document.execCommand('copy');
+    document.body.removeChild(tmpElem);
+    alert('복사되었습니다.');
 }
 
 function set_unset_favorite(post_id, status){
