@@ -23,34 +23,36 @@
 
 .post__header {
     background-color: white;
-    /* position: -webkit-sticky;
-    position: sticky;
-    top: 0px; */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     width: 100%;
     border-bottom: solid lightgray 1px;
     margin-top: 1em;
 }
 
-
-
-.post__header__info {
-    width : 95%;
+.post__header__header {
+    display: flex;
+    justify-content: space-between;
 }
 
-.post__header__info .link_keyword {
+.post__header__header .link_keyword {
     width: 100%;
     font-size: 1.5em;
     font-weight: bold;
     word-wrap: break-word;
 }
 
+.post__header__info {
+    width : 100%;
+}
+
 .post__header__info .target_link {
+    box-sizing: border-box;
     margin-top: 25px;
     padding: 10px 5px 30px 10px;
     width: 100%;
     border: 1px solid lightgray;
+    word-wrap: break-word;
 }
 
 .post__header__info .target_link ul {
