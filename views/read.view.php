@@ -16,7 +16,7 @@ referrerpolicy="origin"></script>
 
         <header class="post__header">
             <div class="post__header__header">
-                <div class="link_keyword">
+                <div class="link_keyword" data-tooltip-text="주소 복사">
                     @<?=$post->link_keyword?>
                 </div>
                 <div class="buttons">

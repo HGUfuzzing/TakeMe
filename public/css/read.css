@@ -40,6 +40,7 @@
     font-size: 1.5em;
     font-weight: bold;
     word-wrap: break-word;
+    cursor: pointer;
 }
 
 .post__header__header .buttons {
@@ -298,6 +299,7 @@
 
 	color: #FFFFFF;
 	font-size: 12px;
+    font-weight: normal;
 	content: attr(data-tooltip-text);
 
   margin-bottom: 10px;

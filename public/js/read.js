@@ -4,6 +4,7 @@ const newsCreateForm = document.querySelector('.form-news form');
 const newsSubmitBtn = document.querySelector('#news-submit-button');
 const loadingImg = document.querySelector('.loading-img-container img');
 const linkCopyBtn = document.querySelector('.link-copy');
+const linkKeyword = document.querySelector('.link_keyword');
 
 if(toggle !== null){
     toggle.addEventListener('click', () => {
@@ -45,8 +46,15 @@ if(favorite !== null) {
 }
 
 linkCopyBtn.addEventListener('click', (e) => {
-    const keyword = document.querySelector('.link_keyword').innerHTML;
+    const keyword = linkKeyword.innerHTML;
     copyText(window.location.host + '/' + keyword);
+    alert('주소가 복사되었습니다.');
+})
+
+linkKeyword.addEventListener('click', (e) => {
+    const keyword = linkKeyword.innerHTML;
+    copyText(window.location.host + '/' + keyword);
+    alert('주소가 복사되었습니다.');
 })
 
 function copyText(text) {
@@ -57,7 +65,6 @@ function copyText(text) {
     tmpElem.select();
     document.execCommand('copy');
     document.body.removeChild(tmpElem);
-    alert('주소가 복사되었습니다.');
 }
 
 function set_unset_favorite(post_id, status){
