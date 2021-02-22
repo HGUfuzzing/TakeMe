@@ -78,7 +78,9 @@ function check_keyword(keyword) {
                 break;
             case 'good':
                 keywordCheckMessage.style.color = 'green';
-                keywordCheckMessage.innerHTML = '사용 가능한 keyword입니다.';
+                keywordCheckMessage.innerHTML = ''
+                    + '생성될 링크 주소 : '
+                    + window.location.host + '/@' + keywordInput.value;
                 break;
             default:
                 alert('???');
