@@ -45,7 +45,8 @@ if(favorite !== null) {
 }
 
 linkCopyBtn.addEventListener('click', (e) => {
-    copyText(window.location.href);
+    const keyword = document.querySelector('.link_keyword').innerHTML;
+    copyText(window.location.host + '/' + keyword);
 })
 
 function copyText(text) {
