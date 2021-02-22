@@ -39,14 +39,30 @@
     width : 85%;
 }
 
-.post__header__info .title {
+.post__header__info .link_keyword {
     width: 100%;
     font-size: 1.5em;
     font-weight: bold;
     word-wrap: break-word;
 }
 
+.post__header__info .target_link {
+    padding-top: 25px;
+    padding-bottom: 80px;
+}
+
+.post__header__info .target_link ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} 
+
+.post__header__info .target_link a:hover {
+    color: skyblue;
+}
+
 .post__header__info .writer {
+    margin-top: 30px;
     display: flex;
     align-items: center;
 }
