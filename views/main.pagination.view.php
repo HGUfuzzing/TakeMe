@@ -24,15 +24,6 @@
                     <?php endif; ?>
                 </div>
                 <div class="bottom">
-                    <div class="writer-info">
-                        <div class="picture">
-                            <img src="<?=$post->picture_url?>">
-                        </div>
-                        <div class="name">
-                            <?=$post->firstname . ' ' . $post->lastname ?>
-                        </div>
-                    </div>
-
                     <a class="favorite" post_id="<?=$post->id?>" status="<?=$post->is_favorite?>">
                         <?php if($post->is_favorite): ?>
                             <i class="fas fa-star"></i>
