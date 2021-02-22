@@ -24,6 +24,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="bottom">
+                    <?php if(isset($_SESSION['user_id'])): ?>
                     <a class="favorite" post_id="<?=$post->id?>" status="<?=$post->is_favorite?>">
                         <?php if($post->is_favorite): ?>
                             <i class="fas fa-star"></i>
@@ -31,6 +32,7 @@
                             <i class="far fa-star"></i>
                         <?php endif; ?>
                     </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
