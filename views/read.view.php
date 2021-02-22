@@ -20,7 +20,7 @@ referrerpolicy="origin"></script>
                     @<?=$post->link_keyword?>
                 </div>
                 <div class="buttons">
-                     <i class="link-copy far fa-clipboard"></i>
+                     <i class="link-copy far fa-clipboard" data-tooltip-text="주소 복사"></i>
                     <?php if(isset($_SESSION['user_id'])): ?>
                         <div id='favorite' post_id="<?= $post_id?>" status="<?=$favorite_status ? 'true' : 'false' ?>">
                             <?php if($favorite_status): ?>
