@@ -10,7 +10,7 @@
     
     <script src="https://kit.fontawesome.com/304f4c0bb6.js" crossorigin="anonymous"></script>
     <script src="/public/js/header.js" defer></script>
-    <title>Document</title>
+    <title>go.handong</title>
 </head>
 <body>
     <?php require 'nav.php'; ?>
