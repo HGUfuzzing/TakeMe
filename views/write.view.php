@@ -66,7 +66,7 @@
         </div>
         <div class="row">
             <input type="submit" id="submit-button" name="submit-button">
-            <input type="submit" id="tmp-button" name="tmp-button" value="임시저장">
+            <!-- <input type="submit" id="tmp-button" name="tmp-button" value="임시저장"> -->
         </div>
     </div>
 </form> 
