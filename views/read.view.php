@@ -54,7 +54,11 @@ referrerpolicy="origin"></script>
                 <div class="target_link">
                     <h3>타겟 링크주소</h3>
                     <ul>
-                        <li><a href="<?= $post->link ?>" target="_blank"><?= $post->link ?></a> </li>
+                        <li>
+                            <a href="<?= $post->link ?>" target="_blank">
+                                <?= $post->link ?>
+                            </a> 
+                        </li>
                     </ul>
                 </div>
 

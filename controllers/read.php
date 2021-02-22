@@ -46,4 +46,7 @@ if(isset($_SESSION['user_id']))
         $favorite_status = true;
 }
 
+if($post->link && substr($post->link, 0, 4) !== 'http' && substr($post->link, 0, 2) !== '//')
+    $post->link = '//' . $post->link;
+
 require 'views/read.view.php';
