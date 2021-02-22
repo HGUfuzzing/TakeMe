@@ -5,7 +5,6 @@ const pageNo = document.querySelector('#page_no');
 const postContainer = document.querySelector('.posts-container');
 
 const searchInputTxt = document.querySelector('.search-container input');
-const goBtn = document.querySelector('.search-container button');
 
 searchInputTxt.addEventListener('input', (e) => {
     if(searchInputTxt.value === '') {
@@ -39,18 +38,10 @@ searchInputTxt.addEventListener('input', (e) => {
 
 searchInputTxt.addEventListener('keypress', (e) => {
     if(e.which === 13) {
-        goBtn.dispatchEvent(new Event('click'));
+        const firstPost = document.querySelector('.posts-container > .post .post-info a');
+        window.location.href = firstPost.getAttribute('href');
     }
 })
-
-
-goBtn.addEventListener('click', (e) => {
-    const firstPost = document.querySelector('.posts-container > .post .post-info a');
-    window.location.href = firstPost.getAttribute('href');
-})
-
-
-
 
 
 //처음 load시 page 가져오기.
