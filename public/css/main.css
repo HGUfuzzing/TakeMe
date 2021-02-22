@@ -77,7 +77,7 @@
 
 .title{
     margin: 0 auto;
-    color: gray;
+    color: black;
     font-size: 1.25em;
     
     width: 100%;
@@ -92,42 +92,24 @@
     text-decoration: underline;
 }
 
-
+.period{
+    text-align: center;
+    font-size: 1.25em;
+}
 /* .post .bottom */
 
 .bottom {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
 }
 
-.writer-info {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-}
-
-.writer-info .picture {
-    overflow: hidden;
-    width: 2em;
-    height: 2em;
-    border-radius: 100%;
-}
-
-.writer-info .picture img {
-    vertical-align:middle;
-    width: 100%;
-    height: auto;
-}
-
-.writer-info .name {
-    margin: 0.5em;
-}
-
 .favorite {
-    width: 1.25em;
-    height: 1.25em;
+    display: flex;
+    width: 1.5em;
+    height: 1.5em;
 
-    font-size: 1.25em;
+    font-size: 1.5em;
     color: var(--accent-color);
 }
 
