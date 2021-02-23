@@ -26,7 +26,7 @@
     <!-- open graph meta data 설정 -->
 
     <meta property="og:url" content="http://takeme.kr/">
-    <meta property="og:title" content="Takeme | ✈️ URL 줄이기 서비스 ✈️">
+    <meta property="og:title" content="Takeme | ✈️ URL 줄이기 서비스">
     <meta property="og:type" content="website">
     <meta property="og:image" content="http://takeme.kr/public/image/og-image.png">
     <meta property="og:description" content="원하는 링크를 짧고 기억하기 쉬운 URL로 바꿔드립니다.">
