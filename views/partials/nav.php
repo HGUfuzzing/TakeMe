@@ -1,7 +1,7 @@
 <nav class="navbar">
         <div class="navbar__logo">
             <i class="far fa-paper-plane"></i>
-            <a href="/"> GO.HANDONG</a>
+            <a href="/">  TAKEME</a>
         </div>
 
         <ul class="navbar__menu">
