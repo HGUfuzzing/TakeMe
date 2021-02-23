@@ -12,7 +12,7 @@ const form = document.querySelector('.form');
 const submitBtn = document.querySelector('#submit-button')
 
 submitBtn.addEventListener('click', function() {
-    if(keywordInput.value !== '' && check_keyword_validation(keywordInput.value) === true) {
+    if(keywordInput === null || keywordInput.value !== '' && check_keyword_validation(keywordInput.value) === true) {
         form.submit();
         return;
     }
@@ -51,9 +51,11 @@ imgContainer.addEventListener('mouseout', function(){
     previewMessage.style.display = 'block';
 })
 
-keywordInput.addEventListener('focusout', function(event) {
-    check_keyword(event.target.value);
-})
+if(keywordInput !== null) {
+    keywordInput.addEventListener('focusout', function(event) {
+        check_keyword(event.target.value);
+    })
+}
 
 function check_keyword_validation(keyword){
     if(keyword.match(/[^0-9a-zA-Z가-힣-]/)) {
