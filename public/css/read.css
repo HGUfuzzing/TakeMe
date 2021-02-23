@@ -25,7 +25,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 95%;
     border-bottom: solid lightgray 1px;
     margin-top: 1em;
 }
@@ -175,10 +175,8 @@
     color:#e2e2e2
 }
 
-
-
 .contents-container {
-    width: 100%;
+    width: 95%;
 }
 
 .content {

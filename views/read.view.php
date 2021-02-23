@@ -11,9 +11,7 @@ referrerpolicy="origin"></script>
         <img src="<?=$post->image_path?>" alt="">
     </section>
 
-
     <section class="post-container">
-
         <header class="post__header">
             <div class="post__header__header">
                 <div class="link_keyword" data-tooltip-text="주소 복사">
@@ -43,7 +41,6 @@ referrerpolicy="origin"></script>
                                         <input type="submit" value="delete" id="delete-button">
                                     </form>
                                 </div>
-
                                 <div class="edit">
                                     <a href="/write?keyword=<?=$post->link_keyword?>" id="edit-button">edit</a>
                                 </div>
@@ -63,7 +60,6 @@ referrerpolicy="origin"></script>
                         </li>
                     </ul>
                 </div>
-
                 <div class="writer">
                     <img src="<?=$post->picture_url?>" alt="">
                     <div class="name"><?=$post->firstname?> <?=$post->lastname?></div>
@@ -74,13 +70,10 @@ referrerpolicy="origin"></script>
             </div>
         </header>
         
-
         <article class="contents-container">
-    
             <div class="content">
                 <?=$post->content?>
             </div>
-            
             <?php foreach($newses as $news): ?>
                 <div class="news-container">
                     <div class="news">
