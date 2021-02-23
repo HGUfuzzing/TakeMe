@@ -29,8 +29,10 @@
                 <div class="keyword_check_msg"></div>
             </div>
             <div class = "input-block">
-                <label class="post-label">타겟 링크</label><br/>
-                <input type="text" name="url-input" value="<?=$post->link?>" placeholder="Zoom, Youtube 링크 등..">
+                <label class="post-label">
+                    <span class="highlight">*</span> 타겟 링크</label>
+                <br/>
+                <input type="text" name="url-input" value="<?=$post->link?>" placeholder="ex) https://www.youtube.com/watch?v=aAMwIbUn_ZA" required>
             </div>
             <div class="input-block">
                 <label class="post-label">유효 기간</label>
