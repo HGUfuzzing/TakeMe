@@ -14,6 +14,7 @@ const submitBtn = document.querySelector('#submit-button')
 submitBtn.addEventListener('click', function() {
     if(keywordInput.value !== '' && check_keyword_validation(keywordInput.value) === true) {
         form.submit();
+        return;
     }
     alert('keyword가 올바르지 않습니다.');
 });
