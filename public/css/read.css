@@ -17,7 +17,7 @@
 .post-container {
     width: 47%;
     height: 80vh;
-    overflow:scroll;
+    overflow-y:scroll;
     /* padding-bottom: 5% 2%; */
 }
 
