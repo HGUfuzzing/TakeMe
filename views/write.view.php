@@ -13,27 +13,42 @@
 
     <div id="block1" class="col">
         <div id="col1">
-            <div class="input-block">
-                <?php if($action === 'post/edit'): ?>
-                    <label class="post-label">
-                        나의 주소
-                    </label>
-                    <label id="keyword">http://gohandong.cafe24.com/@<?=$post->link_keyword?></label>
-                <?php else: ?>
-                    <label class="post-label">
-                        <span class="highlight">*</span> 키워드
-                    </label><br>
-                    @<input type="text" id="link-keyword-input" name="link-keyword-input" placeholder="한글, 영어, 숫자, - 가능" required>
-                <?php endif; ?>
+            <div class="link-direct">
+                <div class="link-keyword-wrapper">
+                    <span class="highlight">*</span> <?=$_SERVER['HTTP_HOST']?>/
+                    <div class="link-keyword-container">
+                        <?php if($action === 'post/edit'): ?>
+                            <label class="post-label">
+                                나의 주소
+                            </label>
+                            <label id="keyword">http://gohandong.cafe24.com/@<?=$post->link_keyword?></label>
+                        <?php else: ?>
+                            @<input type="text" id="link-keyword-input" class="link-keyword" name="link-keyword-input" placeholder="한글, 영어, 숫자, - 가능" required>
+                        <?php endif; ?>
+                    </div>
+                </div>
 
                 <div class="keyword_check_msg"></div>
+                
+                <br>
+                <i class="fas fa-arrow-down"></i>
+                <br>
+                
+                <div class="link-target-wrapper">
+                    <label class="link-target-label">
+                        <span class="highlight">*</span> 타겟 링크
+                    </label>
+                    <div class="link-target-container">
+                        <input type="text" class="link-target" name="url-input" value="<?=$post->link?>" placeholder="ex) https://www.naver.com" required>
+                    </div>
+                </div>
             </div>
-            <div class = "input-block">
-                <label class="post-label">
-                    <span class="highlight">*</span> 타겟 링크</label>
-                <br/>
-                <input type="text" name="url-input" value="<?=$post->link?>" placeholder="ex) https://www.youtube.com/watch?v=aAMwIbUn_ZA" required>
+
+            <div class="input-block" id="file-upload">
+                <label class="post-label">이미지 업로드 </label>
+                <input type='file' id='file-input' name='file-input' accept="image/*">
             </div>
+
             <div class="input-block">
                 <label class="post-label">유효 기간</label>
                 <input type="radio" id="set-eventdate" name="eventdate" onclick="showDate()" <?php if($post->begin_date !== null) echo "checked"?>> <label class="option">설정</label>
@@ -45,10 +60,6 @@
                     <label class="post-label"><span class="highlight">*</span> 종료</label>
                     <input type="date" class="date-input" id="end_date" name="end_date" value="<?=$post->e_end_date?>" required>
                 </div>
-            </div>
-            <div class="input-block" id="file-upload">
-                <label class="post-label">이미지 업로드 </label>
-                <input type='file' id='file-input' name='file-input' accept="image/*">
             </div>
         </div>
             <?php if($post->image_path != ''): ?>
