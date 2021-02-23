@@ -49,7 +49,7 @@ linkCopyBtn.addEventListener('click', (e) => {
 })
 
 linkKeyword.addEventListener('click', (e) => {
-    const keyword = linkKeyword.innerHTML;
+    const keyword = linkKeyword.innerHTML.trim();
     copyText(window.location.host + '/' + keyword);
     //alert('주소가 복사되었습니다.');
 })
