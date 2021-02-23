@@ -15,7 +15,7 @@
 }
 
 .post-container {
-    width: 47%;
+    width: 50%;
     height: 80vh;
     overflow-y:scroll;
     /* padding-bottom: 5% 2%; */
@@ -25,7 +25,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 98%;
     border-bottom: solid lightgray 1px;
     margin-top: 1em;
 }
@@ -176,7 +176,7 @@
 }
 
 .contents-container {
-    width: 95%;
+    width: 98%;
 }
 
 .content {
