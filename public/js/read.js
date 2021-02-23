@@ -39,22 +39,19 @@ if(favorite !== null) {
                 icon.className = 'fas fa-star';
             }
         }
-        else{
-            alert("둘다 아님.. " + isFavorite);
-        }
     });
 }
 
 linkCopyBtn.addEventListener('click', (e) => {
     const keyword = linkKeyword.innerHTML;
     copyText(window.location.host + '/' + keyword);
-    alert('주소가 복사되었습니다.');
+    //alert('주소가 복사되었습니다.');
 })
 
 linkKeyword.addEventListener('click', (e) => {
     const keyword = linkKeyword.innerHTML;
     copyText(window.location.host + '/' + keyword);
-    alert('주소가 복사되었습니다.');
+    //alert('주소가 복사되었습니다.');
 })
 
 function copyText(text) {
@@ -93,10 +90,10 @@ function set_unset_favorite(post_id, status){
                 alert('쿼리 오류');
                 break;
             case 'unset':
-                alert('즐겨찾기 해제');
+                //alert('즐겨찾기 해제');
                 break;
             case 'set':
-                alert('즐겨찾기 설정');
+                //alert('즐겨찾기 설정');
                 break;
             default:
                 alert(res);
