@@ -50,8 +50,8 @@ referrerpolicy="origin"></script>
                 </div>
             </div>
             <div class="post__header__info">
-                <div class="target_link">
-                    <h3>타겟 링크주소</h3>
+                <div class="target_link" onclick="window.open('<?=$post->link?>', '_blank').focus();">
+                    <h5>타겟 링크 주소로 이동</h5>
                     <ul>
                         <li>
                             <a href="<?= $post->link ?>" target="_blank">
