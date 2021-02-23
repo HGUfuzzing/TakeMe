@@ -5,7 +5,7 @@
 <script src="/public/js/add_tiny.js"> </script>
 <script src="/public/js/write.js" defer></script>
 
-<form enctype="multipart/form-data" id="post-area" method="POST" action="/<?=$action?>">
+<form enctype="multipart/form-data" id="post-area" class="form" method="POST" action="/<?=$action?>">
     <?php if($action == 'post/edit'): ?>
         <input type='text' style='display:none' name="id" value="<?=$post->id?>">
         <input type='text' style='display:none' name="link-keyword" value="<?=$post->link_keyword?>">
@@ -65,7 +65,7 @@
             <textarea name="editor" id="editor"><?=$post->content?></textarea>
         </div>
         <div class="row">
-            <input type="submit" id="submit-button" name="submit-button">
+            <button type="button" id="submit-button">제출</button>
             <!-- <input type="submit" id="tmp-button" name="tmp-button" value="임시저장"> -->
         </div>
     </div>

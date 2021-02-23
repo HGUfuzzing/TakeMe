@@ -8,6 +8,15 @@ const keywordCheckMessage = document.querySelector('.keyword_check_msg');
 const eventDateTime = document.getElementById('eventdatetime-container');
 const beginDate = document.getElementById('begin_date');
 const endDate = document.getElementById('end_date');
+const form = document.querySelector('.form');
+const submitBtn = document.querySelector('#submit-button')
+
+submitBtn.addEventListener('click', function() {
+    if(check_keyword_validation(keywordInput.value) === true) {
+        form.submit();
+    }
+    alert('keyword가 올바르지 않습니다.');
+});
 
 window.onload=function(){
     if(beginDate.value !== ''){
@@ -33,6 +42,7 @@ file.addEventListener('change', function(){
     }
 });
 
+
 imgContainer.addEventListener('mouseover', function(){
     previewMessage.style.display = 'none';
 })
@@ -44,8 +54,15 @@ keywordInput.addEventListener('focusout', function(event) {
     check_keyword(event.target.value);
 })
 
+function check_keyword_validation(keyword){
+    if(keyword.match(/[^0-9a-zA-Z가-힣-]/) || keyword === '') {
+        return false;
+    }
+    return true;
+}
+
 function check_keyword(keyword) {
-    if(keyword.match(/[^0-9a-zA-Z가-힣-]/)) {
+    if(check_keyword_validation(keyword) === false) {
         keywordCheckMessage.style.fontSize = '0.75em';
         keywordCheckMessage.style.color = 'red';
         keywordCheckMessage.innerHTML = '한글, 영어, 숫자, -(Dash) 만 입력할 수 있습니다.';
