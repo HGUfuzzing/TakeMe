@@ -5,12 +5,13 @@ $keyword = $_GET['keyword'];
 
 $sql = ''
 . 'SELECT '
-. 'posting.id, image, image_path, title, begin_date, end_date, '
+. 'posting.id, image, image_path, begin_date, end_date, '
 . 'firstname, lastname, picture_url, link_keyword '
 . 'FROM posting ' 
 . 'LEFT JOIN user ON posting.writer_id=user.id '
 . 'WHERE link_keyword like "%' . $keyword . '%" '
-. 'ORDER BY created_at DESC ';
+. 'ORDER BY CHAR_LENGTH(link_keyword) ';
+
 
 $posts = App::get('database')->query($sql);
 
