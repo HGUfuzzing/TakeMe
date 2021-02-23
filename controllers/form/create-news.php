@@ -34,6 +34,9 @@ foreach($rows as $row) {
     $email_addresses[] = $row->email;
 }
 
+if(count($email_addresses) === 0){
+    header("Location: /@" . $_POST['keyword']);
+}
 
 require_once 'controllers/lib/mail.php';
 
