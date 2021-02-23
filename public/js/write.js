@@ -45,6 +45,14 @@ keywordInput.addEventListener('focusout', function(event) {
 })
 
 function check_keyword(keyword) {
+    if(keyword.match(/[^0-9a-zA-Z가-힣-]/)) {
+        keywordCheckMessage.style.fontSize = '0.75em';
+        keywordCheckMessage.style.color = 'red';
+        keywordCheckMessage.innerHTML = '한글, 영어, 숫자, -(Dash) 만 입력할 수 있습니다.';
+        keywordInput.focus();
+        return;
+    }
+
     const httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = () => {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
@@ -68,7 +76,7 @@ function check_keyword(keyword) {
                 break;
             case 'invalid':
                 keywordCheckMessage.style.color = 'red';
-                keywordCheckMessage.innerHTML = '한글, 영어, 숫자, -(Dash) 만 입력할 수 있습니다.';
+                keywordCheckMessage.innerHTML = '한글, 영어, 숫자, -(Dash) 만 입력할 수 있습니다..';
                 keywordInput.focus();
                 break;
             case 'duplicate':
