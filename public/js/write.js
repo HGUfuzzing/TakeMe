@@ -12,7 +12,7 @@ const form = document.querySelector('.form');
 const submitBtn = document.querySelector('#submit-button')
 
 submitBtn.addEventListener('click', function() {
-    if(check_keyword_validation(keywordInput.value) === true) {
+    if(keywordInput.value !== '' && check_keyword_validation(keywordInput.value) === true) {
         form.submit();
     }
     alert('keyword가 올바르지 않습니다.');
@@ -55,7 +55,7 @@ keywordInput.addEventListener('focusout', function(event) {
 })
 
 function check_keyword_validation(keyword){
-    if(keyword.match(/[^0-9a-zA-Z가-힣-]/) || keyword === '') {
+    if(keyword.match(/[^0-9a-zA-Z가-힣-]/)) {
         return false;
     }
     return true;
