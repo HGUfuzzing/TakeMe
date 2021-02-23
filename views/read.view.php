@@ -51,6 +51,7 @@ referrerpolicy="origin"></script>
             </div>
             <div class="post__header__info">
                 <div class="target_link" onclick="window.open('<?=$post->link?>', '_blank').focus();">
+                    <h4>Click!!</h4>
                     <h5>타겟 링크 주소로 이동</h5>
                     <ul>
                         <li>
