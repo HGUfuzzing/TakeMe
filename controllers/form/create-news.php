@@ -18,7 +18,6 @@ App::get('database')->insert('news', $news);
 //이메일 전송
 $post = App::get('database')->selectOne('posting', 'id = ' . $news['post_id']);
 
-$post_title = $post->title;
 $post_keyword = $post->link_keyword;
 
 $sql = ''
@@ -36,23 +35,24 @@ foreach($rows as $row) {
 
 if(count($email_addresses) === 0){
     header("Location: /@" . $_POST['keyword']);
+    die();
 }
 
 require_once 'controllers/lib/mail.php';
 
-$short_post_title = $post_title;
+$short_post_keyword = $post_keyword;
 $encodes = array('ASCII', 'UTF-8', 'EUC-KR');
-$title_encode = mb_detect_encoding($post_title, $encodes); 
+$keyword_encode = mb_detect_encoding($post_keyword, $encodes); 
 
-if(mb_strlen($short_post_title, $title_encode) > 7) {
-    $short_post_title = mb_substr($short_post_title, 0, 7, $title_encode);
-    $short_post_title .= '...';
+if(mb_strlen($short_post_keyword, $keyword_encode) > 7) {
+    $short_post_keyword = mb_substr($short_post_keyword, 0, 7, $title_encode);
+    $short_post_keyword .= '...';
 }
 
-$subject = '즐겨찾기 한 게시물 "' . $short_post_title . '" 에 news가 생겼습니다.';
+$subject = '즐겨찾기 한 게시물 "@' . $short_post_keyword . '" 에 news가 생겼습니다.';
 $content = str_replace(array('\\r\\n', '\\r\\n', '\\r', '\\n'),'',$news['content']);
 $body = ''
-. '즐겨찾기 한 게시물 "' . $post_title . '" 에 news가 생겼습니다. <br><br>'
+. '즐겨찾기 한 게시물 "@' . $post_keyword . '" 에 news가 생겼습니다. <br><br>'
 . '<a href="'. $url_root . '/' . $post_keyword . '"> 바로가기 </a><br>'
 . '<br>------------------------------------------------------------------------ <br> '
 . '<div> ' . $content. '</div>'
