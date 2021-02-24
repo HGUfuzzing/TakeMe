@@ -48,12 +48,24 @@
     align-items: center;
 }
 
-.buttons .link-copy {
-    margin: 5px;
-    height: 30px;
-    font-size: 1.75em;
-    cursor: pointer;
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
 }
+
+.buttons .link-copy-button {
+    width: 1.3em;
+    height: 1.3em; 
+    text-align: center;
+    line-height: 1.3em;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+/* .buttons .link-copy-button:hover {
+    transform:scale(1.3); 
+} */
 
 .buttons #favorite {
     text-align: center;
@@ -299,7 +311,7 @@
     height: 100px;
 }
 
-
+/* tooltip 관련 */
 [data-tooltip-text]:hover {
 	position: relative;
 }
@@ -318,6 +330,7 @@
 
 	color: #FFFFFF;
 	font-size: 12px;
+    text-align: center;
     font-weight: normal;
 	content: attr(data-tooltip-text);
 
@@ -326,7 +339,8 @@
 	left: 0;    
 	padding: 7px 12px;
 	position: absolute;
-	width: auto;
+	width: 5rem;
+    height: auto;
 	min-width: 50px;
 	max-width: 300px;
 	word-wrap: break-word;

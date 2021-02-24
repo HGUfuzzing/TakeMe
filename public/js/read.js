@@ -3,7 +3,7 @@ const tooltip = document.querySelector('.tooltip');
 const newsCreateForm = document.querySelector('.form-news form');
 const newsSubmitBtn = document.querySelector('#news-submit-button');
 const loadingImg = document.querySelector('.loading-img-container img');
-const linkCopyBtn = document.querySelector('.link-copy');
+const linkCopyBtn = document.querySelector('.link-copy-button');
 const linkKeyword = document.querySelector('.link_keyword');
 
 if(toggle !== null){
