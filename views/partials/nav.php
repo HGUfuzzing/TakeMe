@@ -8,7 +8,7 @@
             <li>
                 <a href="/write"> 
                 <i class="fas fa-pencil-alt"></i> 
-                    링크 만들기 
+                    심플 링크 만들기 
                 </a>
             </li>
         </ul>
