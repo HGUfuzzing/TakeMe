@@ -63,9 +63,9 @@
     font-size: 1.5em;
 }
 
-/* .buttons .link-copy-button:hover {
+.buttons .link-copy-button:active{
     transform:scale(1.3); 
-} */
+}
 
 .buttons #favorite {
     text-align: center;
@@ -330,17 +330,18 @@
 
 	color: #FFFFFF;
 	font-size: 12px;
-    text-align: center;
     font-weight: normal;
 	content: attr(data-tooltip-text);
+    text-align: center;
+    line-height: 1.5rem;
 
   margin-bottom: 10px;
-	top: 130%;
+	top: 100%;
 	left: 0;    
 	padding: 7px 12px;
 	position: absolute;
 	width: 5rem;
-    height: auto;
+    height: 1.5rem;
 	min-width: 50px;
 	max-width: 300px;
 	word-wrap: break-word;

@@ -14,11 +14,11 @@ referrerpolicy="origin"></script>
     <section class="post-container">
         <header class="post__header">
             <div class="post__header__header">
-                <div class="link_keyword">
+                <div class="link_keyword" data-tooltip-text="심플 링크 복사">
                     @<?=$post->link_keyword?>
                 </div>
                 <div class="buttons">
-                     <div class="link-copy-button" data-tooltip-text="URL 복사"> <i class="link-copy far fa-clipboard" aria-hidden="true"></i></div>
+                     <div class="link-copy-button" data-tooltip-text="심플 링크 복사"> <i class="link-copy far fa-clipboard" aria-hidden="true"></i></div>
                     <?php if(isset($_SESSION['user_id'])): ?>
                         <div id='favorite' post_id="<?= $post_id?>" status="<?=$favorite_status ? 'true' : 'false' ?>">
                             <?php if($favorite_status): ?>
