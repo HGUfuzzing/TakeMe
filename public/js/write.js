@@ -1,6 +1,6 @@
 'use strict';
 const file = document.getElementById('file-input');
-const imgContainer = document.getElementById('col2');
+const imgContainer = document.querySelector('.thumbnail-box');
 const previewImage = document.getElementById('show-poster');
 const previewMessage = document.getElementById('preview-img');
 const keywordInput = document.querySelector('.link-keyword');
@@ -9,7 +9,7 @@ const eventDateTime = document.getElementById('eventdatetime-container');
 const beginDate = document.getElementById('begin_date');
 const endDate = document.getElementById('end_date');
 const form = document.querySelector('.form');
-const submitBtn = document.querySelector('#submit-button')
+const submitBtn = document.querySelector('.submit-button')
 const targetInput = document.querySelector('.link-target')
 const targetCheckMsg = document.querySelector('.target-check-msg')
 submitBtn.addEventListener('click', function() {
