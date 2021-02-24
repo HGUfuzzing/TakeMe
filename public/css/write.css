@@ -205,7 +205,7 @@ input[type=date]{
 
 #eventdatetime-container { 
     display: block; 
-    margin: 1em; 
+    margin: 1em 1em 0 1em; 
 }
 
 .highlight{
