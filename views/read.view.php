@@ -50,7 +50,7 @@ referrerpolicy="origin"></script>
                 </div>
             </div>
             <div class="post__header__info">
-                <div class="target_link" onclick="window.open('<?=$post->link?>', '_blank').focus();">
+                <div class="target_link" onclick="window.open('<?=$post->link?>', '_blank');">
                     <h4>Click!!</h4>
                     <h5>타겟 링크 주소로 이동</h5>
                     <div class="target_link__url"><?= $post->link ?></div>
@@ -96,12 +96,15 @@ referrerpolicy="origin"></script>
             <?php endforeach; ?>
 
             <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post->writer_id): ?>
+                <div class="news-description"> 
+                    <h2>뉴스 작성 하기</h2>
+                    (뉴스 작성시 이 링크를 즐겨찾기 한 유저에게 이메일을 발송합니다.) </div>
                 <div class="form-news">
                     <form action="/news/create" method="post">
                         <input type="hidden" name="keyword" value="<?=$post->link_keyword?>">
                         <input type="hidden" name="post_id" value="<?=$post_id?>">
                         <textarea name="content" id="editor"></textarea>
-                        <input type="submit" id="news-submit-button">
+                        <button type="submit" id="news-submit-button">뉴스 작성하기</button>
                     </form>
                 </div>
 
