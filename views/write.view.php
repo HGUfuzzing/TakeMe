@@ -62,18 +62,10 @@
                 </div>
             </div>
         </div>
-        <?php if($post->image_path != ''): ?>
             <div id = "col2" class="input-block">
-                <span id="preview-img" style= "display:block; text-align:center;">게시글 사이즈 보기</span>
-                <img id="show-poster" style="background-color:white" src="<?=$post->image_path?>" alt="no-image"/>
-            </div>
-        <?php else: ?>
-            <div id="col2" style="display:none;" class="input-block">
-                <span id="preview-img" style= "display:none; text-align:center;">게시글 사이즈 보기</span>
-                <img id="show-poster" style= "display:none;" alt="no img"></img>
-            </div>
-        <?php endif; ?>
-        
+            <span id="preview-img" style= "display:block; text-align:center;">게시글 사이즈 보기</span>
+            <img id="show-poster" style="background-color:white" src="<?=$post->image_path?>" alt="no-image"/>
+        </div>
     </div>
     <div id='block2'>
         <div id="editor-container">
