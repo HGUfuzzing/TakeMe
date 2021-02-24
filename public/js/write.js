@@ -118,8 +118,8 @@ function check_keyword(keyword) {
             case 'good':
                 keywordCheckMsg.style.color = 'green';
                 keywordCheckMsg.innerHTML = ''
-                    + 'good : '
-                    + window.location.host + '/@' + keywordInput.value;
+                    + 'good';
+                    //+ window.location.host + '/@' + keywordInput.value;
                 break;
             default:
                 alert('???');
