@@ -66,7 +66,7 @@ targetInput.addEventListener('focusout', function(event) {
     }
     else {
         targetCheckMsg.style.color = 'red';
-        targetCheckMsg.innerHTML = '타겟 주소가 "http://" 혹은 "https://" 로 시작하여야 합니다';
+        targetCheckMsg.innerHTML = '타겟 주소가 "http://" 혹은 "https://" 로 시작하여야 합니다.';
     }
 })
 
