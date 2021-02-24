@@ -34,7 +34,7 @@
                     <i class="fas fa-arrow-down"></i>
                 </div>
                 
-                <div class="target-check-msg">연결할 타겟 링크를 입력해주세요.</div>
+                <div class="target-check-msg">연결할 타겟 주소를 입력해주세요.</div>
                 <div class="link-target-wrapper">
                     <span class="highlight">*</span> 
                     <div class="link-target-container">
