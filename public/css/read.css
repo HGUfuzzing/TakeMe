@@ -151,6 +151,16 @@
     background-color: var(--accent-color);
 }
 
+.post__header__info .target_link {
+    text-align: center;
+}
+
+.target_link__url {
+    position: relative;
+    bottom: 2rem;
+    font-size: 0.75rem;
+}
+
 .post__header__info .target_link *{
     text-align: center;
 }

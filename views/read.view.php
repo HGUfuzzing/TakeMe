@@ -53,13 +53,7 @@ referrerpolicy="origin"></script>
                 <div class="target_link" onclick="window.open('<?=$post->link?>', '_blank').focus();">
                     <h4>Click!!</h4>
                     <h5>타겟 링크 주소로 이동</h5>
-                    <ul>
-                        <li>
-                            <a href="<?= $post->link ?>" target="_blank">
-                                <?= $post->link ?>
-                            </a> 
-                        </li>
-                    </ul>
+                    <div class="target_link__url"><?= $post->link ?></div>
                 </div>
                 <div class="writer">
                     <img src="<?=$post->picture_url?>" alt="">
