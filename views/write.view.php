@@ -14,7 +14,9 @@
     <div id="block1" class="col">
         <div id="col1">
             <div class="links-container ">
-                <div class="keyword-check-msg"></div>
+            <?php if($action !== 'post/edit'): ?>
+                <div class="keyword-check-msg">생성할 심플 링크의 키워드를 입력해주세요.</div>
+            <?php endif; ?>
 
                 <div class="link-keyword-wrapper">
                     <span class="highlight">*</span> 
@@ -32,11 +34,11 @@
                     <i class="fas fa-arrow-down"></i>
                 </div>
                 
-                <div class="target-check-msg"></div>
+                <div class="target-check-msg">연결할 타겟 링크를 입력해주세요.</div>
                 <div class="link-target-wrapper">
                     <span class="highlight">*</span> 
                     <div class="link-target-container">
-                        <input type="text" class="link-target" name="url-input" value="<?=$post->link?>" placeholder="연결할 타겟 링크 입력  ex) https://www.naver.com" required>
+                        <input type="text" class="link-target" name="url-input" value="<?=$post->link?>" placeholder="ex) https://us02web.zoom.us/j/156852521239" required>
                     </div>
                 </div>
 

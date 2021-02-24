@@ -42,6 +42,7 @@
     z-index: 2;
 } 
 
+
 .links-container {
     width: 100%;
     align-items: center;
@@ -87,6 +88,15 @@
     display: block;
     padding-left: 3rem;
     height: 0.75rem;
+    color: gray;
+    font-size: 0.75rem;
+}
+
+.target-check-msg {
+    display: block;
+    padding-left: 3rem;
+    height: 0.75rem;
+    color: gray;
     font-size: 0.75rem;
 }
 
