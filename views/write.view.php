@@ -14,7 +14,7 @@
     <div id="block1" class="col">
         <div id="col1">
             <div class="links-container ">
-                <div class="keyword_check_msg"> </div>
+                <div class="keyword_check_msg"></div>
 
                 <div class="link-keyword-wrapper">
                     <span class="highlight">*</span> 

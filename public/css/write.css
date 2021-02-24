@@ -83,7 +83,9 @@
 }
 
 .keyword_check_msg {
+    display: block;
     padding-left: 3rem;
+    height: 0.75rem;
 }
 
 .link-target-container {
