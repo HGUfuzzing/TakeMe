@@ -82,10 +82,18 @@
     padding-left: 0.5rem;
 }
 
-.keyword_check_msg {
+.keyword-check-msg {
     display: block;
     padding-left: 3rem;
     height: 0.75rem;
+    font-size: 0.75rem;
+}
+
+.target-check-msg {
+    display: block;
+    padding-left: 3rem;
+    height: 0.75rem;
+    font-size: 0.75rem;
 }
 
 .link-target-container {

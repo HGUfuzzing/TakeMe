@@ -4,13 +4,14 @@ const imgContainer = document.getElementById('col2');
 const previewImage = document.getElementById('show-poster');
 const previewMessage = document.getElementById('preview-img');
 const keywordInput = document.querySelector('.link-keyword');
-const keywordCheckMessage = document.querySelector('.keyword_check_msg');
+const keywordCheckMsg = document.querySelector('.keyword-check-msg');
 const eventDateTime = document.getElementById('eventdatetime-container');
 const beginDate = document.getElementById('begin_date');
 const endDate = document.getElementById('end_date');
 const form = document.querySelector('.form');
 const submitBtn = document.querySelector('#submit-button')
-
+const targetInput = document.querySelector('.link-target')
+const targetCheckMsg = document.querySelector('.target-check-msg')
 submitBtn.addEventListener('click', function() {
     if(keywordInput === null || keywordInput.value !== '' && check_keyword_validation(keywordInput.value) === true) {
         form.submit();
@@ -57,6 +58,18 @@ if(keywordInput !== null) {
     })
 }
 
+targetInput.addEventListener('focusout', function(event) {
+    const targetLink = event.target.value;
+    if(targetLink.length > 10 && targetLink.substr(0, 8) === 'https://' || targetLink.substr(0, 7) === 'http://') {
+        targetCheckMsg.style.color = 'green';
+        targetCheckMsg.innerHTML = 'good';
+    }
+    else {
+        targetCheckMsg.style.color = 'red';
+        targetCheckMsg.innerHTML = '타겟 주소가 "http://" 혹은 "https://" 로 시작하여야 합니다';
+    }
+})
+
 function check_keyword_validation(keyword){
     if(keyword.match(/[^0-9a-zA-Z가-힣-]/)) {
         return false;
@@ -66,9 +79,8 @@ function check_keyword_validation(keyword){
 
 function check_keyword(keyword) {
     if(check_keyword_validation(keyword) === false) {
-        keywordCheckMessage.style.fontSize = '0.75em';
-        keywordCheckMessage.style.color = 'red';
-        keywordCheckMessage.innerHTML = '한글, 영어, 숫자, -(Dash) 만 입력할 수 있습니다.';
+        keywordCheckMsg.style.color = 'red';
+        keywordCheckMsg.innerHTML = '한글, 영어, 숫자, -(Dash) 만 입력할 수 있습니다.';
         keywordInput.focus();
         return;
     }
@@ -88,26 +100,25 @@ function check_keyword(keyword) {
     httpRequest.send();
 
     function inform(res) {
-        keywordCheckMessage.style.fontSize = '0.75em';
         switch(res) {
             case 'empty':
-                keywordCheckMessage.style.color = 'red';
-                keywordCheckMessage.innerHTML = 'link keyword를 넣어주세요';
+                keywordCheckMsg.style.color = 'red';
+                keywordCheckMsg.innerHTML = '키워드를 넣어주세요.';
                 break;
             case 'invalid':
-                keywordCheckMessage.style.color = 'red';
-                keywordCheckMessage.innerHTML = '한글, 영어, 숫자, -(Dash) 만 입력할 수 있습니다..';
+                keywordCheckMsg.style.color = 'red';
+                keywordCheckMsg.innerHTML = '한글, 영어, 숫자, -(Dash) 만 입력할 수 있습니다..';
                 keywordInput.focus();
                 break;
             case 'duplicate':
-                keywordCheckMessage.style.color = 'red';
-                keywordCheckMessage.innerHTML = '해당 keyword는 이미 사용중입니다.';
+                keywordCheckMsg.style.color = 'red';
+                keywordCheckMsg.innerHTML = '해당 keyword는 이미 사용중입니다.';
                 keywordInput.focus();
                 break;
             case 'good':
-                keywordCheckMessage.style.color = 'green';
-                keywordCheckMessage.innerHTML = ''
-                    + '생성될 링크 주소 : '
+                keywordCheckMsg.style.color = 'green';
+                keywordCheckMsg.innerHTML = ''
+                    + 'good : '
                     + window.location.host + '/@' + keywordInput.value;
                 break;
             default:
