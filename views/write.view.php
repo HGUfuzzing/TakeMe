@@ -45,11 +45,6 @@
                 
             </div>
             
-            <div class="input-block" id="file-upload">
-                <label for="file-input" class="file-upload-button">썸네일 이미지 업로드</label>
-                <input type="file" id="file-input" name="file-input" class="file-input" accept="image/*" >
-            </div>
-            <br><br>
             <div class="input-block">
                 <input type="radio" id="set-eventdate" name="eventdate" onclick="showDate()" <?php if($post->begin_date !== null) echo "checked"?>> <label class="option">유효 기간 설정</label>
                 <input type="radio" id="unset-eventdate" name="eventdate" onclick="showNone()" <?php if($post->begin_date === null) echo "checked"?>> <label class="option">유효 기간 미설정</label>
@@ -61,11 +56,16 @@
                     <input type="date" class="date-input" id="end_date" name="end_date" value="<?=$post->e_end_date?>" required>
                 </div>
             </div>
+            <br><br>
+            <div class="input-block" id="file-upload">
+                <label for="file-input" class="file-upload-button">썸네일 이미지 업로드</label>
+                <input type="file" id="file-input" name="file-input" class="file-input" accept="image/*" >
+            </div>
         </div>
             <div id = "col2" class="input-block">
-            <span id="preview-img" style= "display:block; text-align:center;">게시글 사이즈 보기</span>
-            <img id="show-poster" style="background-color:white" src="<?=$post->image_path?>" alt="no-image"/>
-        </div>
+                <span id="preview-img" style= "display:block; text-align:center;">게시글 사이즈 보기</span>
+                <img id="show-poster" style="background-color:white" src="<?=$post->image_path?>" alt="no-image"/>
+            </div>
     </div>
     <div id='block2'>
         <div id="editor-container">
