@@ -3,7 +3,7 @@ const file = document.getElementById('file-input');
 const imgContainer = document.getElementById('col2');
 const previewImage = document.getElementById('show-poster');
 const previewMessage = document.getElementById('preview-img');
-const keywordInput = document.getElementById('link-keyword-input');
+const keywordInput = document.querySelector('.link-keyword');
 const keywordCheckMessage = document.querySelector('.keyword_check_msg');
 const eventDateTime = document.getElementById('eventdatetime-container');
 const beginDate = document.getElementById('begin_date');
@@ -35,8 +35,8 @@ file.addEventListener('change', function(){
         previewMessage.style.display = 'block';
 
         reader.addEventListener('load', function(){
-            imgContainer.style.visibility = 'visible';
-            previewImage.style.visibility = 'visible';
+            imgContainer.style.display = 'block';
+            previewImage.style.display = 'block';
             previewImage.setAttribute('src', this.result);
         });
         reader.readAsDataURL(f);
