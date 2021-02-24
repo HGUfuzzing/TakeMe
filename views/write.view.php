@@ -45,7 +45,7 @@
             
             <div class="input-block" id="file-upload">
                 <label for="file-input" class="file-upload-button">썸네일 이미지 업로드</label>
-                <input type="file" id="file-input" class="file-input" accept="image/*" >
+                <input type="file" id="file-input" name="file-input" class="file-input" accept="image/*" >
             </div>
             <br><br>
             <div class="input-block">
