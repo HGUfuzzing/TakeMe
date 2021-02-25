@@ -10,6 +10,7 @@ $sql = ''
 . 'FROM posting ' 
 . 'LEFT JOIN user ON posting.writer_id=user.id '
 . 'WHERE link_keyword like "%' . $keyword . '%" '
+. 'AND is_approved = 1 '
 . 'ORDER BY CHAR_LENGTH(link_keyword) ';
 
 
