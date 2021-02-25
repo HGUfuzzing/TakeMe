@@ -15,11 +15,14 @@
                     <?php if($post->status === 'running'): ?>
                         <span class="event-info" style="color: blue"> [진행중] <?=$post->remain_date?>일 남음 </span>
 
+                    <?php elseif($post->status === 'lastday'): ?>
+                        <span class="event-info" style="color: red; font-weight:bold;">[진행중] 오늘 마감</span>
+
                     <?php elseif($post->status === 'upcomming'): ?>
                         <span class="event-info" style="color: green">시작까지 Day <?=$post->remain_date?>일</span>
-                    
+
                     <?php elseif($post->status === 'end'): ?>
-                        <span class="event-info" style="color: red">끝난 이벤트</span>
+                        <span class="event-info" style="color: gray">끝난 이벤트</span>
                     
                     <?php endif; ?>
                 </div>
