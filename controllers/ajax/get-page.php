@@ -11,6 +11,7 @@ $sql = ''
 . 'firstname, lastname, picture_url, link_keyword '
 . ' FROM posting '  
 . ' LEFT JOIN user ON posting.writer_id=user.id '
+. ' WHERE is_approved = 1 '
 . ' ORDER BY created_at DESC'
 . ' LIMIT ' .  $offset . ', ' . $no_of_records_per_page;
 
