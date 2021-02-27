@@ -1,5 +1,5 @@
 <?php
-require 'controllers/lib/main.lib.php';
+require 'controllers/lib/functions.lib.php';
 
 $keyword = $_GET['keyword'];
 
