@@ -51,7 +51,7 @@ referrerpolicy="origin"></script>
             </div>
             <div class="post__header__info">
                 <div class="target_link" onclick="window.open('<?=$post->link?>', '_blank');">
-                    <h4>이동</h4>
+                    <div class="target_link__msg">이동</div>
                     <div class="target_link__url"><?= $post->link ?></div>
                 </div>
                 <div class="writer">
