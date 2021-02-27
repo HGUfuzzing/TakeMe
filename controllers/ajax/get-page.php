@@ -1,5 +1,5 @@
 <?php
-require 'controllers/lib/main.lib.php';
+require 'controllers/lib/functions.php';
 
 $page_no = $_GET['page_no'];
 $no_of_records_per_page = 5;

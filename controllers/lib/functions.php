@@ -51,3 +51,22 @@ function print_star_icon($post_id) {
 
     return true;
 }
+
+
+
+// replace space to '-' and remove all characters except english and number
+// function url_escape($url){
+//     return preg_replace('/[^a-zA-Z0-9가-힣-]/', '', str_replace(' ', '', $url));
+// }
+
+function is_valid_keyword($url){
+    if(preg_match('/[^A-Za-z0-9가-힣-]/', $url)){
+        return false;
+    }
+    return true;
+}
+
+function error_msg($message){
+    echo '<div><p style="color: red; font-weight:bold;">'. $message .'</p>';
+    die ('<a href="javascript:history.go(-1)">이전 페이지로 돌아가기</a></div>');
+}
