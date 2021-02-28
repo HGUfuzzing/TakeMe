@@ -1,4 +1,6 @@
 <?php
+require 'controllers/lib/functions.php';
+
 if(!isset($_GET['keyword'])) {
     header("Location: " . $url_main);
     die();
@@ -49,4 +51,5 @@ if(isset($_SESSION['user_id']))
 if($post->link && substr($post->link, 0, 4) !== 'http' && substr($post->link, 0, 2) !== '//')
     $post->link = '//' . $post->link;
 
+$post->content = auto_link($post->content);
 require 'views/read.view.php';
