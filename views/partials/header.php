@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-07MNGGY45H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-07MNGGY45H');
+    </script>
+
     <!-- favicons 설정 -->
     <link rel="apple-touch-icon" sizes="57x57" href="/public/image/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/public/image/favicons/apple-icon-60x60.png">
