@@ -70,3 +70,14 @@ function error_msg($message){
     echo '<div><p style="color: red; font-weight:bold;">'. $message .'</p>';
     die ('<a href="javascript:history.go(-1)">이전 페이지로 돌아가기</a></div>');
 }
+
+
+
+function auto_link($contents) {
+	$pattern = '/(http|https|ftp|mms):\/\/[0-9a-z-]+(\.[_0-9a-z-]+)+(:[0-9]{2,4})?\/?';
+	$pattern .= '([\.~_0-9a-z-]+\/?)*';
+	$pattern .= '(\S+\.[_0-9a-z]+)?';
+	$pattern .= '(\?[_0-9a-z#%&=\-\+]+)*/i';
+	$replacement = '<a href="\\0" target="_blank">\\0</a>';
+	return preg_replace($pattern, $replacement, $contents, -1);
+}
