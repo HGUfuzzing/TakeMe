@@ -1,0 +1,251 @@
+#post-area{
+    display: flex;
+    width: 90vw;
+    margin: auto;
+}
+
+.left-input-container {
+    width: 50%;
+    margin: 1em;
+    flex-direction: column;
+}
+
+
+.links-container {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+
+.link-keyword-wrapper {
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+
+.link-target-wrapper {
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+
+.arrow {
+    width: 90%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding-left: 1.25em;
+}
+
+.link-target-label {
+    width: 8rem;
+}
+
+.link-keyword-container {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 2rem;
+    border: solid 1px rgb(195, 195, 195);
+    overflow: hidden;
+    padding-left: 0.5rem;
+}
+
+.keyword-check-msg {
+    display: block;
+    padding-left: 3rem;
+    height: 0.75rem;
+    color: gray;
+    font-size: 0.75rem;
+}
+
+.target-check-msg {
+    display: block;
+    padding-left: 3rem;
+    height: 0.75rem;
+    color: gray;
+    font-size: 0.75rem;
+}
+
+.target-check-msg {
+    display: block;
+    padding-left: 3rem;
+    height: 0.75rem;
+    font-size: 0.75rem;
+}
+
+.link-target-container {
+    display: flex;
+    width: 90%;
+    border: solid 1px rgb(195, 195, 195);
+    overflow: hidden;
+    height: 2rem;
+}
+
+.link-keyword {
+    border: none;
+    width: 90%;
+}
+
+/* update page의 link keyword */
+#keyword{
+    font-weight: bold;
+}
+
+.link-target {
+    margin-left: 0.5rem;
+    border:none;
+    width: 90%;
+}
+
+.settings-container {
+    margin-left: 2.95rem;    
+}
+
+.file-upload-button {
+    padding: 0.5rem;
+    border:none;
+    border: 1px solid black;
+    border-radius: var(--border-radius-size);
+}
+
+.file-upload-button:hover{
+    cursor: pointer;
+    background-color: var(--accent-color);
+}
+
+.thumbnail-box{
+    margin-top: 2rem;
+    width: 200px;
+    height: 200px;
+}
+
+.thumbnail-box:hover{
+    position: fixed;
+    width: 50%;
+    height: 80%;
+    top: 70px;
+    left: 0px;
+    z-index: 2;
+} 
+
+#show-poster{
+    object-fit: contain;
+    width: 90%;
+    height: 90%;
+    border: 1px solid black;
+    border-radius: var(--border-radius-size);
+    background-color: white;
+}
+#preview-img{
+    color: grey;
+}
+
+
+.file-input {
+    display: none;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+input[type=date]{
+    width: auto;
+    text-align: right;
+    margin-left: 1rem;
+}
+
+
+.right-input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em 1em 1em 1em;
+    width: 60%;
+}
+
+.editor-container {
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+/* button */
+.submit-button{
+    margin-right: 1rem;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: var(--border-radius-size);
+    background-color: var(--accent-color);
+    color: black;
+    font-size: 1rem;
+}
+
+.submit-button:hover, #tmp-button:hover{
+    cursor: pointer;
+}
+
+#tmp-button {
+    padding: 10px 20px;
+    border-radius: var(--border-radius-size);
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+}
+
+/* float를 쓰고나서 요소들이 붕괴되는 것을 방지한다. */
+#button-area::after{
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+#eventdatetime-container { 
+    display: block; 
+    margin: 1em 1em 0 1em; 
+}
+
+.highlight{
+    text-align: center;
+    line-height: 3rem;
+    color:red;
+    width: 3rem;
+    height: 3rem;
+}
+
+@media only screen and (max-width: 768px){
+    #post-area{
+        flex-direction: column;
+    }
+    .left-input-container {
+        width: 100%;
+    }
+
+    .thumbnail-box{
+        pointer-events: none;
+        margin: 0;
+    }
+    
+    #show-poster{
+        margin: 0;
+        /* margin-top:20px;
+        margin-bottom: 20px; */
+    }
+    .right-input-container{
+        width: 100%;
+        margin:0;
+        margin-top: 3rem;
+    }
+    .editor-container{
+        width: 100%;
+    }
+    #preview-img {
+        visibility: hidden;
+    }
+    input[type=text]{
+        width: 100%;
+    }
+}
