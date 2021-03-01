@@ -1,6 +1,6 @@
 # What service?
 
-`bit.ly 같은 URL 단축 웹 서비스`
+`bit.ly 같은 한동대학교 내 URL 단축 웹 서비스`
 
 복잡한 Google Form, YouTube, Zoom, Hiset 게시판 주소를 키워드로 간단하게 줄일 수 있고,
 이벤트 홍보도 할 수 있는 서비스입니다.
