@@ -210,7 +210,13 @@
     padding-bottom: 2em;
     border-bottom: solid lightgray 1px;
     word-wrap: break-word;
+
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    line-height: 1.75rem;
+    word-spacing: 2px;
 }
+
 
 .news-container {
     display: flex;
