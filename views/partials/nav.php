@@ -21,6 +21,7 @@
                     <a href="/login/google?logout=1"> <i class="fab fa-google"></i> Logout</a>
                 <?php endif; ?>
             </li>
+            <li><a href="/about-us"> About us</a></li>
         </ul>
 
         <a class="navbar__toggleBtn">
