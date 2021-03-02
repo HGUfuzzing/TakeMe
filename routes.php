@@ -8,7 +8,7 @@ $router->get('write', 'controllers/write.php');
 $router->get('login/google', 'controllers/google-login.php');
 $router->get('read', 'controllers/read.php');
 
-$router->get('about-us', 'controllers/about-us.php');
+$router->get('about', 'controllers/about.php');
 
 
 //For Form(post method)
