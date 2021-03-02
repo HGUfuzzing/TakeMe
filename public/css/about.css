@@ -3,12 +3,15 @@
 }
 
 .description {
-    margin: 5em;
+    margin: 5rem;
     padding: 0;
+    width: 80%;
 }
 
 .description li{
     list-style: none;
+    width: 100%;
+    word-wrap: break-word;
 }
 
 .description h1{
@@ -26,9 +29,12 @@
 }
 
 
-
 @media screen and (max-width: 768px) {
 
+    .description {
+        margin: 2rem;
+        width: 80%;
+    }
     .description h1{
         text-align: center;
     }
