@@ -1,6 +1,6 @@
 <?php require('partials/header.php'); ?>  
 
-<link rel="stylesheet" href="/public/css/about-us.css">
+<link rel="stylesheet" href="/public/css/about.css">
 
 <ul class="description">
 <h1>About Us</h1>
@@ -55,19 +55,19 @@
 <li>
     <h2>Main Functionalities</h2>
     
-    <h3>➕ 링크 만들기</h3>
+    <h4>➕ 링크 만들기</h4>
     <p>
         설정한 URL로 연결되는 링크을 만듭니다.
     </p>
-    <h3>🔎 링크 검색</h3> 
+    <h4>🔎 링크 검색</h4> 
     <p>
         등록된 링크들을 검색합니다.
     </p>
-    <h3>📰 뉴스 생성하기</h3>
+    <h4>📰 뉴스 생성하기</h4>
     <p>
         자신이 만든 링크에 바뀐 내용이 있을 경우 뉴스를 생성하면 해당 링크를 즐겨찾기한 사람들에게 알림 이메일을 보냅니다.
     </p>
-    <h3>⭐️ 링크 즐겨찾기</h3> 
+    <h4>⭐️ 링크 즐겨찾기</h4> 
     <p>
         뉴스를 알림 받고 싶은 링크를 즐겨찾기 할 수 있습니다.
     </p>
