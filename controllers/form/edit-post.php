@@ -15,7 +15,7 @@ $post['begin_date'] = ($_POST['begin_date'] === '')? null : $_POST['begin_date']
 $post['end_date'] = ($_POST['end_date'] === '')? null : $_POST['end_date'];
 $post['created_at'] = date('Y-m-d H:i');
 $post['updated_at'] = date('Y-m-d H:i');
-$post['is_public'] = $_POST['is_public'] === 'true' ? true : false;
+$post['is_public'] = $_POST['is_public'] === 'true' ? 1 : 0;
 $post['updated_at'] = date('Y-m-d H:i');
 
 if (strtotime($post['begin_date']) > strtotime($post['end_date']))
