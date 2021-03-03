@@ -15,13 +15,26 @@
         
         <ul class="navbar__user">
             <li>
+                <a href="https://github.com/HGUfuzzing/TakeMe" target="_blank"> 
+                    <i class="fab fa-github"></i> Github 
+                </a>
+            </li>
+            <li>
+                <a href="/about"> 
+                    <i class="far fa-question-circle"></i> About 
+                </a>
+            </li>
+            <li>
                 <?php if(!isset($_SESSION['user_id'])): ?>
-                    <a href="/login/google"> <i class="fab fa-google"></i> Login</a>
+                    <a href="/login/google"> 
+                        <i class="fab fa-google"></i> Login
+                    </a>
                 <?php else: ?>
-                    <a href="/login/google?logout=1"> <i class="fab fa-google"></i> Logout</a>
+                    <a href="/login/google?logout=1"> 
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
                 <?php endif; ?>
             </li>
-            <li><a href="/about"><i class="far fa-question-circle"></i> About </a></li>
         </ul>
 
         <a class="navbar__toggleBtn">
