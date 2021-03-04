@@ -16,12 +16,12 @@
         <ul class="navbar__user">
             <li>
                 <a href="https://github.com/HGUfuzzing/TakeMe" target="_blank"> 
-                    <i class="fab fa-github"></i> Github 
+                    <i class="fab fa-github" data-tooltip-text="Github"></i> 
                 </a>
             </li>
             <li>
                 <a href="/about"> 
-                    <i class="far fa-question-circle"></i> About 
+                    <i class="far fa-question-circle" data-tooltip-text="About"></i>
                 </a>
             </li>
             <li>
