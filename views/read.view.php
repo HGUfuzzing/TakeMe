@@ -18,7 +18,7 @@ referrerpolicy="origin"></script>
                     @<?=$post->link_keyword?>
                 </div>
                 <div class="buttons">
-                     <div class="link-copy-button" data-tooltip-text="심플링크 주소 복사"> <i class="link-copy far fa-clipboard" aria-hidden="true"></i></div>
+                     <div class="link-copy-button"> <i class="link-copy far fa-clipboard" aria-hidden="true" data-tooltip-text="주소 복사"></i></div>
                     <?php if(isset($_SESSION['user_id'])): ?>
                         <div id='favorite' post_id="<?= $post_id?>" status="<?=$favorite_status ? 'true' : 'false' ?>">
                             <?php if($favorite_status): ?>
