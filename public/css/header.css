@@ -28,7 +28,6 @@ a {
 .navbar__logo {
     display: flex;
     align-items: center;
-    color: black;
 }
 
 .navbar__logo i {
