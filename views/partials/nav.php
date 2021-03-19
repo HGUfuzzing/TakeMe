@@ -1,7 +1,8 @@
 <nav class="navbar">
         <div class="navbar__logo">
             <i class="far fa-paper-plane"></i>
-            <a href="/">  TAKEME</a>
+            &nbsp;
+            <a href="/">TAKEME</a>
         </div>
 
         <ul class="navbar__menu">
