@@ -1,14 +1,15 @@
 <nav class="navbar">
         <div class="navbar__logo">
             <i class="far fa-paper-plane"></i>
-            <a href="/">  TAKEME</a>
+            &nbsp;
+            <a href="/">TAKEME</a>
         </div>
 
         <ul class="navbar__menu">
             <li>
                 <a href="/write"> 
-                <i class="fas fa-pencil-alt"></i> 
-                    심플 링크 만들기 
+                <i class="fas fa-link"></i> 
+                    링크 만들기 
                 </a>
             </li>
         </ul>

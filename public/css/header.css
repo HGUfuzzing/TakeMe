@@ -28,7 +28,7 @@ a {
 .navbar__logo {
     display: flex;
     align-items: center;
-    color: var(--accent-color);
+    color: black;
 }
 
 .navbar__logo i {
