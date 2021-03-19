@@ -10,7 +10,7 @@
         <div class="links-container">
             <?php if($action !== 'post/edit'): ?>
                 <div class="keyword-check-msg">
-                    생성할 심플 링크의 키워드를 입력해주세요.
+                    생성할 링크의 키워드를 입력해주세요.
                 </div>
             <?php endif; ?>
 
@@ -82,7 +82,7 @@
             <textarea name="content" id="editor"><?=$post->content?></textarea>
         </div>
         <div class="submit-button-container">
-            <button type="button" class="submit-button">심플 링크 만들기</button>
+            <button type="button" class="submit-button">링크 만들기</button>
         </div>
     </div>
 </form> 

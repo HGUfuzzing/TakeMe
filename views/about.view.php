@@ -55,7 +55,7 @@
 <li>
     <h2>Main Functionalities</h2>
     
-    <h4>➕ 링크 만들기</h4>
+    <h4>🔗 링크 만들기</h4>
     <p>
         설정한 URL로 연결되는 링크을 만듭니다.
     </p>
