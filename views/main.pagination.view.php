@@ -31,8 +31,6 @@
                     <a class="favorite" post_id="<?=$post->id?>" status="<?=$post->is_favorite?>">
                         <?php if($post->is_favorite): ?>
                             <i class="fas fa-star"></i>
-                        <?php else: ?>
-                            <i class="far fa-star"></i>
                         <?php endif; ?>
                     </a>
                     <?php endif; ?>
