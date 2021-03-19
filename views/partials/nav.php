@@ -1,6 +1,6 @@
 <nav class="navbar">
         <div class="navbar__logo">
-            <i class="far fa-paper-plane"></i>
+            <img src="public/image/favicons/favicon-96x96.png" alt="" width="32" height="32">
             &nbsp;
             <a href="/">TAKEME</a>
         </div>
