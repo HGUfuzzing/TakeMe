@@ -1,4 +1,9 @@
 # Take Me
+- PHP
+- MySQL
+- Apache2
+- Jenkins (master branch에 push시 github webhook을 통해 자동 pull 기능)
+- Crontab (for db backup)
 
 ## 🤗 Introduction
 
