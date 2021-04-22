@@ -31,3 +31,6 @@ __Take Me__ 를 이용하면 기존의 URL을 짧고 가독성있게 변환할 �
 
 - ⭐️ 링크 즐겨찾기
 > 뉴스를 알림 받고 싶은 링크를 즐겨찾기 할 수 있습니다.
+
+## 🧭 Guideline
+[How to setup to develop this app!](https://github.com/HGUfuzzing/TakeMe/blob/master/Guideline.md)
